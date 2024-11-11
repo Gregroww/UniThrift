@@ -144,6 +144,7 @@ body {
 .content {
     justify-items: center;
     width: 100%;
+    background-color: white;
 }
 
 .content h2 {
@@ -159,11 +160,12 @@ body {
     display: flex;
     flex-grow: 1;
     background-color: white;
-    border-radius: 8px;
+    /* border-radius: 8px; */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     text-align: center;;
     width: 80%;
     height: 60%;
+    border: 1px solid;
 }
 
 .table-container {
@@ -180,9 +182,20 @@ table {
 th, td {
     padding: 20px;
     text-align: center;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #000000;
 }
 
 th {
+    background-color: #ffffff;
+    border-bottom: 1px solid #000000;
+}
+
+.btn {
+    padding: 15px;
+    background-color: white;
+    border: 0px solid #ffffff;
+}
+
+.btn:hover {
     background-color: #f2f2f2;
 }
