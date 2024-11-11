@@ -6,11 +6,12 @@
     <title>Admin Confirmation Page</title>
     <link rel="stylesheet" href="style/admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/2.5.0/remixicon.css">
 </head>
 <body>
     <div class="header">
         <div class="header-logo">
-            <img src="img/logo.png" alt="UniThrift">
+            <img src="/assets/logo.png" alt="UniThrift" width="140" height="70">
         </div>
         <div class="header-admin">
             <p>Admin</p>
@@ -43,19 +44,21 @@
                             <th>Email</th>
                             <th>Opsi</th>
                         </tr>
-                        <!-- Example rows -->
                         <tr>
                             <td>1</td>
                             <td>
-                                <img src="img/ktm.jpg" alt="KTM">   
+                                <img src="/assets/contoh_KTM_1.jpg" alt="KTM" style="border: 2px solid black;" class="thumbnail" onclick="openPopup(this)" >   
+                                <div class="popup-overlay" onclick="closePopup()">
+                                    <img id="popup-img" src="" alt="Popup Image">
+                                </div>
                             </td>
                             <td>Lee Shi Woo</td>
                             <td>Lesho</td>
                             <td>0891-3123-411</td>
                             <td>lee@gmail.com</td>
-                            <td>
-                                <button class="btn"><i class="fa fa-check"></i></button>
-                                <button class="btn"><i class="fa fa-xmark"></i></button>
+                            <td>    
+                                <button class="btn"><i class="ri-checkbox-line   ri-3x"></i></button>
+                                <button class="btn"><i class="ri-close-fill ri-3x" style="color: red;"></i></button>
                             </td>
                         </tr>
                         <tr>

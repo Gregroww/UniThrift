@@ -15,7 +15,7 @@ body {
 .header {
     background-color: #2D3891;
     color: white;
-    padding: 15px 50px 15px 50px;
+    padding: 0px 50px 0px 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -36,51 +36,6 @@ body {
 .main-container {
     display: flex;
 }
-
-
-/* .sidebar {
-    width: 300px;
-    background-color: #94A8EC;
-    color: white;
-    padding: 0px 20px 0px 20px; 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: calc(100vh - 50px); 
-    position: fixed;
-}
-
-
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.sidebar ul li {
-    margin-bottom: 15px;
-}
-
-.sidebar ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 26px;
-    font-family: "Roboto", sans-serif;
-    display: flex;
-    align-items: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
-}
-
-.sidebar ul li.active a, 
-.sidebar ul li a:hover { 
-    background-color: #4CAF50;
-    color: white;
-}
-
-.sidebar ul li a i {
-    margin-right: 20px;
-} */
 
 /* Sidebar dasar */
 .sidebar {
@@ -109,7 +64,7 @@ body {
 
 /* Gaya untuk item aktif */
 .sidebar ul li.active a {
-    background-color: #ED9E26; /* Warna kuning */
+    background-color: #ED9E26; 
     color: rgb(0, 0, 0);
     padding: 35px;
 }
@@ -152,8 +107,8 @@ body {
     margin-top: 30px;
     margin-bottom: 30px;
     font-size: 26px;
-    font-style: normal;
     font-family: "Roboto", sans-serif;
+    font-weight: normal;
 }
 
 .section {
@@ -165,7 +120,7 @@ body {
     text-align: center;;
     width: 80%;
     height: 60%;
-    border: 1px solid;
+    border: 2px solid;
 }
 
 .table-container {
@@ -177,23 +132,68 @@ table {
     width: 100%;
     border-collapse: collapse;
     background-color: white;
+    table-layout: fixed;
 }
 
 th, td {
-    padding: 20px;
+    padding: 10px;  
     text-align: center;
-    border-bottom: 1px solid #000000;
+    border-bottom: 2px solid #000000;
+    overflow: hidden;
 }
 
 th {
     background-color: #ffffff;
-    border-bottom: 1px solid #000000;
+    border-bottom: 2px solid #000000;
 }
 
-.btn {
-    padding: 15px;
+th:nth-child(1), td:nth-child(1) {
+    width: 50px;
+}
+
+/* Setting Image */
+.thumbnail {
+    width: 100px; 
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.popup-overlay {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-overlay img {
+    max-width: 100%;
+    max-height: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.btn {      
+    padding: 2px;
     background-color: white;
     border: 0px solid #ffffff;
+}
+
+#btn {
+    background-color: white;
+    border: 2px solid #dcdcdc;
+    border-radius: 9px;
+    padding: 9px 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+#btn:hover {
+    background-color: #f2f2f2;
 }
 
 .btn:hover {

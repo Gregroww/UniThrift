@@ -1,14 +1,24 @@
+// Fungsi untuk menampilkan dan menyembunyikan sidebar
 document.addEventListener("DOMContentLoaded", function() {
-    // Dapatkan URL halaman saat ini
     const currentPage = window.location.pathname.split("/").pop();
-    
-    // Pilih semua item menu di sidebar
     const menuItems = document.querySelectorAll('.sidebar ul li a');
 
-    // Loop melalui item menu dan tambahkan kelas 'active' ke item yang cocok dengan URL saat ini
     menuItems.forEach(item => {
         if (item.getAttribute("href") === currentPage) {
             item.parentElement.classList.add("active");
         }
     });
 });
+
+// Settingan untuk popup gambar
+function openPopup(img) {
+    const popupOverlay = document.querySelector('.popup-overlay');
+    const popupImg = document.getElementById('popup-img');
+    
+    popupImg.src = img.src; // Set gambar popup sesuai dengan gambar yang diklik
+    popupOverlay.style.display = 'flex'; // Tampilkan popup
+}
+
+function closePopup() {
+    document.querySelector('.popup-overlay').style.display = 'none';
+}
