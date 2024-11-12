@@ -37,7 +37,7 @@
                 </div>
                 <button type="submit" class="login-button">REGISTRASI</button>
                 <div class="register-link">
-                    Sudah punya akun? Masuk di <a href="#">sini</a>
+                    Sudah punya akun? Masuk di <a href="login.php">sini</a>
                 </div>
             </form>
         </div>
