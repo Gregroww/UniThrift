@@ -226,3 +226,56 @@ th:nth-child(1), td:nth-child(1) {
 .btn:hover {
     background-color: #f2f2f2;
 }
+
+/* Page Tentang kami */
+.button-simpan {
+    display: flex;
+    padding-left: 1070px;
+    padding-bottom: 10px;
+}
+
+.button-simpan button{
+    color: rgb(0, 0, 0);
+    border: 2px solid #cacaca;
+    border-radius: 20px;
+    width: 100px;
+    background-color: white;
+}
+
+.button-simpan button:hover {
+    background-color: #f2f2f2;
+}
+
+.btn-simpan p {
+    margin: 10px;
+}
+
+.section-about_us {
+    /* display: flex;
+    flex-grow: 1; */
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;;
+    width: 85%;
+    height: 70%;
+    border: 2px solid;
+    border-radius: 14px;
+    padding: 0px 30px 0px 30px;
+}
+
+.section-about_us h2 {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 32px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+}
+.section-about_us p {
+    text-align: left;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    font-weight: normal;
+}
