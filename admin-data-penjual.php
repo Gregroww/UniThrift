@@ -14,7 +14,7 @@ $result = mysqli_query($conn, $query);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Konfirmasi Akun</title>
+    <title>Admin Data Penjual Page</title>
     <link rel="stylesheet" href="style/admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/2.5.0/remixicon.css">
@@ -43,6 +43,10 @@ $result = mysqli_query($conn, $query);
         </div>
         <div class="content">
             <h2>Data Penjual</h2>
+            <div class="search-bar">
+                <input type="text" placeholder="Cari Barang">
+                <button class="btn"><i class="ri-search-line"></i></button>
+            </div>
             <div class="section">
                 <div class="table-container">
                     <table>

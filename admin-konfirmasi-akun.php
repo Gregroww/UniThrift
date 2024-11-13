@@ -82,11 +82,11 @@ $result = mysqli_query($conn, $query);
                             echo "<td>
                                     <form method='POST' style='display: inline-block;'>
                                         <input type='hidden' name='nama_pengguna' value='" . $user['nama_pengguna'] . "'>
-                                        <button type='submit' name='action' value='approve'><i class='ri-checkbox-line ri-3x'></i></button>
+                                        <button class='btn' type='submit' name='action' value='approve'><i class='ri-checkbox-line ri-3x'></i></button>
                                     </form>
                                     <form method='POST' style='display: inline-block;'>
                                         <input type='hidden' name='nama_pengguna' value='" . $user['nama_pengguna'] . "'>
-                                        <button type='submit' name='action' value='reject'><i class='ri-close-fill ri-3x' style='color: red;'></i></button>
+                                        <button class='btn' type='submit' name='action' value='reject'><i class='ri-close-fill ri-3x' style='color: red;'></i></button>
                                     </form>
                                   </td>";
                             echo "</tr>";

@@ -46,6 +46,10 @@ $result = mysqli_query($conn, $query);
         </div>
         <div class="content">
             <h2>Data Barang</h2>
+            <div class="search-bar">
+                <input type="text" placeholder="Cari Barang">
+                <button class="btn"><i class="ri-search-line"></i></button>
+            </div>
             <div class="section">
                 <div class="table-container">
                     <table>

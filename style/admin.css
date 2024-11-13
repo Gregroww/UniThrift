@@ -19,7 +19,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 60px;
 }
 
 .header-admin {
@@ -40,7 +39,7 @@ body {
 
 /* Sidebar dasar */
 .sidebar {
-    width: 410px;
+    width: 420px;
     background-color: rgba(148, 168, 236, 0.45) ;
     height: calc(100vh - 50px);
 }
@@ -115,7 +114,7 @@ body {
 
 .search-bar {
     display: flex;
-    padding-left: 890px;
+    padding-left: 730px;
     padding-bottom: 10px;
 }
 
@@ -231,7 +230,7 @@ th:nth-child(1), td:nth-child(1) {
 /* Page Tentang kami */
 .button-simpan {
     display: flex;
-    padding-left: 1070px;
+    padding-left: 900px;
     padding-bottom: 10px;
 }
 
