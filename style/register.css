@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins;
+}
+
+body {
+    background-color: #94A8EC;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.back-button a {
+    text-decoration: none;
+    color: #333;
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+.back-button a:hover {
+    color: #2C3E99;
+    transform: scale(1.2);
+}
+
+.container {
+    width: 100%; 
+    max-width: 700px; 
+    padding: 15px; 
+    text-align: center;
+}
+
+.login-card {
+    background-color: #2C3E99;
+    padding: 40px;
+    border-radius: 22px; 
+    box-shadow: 0 9px 27px rgba(0, 0, 0, 0.2); 
+    transform: scale(0.9);
+    transition: all 0.3s ease;
+}
+
+h1 {
+    color: white;
+    font-size: 31.5px; 
+    margin-bottom: 36px; 
+    text-shadow: 1.8px 1.8px 3.6px rgba(0, 0, 0, 0.2); 
+}
+
+.login-card:hover {
+    transform: translateY(-4.5px) scale(0.9); 
+    box-shadow: 0 13.5px 31.5px rgba(0, 0, 0, 0.3); 
+}
+
+.input-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+input {
+    width: 100%;
+    padding: 15px 25px;
+    border: 2px solid transparent;
+    border-radius: 30px;
+    background-color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+input:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+
+}
+
+
+.file-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.file-input input[type="text"] {
+    padding-right: 120px;
+}
+
+.hidden-file-input {
+    display: none;
+}
+
+.file-label {
+    position: absolute;
+    right: 8px;
+    padding: 8px 15px;
+    background-color: #f0f0f0;
+    color: #2C3E99;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file-label:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-1px);
+}
+
+.login-button {
+    width: 60%;
+    padding: 15px;
+    background-color: white;
+    color: #2C3E99;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 25px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-button:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.login-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.register-link {
+    text-align: center;
+    color: white;
+    font-size: 16px;
+}
+
+.register-link a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.register-link a:hover {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    text-decoration: underline;
+}
+
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-card {
+    animation: cardAppear 0.5s ease-out;
+}
+
+
+.file-input input:focus + .file-label {
+    background-color: #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+@media (max-width: 640px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .login-card {
+        padding: 30px;
+    }
+    
+    h1 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+    
+    input {
+        font-size: 14px;
+        padding: 12px 20px;
+    }
+    
+    .file-label {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
