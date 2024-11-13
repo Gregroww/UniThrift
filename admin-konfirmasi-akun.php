@@ -74,7 +74,11 @@ $result = mysqli_query($conn, $query);
                         while ($user = mysqli_fetch_assoc($result)) {
                             echo "<tr>";
                             echo "<td>" . $no++ . "</td>";
-                            echo "<td><img src='images/" . $user['foto_ktm'] . "' alt='KTM' width='50'></td>";
+                            echo "<td><img src='images/" . $user['foto_ktm'] . "' alt='KTM' width='50'style='border: 2px solid black; cursor: pointer;' class='thumbnail' onclick='openPopup(this)'>
+                                    <div class='popup-overlay' onclick='closePopup()' style='display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8);'>
+                                        <img id='popup-img' src='' alt='Popup Image' style='display: block; margin: auto; max-width: 90%; max-height: 90%;'>
+                                    </div>
+                                </td>";
                             echo "<td>" . $user['nama_pengguna'] . "</td>";
                             echo "<td>" . $user['nama'] . "</td>";
                             echo "<td>" . $user['no_hp'] . "</td>";
@@ -82,11 +86,11 @@ $result = mysqli_query($conn, $query);
                             echo "<td>
                                     <form method='POST' style='display: inline-block;'>
                                         <input type='hidden' name='nama_pengguna' value='" . $user['nama_pengguna'] . "'>
-                                        <button class='btn' type='submit' name='action' value='approve'><i class='ri-checkbox-line ri-3x'></i></button>
+                                        <button type='submit' name='action' value='approve'><i class='ri-checkbox-line ri-3x'></i></button>
                                     </form>
                                     <form method='POST' style='display: inline-block;'>
                                         <input type='hidden' name='nama_pengguna' value='" . $user['nama_pengguna'] . "'>
-                                        <button class='btn' type='submit' name='action' value='reject'><i class='ri-close-fill ri-3x' style='color: red;'></i></button>
+                                        <button type='submit' name='action' value='reject'><i class='ri-close-fill ri-3x' style='color: red;'></i></button>
                                     </form>
                                   </td>";
                             echo "</tr>";
