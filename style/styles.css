@@ -110,6 +110,7 @@ body {
     border-radius: 30px; 
     align-items: center;
     justify-content: center;
+    overflow-x: scroll;
 }
 
 .category {
