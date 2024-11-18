@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="contact.css">
 </head>
 <body>
+    <header>
+    <?php require "navbar.php"; ?>
+    </header>
+
     <div class="card">
         <h2>Kontak Penjual</h2>
         
@@ -52,5 +56,6 @@
             </div>
         </div>
     </div>
+    <?php require "footer.php"; ?>
 </body>
 </html>

@@ -1,135 +1,33 @@
-/* Reset dan Styling Dasar */
 body {
     margin: 0;
     padding: 0;
     background-color: #f4f7fb;
-    font-family: 'Poppins', sans-serif; /* Konsistensi font */
+    font-family: 'Poppins', sans-serif; 
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-/* Navbar */
-.navbar {
-    background-color: #2D3891; /* Warna utama konsisten */
-    padding: 15px 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-}
 
-.logo img {
-    height: 50px;
-    width: auto;
-}
-
-.search-container {
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-    max-width: 700px;
-    margin: 0 20px;  
-    position: relative;
-}
-
-.input-wrapper {
-    display: flex;
-    width: 100%;
-    position: relative;
-}
-
-.input-wrapper input {
-    height: 40px;
-    box-sizing: border-box;
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.search-button {
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 8px 16px;
-    cursor: pointer;
-    font-size: 16px;
-    height: 40px;
-}
-
-/* Navbar Links */
-.nav-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    margin-right: 25px; 
-}
-
-/* Footer */
-.footer {
-    background-color: #2D3891; /* Warna utama konsisten */
-    color: white;
-    padding: 20px 0;
-    position: relative;
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 20px;
-    width: 90%; 
-    margin: 0 auto; 
-}
-
-.footer-logo img {
-    width: 50%; 
-    margin-bottom: 5px;
-}
-
-.footer-links {
-    display: flex;
-    gap: 30px;
-    margin-left: auto; 
-}
-
-.footer-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
-}
-
-/* Kontainer Utama */
 .container {
     width: 100%;
     max-width: 900px;
     padding: 20px;
     margin: auto;
-    padding-top: 80px; /* Add padding for navbar overlap */
+    padding-top: 80px; 
 }
 
-/* Kartu Produk */
+
 .product-card {
-    background: #94A8EC; /* Warna utama konsisten */
+    background: #94A8EC; 
     border-radius: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 24px;
     width: 100%;
     box-sizing: border-box;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin-bottom: 75px;
 }
 
 .product-card:hover {
