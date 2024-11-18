@@ -227,11 +227,13 @@ th:nth-child(1), td:nth-child(1) {
     background-color: #f2f2f2;
 }
 
-/* Page Tentang kami */
 .button-simpan {
     display: flex;
     padding-left: 900px;
     padding-bottom: 10px;
+    position: absolute;
+    top: 120px;
+    right: 100px;
 }
 
 .button-simpan button{
@@ -251,8 +253,7 @@ th:nth-child(1), td:nth-child(1) {
 }
 
 .section-about_us {
-    /* display: flex;
-    flex-grow: 1; */
+    position: relative;
     background-color: white;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     text-align: center;;
@@ -278,4 +279,13 @@ th:nth-child(1), td:nth-child(1) {
     font-size: 20px;
     font-family: "Roboto", sans-serif;
     font-weight: normal;
+}
+
+.btn-simpan {
+    padding: 8px 16px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
 }

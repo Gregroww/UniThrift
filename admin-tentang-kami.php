@@ -1,3 +1,27 @@
+<?php
+require "connect.php";
+
+if (isset($_POST['deskripsi'])) {
+    $deskripsi = $_POST['deskripsi'];
+
+    echo "Deskripsi yang diterima: " . $deskripsi;
+
+    $sql = "UPDATE aboutus SET deskripsi = ?";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $deskripsi);
+
+    if ($stmt->execute()) {
+        echo "Perubahan berhasil disimpan!";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+    $stmt->close();
+}
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +48,7 @@
                 <li><a href="admin-data-penjual.php"><i class="fas fa-box"></i> Data Penjual</a></li>
                 <li><a href="admin-data-barang.php"><i class="fas fa-box"></i> Data Barang</a></li>
                 <li><a href="admin-tentang-kami.php"><i class="fas fa-box"></i> Tentang Kami</a></li>
-                <li><a href="keluar"><i class="fas fa-box"></i> Keluar</a></li>
+                <li><a href="index.php"><i class="fas fa-box"></i> Keluar</a></li>
             </ul>            
             <div class="footer">
                 <p>&copy;Copyright 2024 UniThrift</p>
@@ -32,19 +56,17 @@
         </div>
         <div class="content">
             <h2>Tentang Kami</h2>
-            <div class="button-simpan">
-                <button class="btn-simpan"><p>Simpan</p></button>
-            </div>
-            <div class="section-about_us" contenteditable="true">
-                <h2>UniThrift
-                    Website Jual Beli Barang Anda
-                </h2>
-                <p>Selamat datang di UniTrift, platform jual beli barang bekas khusus 
+            <div class="section-about_us" contenteditable="true" id="aboutUsContent">
+                <h2>UniThrift Website Jual Beli Barang Anda</h2>
+                <p id="aboutUsDescription">Selamat datang di UniTrift, platform jual beli barang bekas khusus 
                     mahasiswa yang dirancang untuk memudahkan transaksi dalam 
                     komunitas kampus. UniTrift didirikan dengan tujuan untuk membantu 
                     mahasiswa menemukan kebutuhan mereka dengan harga terjangkau, 
                     sekaligus memberikan kesempatan bagi mahasiswa lainnya untuk 
                     menjual barang yang sudah tidak terpakai.</p>
+            </div>
+            <div class="button-simpan">
+                <button class="btn-simpan" onclick="saveChanges()">Simpan</button>
             </div>
         </div>
     </div>

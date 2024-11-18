@@ -44,7 +44,7 @@ $result = mysqli_query($conn, $query);
         <div class="content">
             <h2>Data Penjual</h2>
             <div class="search-bar">
-                <input type="text" placeholder="Cari Barang">
+                <input type="text" placeholder="Cari Pengguna">
                 <button class="btn"><i class="ri-search-line"></i></button>
             </div>
             <div class="section">

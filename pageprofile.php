@@ -70,4 +70,5 @@ if (!$user) {
     </div>
   </main>
 </body>
+<?php require "footer.php"; ?>
 </html>

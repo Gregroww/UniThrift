@@ -1,4 +1,3 @@
-// Fungsi untuk menampilkan dan menyembunyikan sidebar
 document.addEventListener("DOMContentLoaded", function() {
     const currentPage = window.location.pathname.split("/").pop();
     const menuItems = document.querySelectorAll('.sidebar ul li a');
@@ -10,13 +9,12 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-// Settingan untuk popup gambar
 function openPopup(img) {
     const popupOverlay = document.querySelector('.popup-overlay');
     const popupImg = document.getElementById('popup-img');
     
-    popupImg.src = img.src; // Set gambar popup sesuai dengan gambar yang diklik
-    popupOverlay.style.display = 'flex'; // Tampilkan popup
+    popupImg.src = img.src; 
+    popupOverlay.style.display = 'flex';
 }
 
 function closePopup() {
@@ -41,3 +39,23 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+
+function saveChanges() {
+    const aboutUsText = document.getElementById('aboutUsContent').innerHTML;
+    
+    fetch('admin-tentang-kami.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'deskripsi=' + encodeURIComponent(aboutUsText)
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert('Perubahan berhasil disimpan!');
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Terjadi kesalahan saat menyimpan perubahan.');
+    });
+}

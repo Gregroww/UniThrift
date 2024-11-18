@@ -14,7 +14,6 @@
     <header>
     <?php require "navbar.php"; ?>
     </header>
-
     <nav class="categories">
         <a href="#" class="category">
         <div class="ikon">
