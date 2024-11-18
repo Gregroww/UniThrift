@@ -1,7 +1,3 @@
-<?php 
-require 'connect.php'; 
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +7,9 @@ require 'connect.php';
     <link rel="stylesheet" href="product.css">
 </head>
 <body>
+    <header>
+    <?php require "navbar.php"; ?>
+    </header>
     <div class="container">
         <div class="product-card">
             <div class="product-grid">
@@ -68,5 +67,7 @@ require 'connect.php';
             </div>
         </div>
     </div>
+    <!--Footer-->
+    <?php require "footer.php"; ?>
 </body>
 </html>
