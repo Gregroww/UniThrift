@@ -13,7 +13,7 @@
                 <p class="footer-text">&copy; 2024 UniThrift. All rights reserved.</p>
             </div>
             <div class="footer-links">
-                <a href="tentang_kami.php">Tentang Kami</a>
+                <a href="tentang-kami.php">Tentang Kami</a>
                 <a href="panduan_website.php">Panduan Website</a>
             </div>
         </div>
