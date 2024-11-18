@@ -11,9 +11,7 @@ function getRandomProducts($conn, $limit = 10) {
             $products[] = $row; // Masukkan setiap baris ke dalam array produk
         }
     }
-    return $products;
-
-    
+    return $products;  
 }
 
 $randomProducts = getRandomProducts($conn); // Panggil fungsi
