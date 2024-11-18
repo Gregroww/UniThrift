@@ -1,12 +1,12 @@
 <?php
 require "connect.php";
 
-$id_barang = isset($_GET['id']) ? intval($_GET['id']) : 0;
+$id_brg = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
-if ($id_barang > 0) {
-    $query = "SELECT * FROM barang WHERE id_barang = ?";
+if ($id_brg > 0) {
+    $query = "SELECT barang.*, users.foto_ktm FROM barang JOIN users ON barang.nama_pengguna = users.nama_pengguna WHERE barang.id_barang = ?";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("i", $id_barang);
+    $stmt->bind_param("i", $id_brg);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -43,16 +43,16 @@ if ($id_barang > 0) {
                 <div class="left-section">
                     <div class="image-container">
                         <img src="assets/<?php echo htmlspecialchars($product['gambar']); ?>" 
-                             alt="<?php echo htmlspecialchars($product['nama_barang']); ?>" 
-                             class="product-image">
+                            alt="<?php echo htmlspecialchars($product['nama_barang']); ?>" 
+                            class="product-image">
                     </div>
 
                     <!-- Profil Penjual -->
                     <div class="seller-info">
                         <div class="profile">
                             <div class="avatar-container">
-                                <img class="seller-avatar" src="default-avatar.jpg" 
-                                     alt="<?php echo htmlspecialchars($product['nama_pengguna']); ?>">
+                                <img class="seller-avatar" src="assets/<?php echo htmlspecialchars($product['foto_ktm']); ?>" 
+                                    alt="<?php echo htmlspecialchars($product['nama_pengguna']); ?>">
                             </div>
                             <span class="seller-name"><?php echo htmlspecialchars($product['nama_pengguna']); ?></span>
                         </div>

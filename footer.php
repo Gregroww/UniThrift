@@ -10,17 +10,15 @@ require 'connect.php';
 <body>
 <footer class="footer">
     <div class="footer-container">
-        <!-- Elemen kiri -->
         <div class="footer-left">
-            <div class="footer-logo">
-                <img src="images/logo.png" alt="UniThrift Logo">
+            <img src="images/logo.png" alt="UniThrift Logo">
+            <div class="footer-bottom">
+                <p class="footer-text">Copyright © 2024 UniThrift. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="tentang_kami.php">Tentang Kami</a>
+                    <a href="panduan_website.php">Panduan Website</a>
+                </div>
             </div>
-            <p class="footer-text">&copy; 2024 UniThrift. All rights reserved.</p>
-        </div>
-        <!-- Elemen kanan -->
-        <div class="footer-links">
-            <a href="tentang_kami.php">Tentang Kami</a>
-            <a href="panduan_website.php">Panduan Website</a>
         </div>
     </div>
 </footer>
