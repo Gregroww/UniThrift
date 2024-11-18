@@ -1,3 +1,24 @@
+<?php
+require "connect.php";
+
+function getRandomProducts($conn, $limit = 10) {
+    $query = "SELECT id_barang, nama_barang, harga, gambar FROM barang ORDER BY RAND() LIMIT $limit";
+    $result = mysqli_query($conn, $query);
+
+    $products = [];
+    if ($result && mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $products[] = $row; // Masukkan setiap baris ke dalam array produk
+        }
+    }
+    return $products;
+
+    
+}
+
+$randomProducts = getRandomProducts($conn); // Panggil fungsi
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +43,7 @@
             <span class="text-category">Pria</span>
         </a>
         <a href="#" class="category">
-            <span class="text-category">Electronik</span>
+            <span class="text-category">Elektronik</span>
         </a>
         <a href="#" class="category">
             <span class="text-category">Mainan</span>
@@ -93,83 +114,31 @@
         <span class="title">Produk</span>
     </div>
 
-    <main class="main-section">
-        <div class="main-content">
-            <div class="content-grid">
-                <div class="content-box">
-                    <img src="assets/Picture1.png" alt="Content 1" class="content-image"/>
-                    <div class="title-box">
-                        <p2>Honda Vario 125</p2>
-                        <h3>Rp. 17.500.000 </h3>
-                    </div>
-                </div>
-                <div class="content-box">
-                    <img class="content-image" src="assets/Picture2.png" alt="Content 3"/>
-                    <div class="title-box">
-                        <p2>Laptop Lenovo V14-ADA 82C6</p2>
-                        <h3>Rp. 3.800.000</h3>
-                    </div>
-                </div>
-                <div class="content-box">
-                    <img class="content-image" src="assets/Picture3.png" alt="Content 4"/>
-                    <div class="title-box">
-                        <p2>Iphone 12 64GB</p2>
-                        <h3>Rp. 4.000.000</h3>
-                    </div>
-                </div>
-                <div class="content-box">
-                    <img class="content-image" src="assets/Picture4.png" alt="Content 5"/>
-                    <div class="title-box">
-                        <p2>Berani Tidak Disukai (Novel)</p2>
-                        <h3>Rp. 40.000</h3>
-                    </div>
-                </div>
-                <div class="content-box">
-                    <img class="content-image" src="assets/Picture5.png" alt="Content 6"/>
-                    <div class="title-box">
-                        <p2>TV LED Sharp 32inch (Smart TV)</p2>
-                        <h3>Rp. 1.400.000</h3>
-                    </div>
-                </div>
-                <div class="content-box">
-                    <img class="content-image" src="assets/Picture6.png" alt="Content 6"/>
-                    <div class="title-box">
-                        <p2>Celana Hiking Uniqlo ori</p2>
-                        <h3>Rp. 150.000</h3>
-                    </div>
-                </div>
-                <div class="content-box">
-                    <img class="content-image" src="assets/Picture7.png" alt="Content 6"/>
-                    <div class="title-box">
-                        <p2>Daihatsu Sigra</p2>
-                        <h3>Rp. 98.000.000</h3>
-                    </div>
-                </div>
-                <div class="content-box">
-                    <img class="content-image" src="assets/Picture8.png" alt="Content 6"/>
-                    <div class="title-box">
-                        <p2>Samsung Galaxy A13</p2>
-                        <h3>Rp. 1.235.000</h3>
-                    </div>
-                </div>
-                <div class="content-box">
-                    <img class="content-image" src="assets/Picture9.png" alt="Content 6"/>
-                    <div class="title-box">
-                        <p2>Panasonic Lumix DMC-F3</p2>
-                        <h3>Rp. 705.000</h3>
-                    </div>
-                </div>
-                <div class="content-box">
-                    <img class="content-image" src="assets/Picture10.png" alt="Content 6"/>
-                    <div class="title-box">
-                        <p2>Buku Filosofi Teras</p2>
-                        <h3>Rp. 60.000</h3>
-                    </div>
+    <form action="productpage.php" method="GET">
+        <main class="main-section">
+            <div class="main-content">
+                <div class="content-grid">
+                    <?php if (!empty($randomProducts)): ?>
+                        <?php foreach ($randomProducts as $product): ?>
+                            <div class="content-box">
+                                <button type="submit" name="id" value="<?php echo htmlspecialchars($product['id_barang']); ?>" class="content-button">
+                                    <img src="assets/<?php echo htmlspecialchars($product['gambar']); ?>" 
+                                        alt="<?php echo htmlspecialchars($product['nama_barang']); ?>" 
+                                        class="content-image">
+                                    <div class="title-box">
+                                        <p><?php echo htmlspecialchars($product['nama_barang']); ?></p>
+                                        <h3>Rp. <?php echo number_format($product['harga'], 0, ',', '.'); ?></h3>
+                                    </div>
+                                </button>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <p>Tidak ada produk yang tersedia saat ini.</p>
+                    <?php endif; ?>
                 </div>
             </div>
-        </div>
-    </main>
-    <!--Footer-->
+        </main>
+    </form>
     <?php require "footer.php"; ?>
 </body>
 </html>
