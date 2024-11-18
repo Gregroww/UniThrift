@@ -50,7 +50,7 @@ if (isset($_POST["submit"])) {
 
 <body>
     <div class="back-button">
-        <a href="#">←</a>
+        <a href="index.php">←</a>
     </div>
     <div class="container">
         <div class="login-card">
