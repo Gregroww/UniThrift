@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Waktu pembuatan: 18 Nov 2024 pada 04.39
+-- Waktu pembuatan: 18 Nov 2024 pada 08.56
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -48,8 +48,25 @@ CREATE TABLE `barang` (
   `harga` int(11) NOT NULL,
   `deskripsi` varchar(255) NOT NULL,
   `gambar` varchar(255) NOT NULL,
+  `kategori` enum('Wanita','Pria','Elektronik','Mainan','Gaming','Tas','Buku','Kecantikan','Kendaraan','Olahraga','Perabotan') NOT NULL,
   `nama_pengguna` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `barang`
+--
+
+INSERT INTO `barang` (`id_barang`, `nama_barang`, `harga`, `deskripsi`, `gambar`, `kategori`, `nama_pengguna`) VALUES
+(1, 'Honda Vario 125', 17500000, 'Motor ini gacor', 'Picture1.png', 'Kendaraan', 'rafly'),
+(2, 'Laptop Lenovo V14-ADA 82C6', 3800000, 'Laptop Gaming', 'Picture2.png', 'Elektronik', 'rafly'),
+(3, 'Iphone 12 64GB', 4000000, 'HP mewah ni bos', 'Picture3.png', 'Elektronik', 'rafly'),
+(4, 'Berani Tidak Disukai (Novel)', 40000, 'Novel bagus', 'Picture4.png', 'Buku', 'rafly'),
+(5, 'TV LED Sharp 32inch (Smart TV)', 1400000, 'TV masih keadaan mulus', 'Picture5.png', 'Elektronik', 'rafly'),
+(6, 'Celana Hiking Uniqlo ori', 150000, 'ini celana bagus', 'Picture6.png', 'Pria', 'rafly'),
+(7, 'Daihatsu Sigra', 98000000, 'Mobil bagus ini', 'Picture7.png', 'Kendaraan', 'rafly'),
+(8, 'Samsung Galaxy A13', 1235000, 'HP masih dalam keadaan mulus', 'Picture8.png', 'Elektronik', 'rafly'),
+(9, 'Panasonic Lumix DMC-F3', 705000, 'Kamera HD bagus', 'Picture9.png', 'Elektronik', 'rafly'),
+(10, 'Buku Filosofi Teras', 60000, 'Buku ini sangat bermanfaat', 'Picture10.png', 'Buku', 'rafly');
 
 -- --------------------------------------------------------
 
@@ -66,16 +83,17 @@ CREATE TABLE `users` (
   `foto_ktm` varchar(255) NOT NULL,
   `role` varchar(10) DEFAULT NULL,
   `lokasi` varchar(255) DEFAULT NULL,
-  `id_barang` int(11) DEFAULT NULL
+  `id_barang` int(11) DEFAULT NULL,
+  `status` enum('pending','approved','rejected') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`nama`, `nama_pengguna`, `no_hp`, `email`, `kata_sandi`, `foto_ktm`, `role`, `lokasi`, `id_barang`) VALUES
-('q', 'q', '1', 'dddddd@gmail.com', '$2y$10$d6uCitiVcZ8.XrdOLfRNSecZFntUQZFZho.fKt2fPSeTNgqS6gwsu', 'Screenshot 2024-11-12 113947.png', 'user', '', NULL),
-('rafly', 'rafly', '123', 'rafly@gmail.com', '$2y$10$zToXUhBAqV3FPZZ83z2D4.gwIHTOQf6IsxBsyHdS2Xj9wrwTF49Cu', '2020-09-14.png', 'user', '', NULL);
+INSERT INTO `users` (`nama`, `nama_pengguna`, `no_hp`, `email`, `kata_sandi`, `foto_ktm`, `role`, `lokasi`, `id_barang`, `status`) VALUES
+('q', 'q', '1', 'dddddd@gmail.com', '$2y$10$d6uCitiVcZ8.XrdOLfRNSecZFntUQZFZho.fKt2fPSeTNgqS6gwsu', 'Screenshot 2024-11-12 113947.png', 'user', '', NULL, 'pending'),
+('rafly', 'rafly', '123', 'rafly@gmail.com', '$2y$10$zToXUhBAqV3FPZZ83z2D4.gwIHTOQf6IsxBsyHdS2Xj9wrwTF49Cu', '2020-09-14.png', 'user', '', NULL, 'pending');
 
 --
 -- Indexes for dumped tables
@@ -103,7 +121,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
