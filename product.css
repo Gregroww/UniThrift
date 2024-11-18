@@ -1,0 +1,225 @@
+/* Reset dan Styling Dasar */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fb;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Kontainer Utama */
+.container {
+    width: 100%;
+    max-width: 900px;
+    padding: 20px;
+    margin: auto;
+}
+
+/* Kartu Produk */
+.product-card {
+    background: #94A8EC; /* Background ungu */
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* Grid Produk */
+.product-grid {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+/* Bagian Kiri */
+.left-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.image-container {
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+    overflow: hidden;
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.image-container:hover {
+    transform: scale(1.05);
+}
+
+.product-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Profil Penjual */
+.seller-info {
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar-container {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.seller-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.seller-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000; /* Warna hitam pekat */
+    transition: color 0.3s ease;
+}
+
+.seller-name:hover {
+    color: #fff; /* Agar warna nama berubah menjadi putih saat hover */
+}
+
+/* Bagian Kanan */
+.right-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.date {
+    color: #000; /* Warna hitam pekat */
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.title-section h1 {
+    font-size: 26px;
+    font-weight: 600;
+    color: #000; /* Warna hitam pekat */
+    margin: 0;
+    line-height: 1.3;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000; /* Warna hitam pekat */
+    margin: 16px 0;
+}
+
+.contact-button {
+    width: 100%;
+    max-width: 320px;
+    background: #5a4fdb; /* Warna ungu lebih gelap */
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 16px 0;
+    transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+    background: #6c5ce7; /* Warna ungu terang saat hover */
+}
+
+/* Kategori dan Deskripsi */
+.category h2, .description h2 {
+    font-size: 16px;
+    color: #000; /* Warna hitam pekat */
+    margin: 20px 0 12px 0;
+    font-weight: 600;
+}
+
+.tags {
+    display: flex;
+    gap: 8px;
+}
+
+.tag {
+    background: #f1f2f4;
+    color: #000; /* Warna hitam pekat */
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    transition: background-color 0.3s ease;
+}
+
+.tag:hover {
+    background: #6c5ce7;
+    color: white;
+}
+
+.description p {
+    color: #000; /* Warna hitam pekat */
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 8px 0;
+}
+
+.location {
+    color: #000; /* Warna hitam pekat */
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+/* Media Query untuk Responsivitas */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .product-card {
+        padding: 16px;
+        border-radius: 16px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-button {
+        max-width: 100%;
+    }
+
+    .title-section h1 {
+        font-size: 22px;
+    }
+
+    .price {
+        font-size: 22px;
+    }
+}

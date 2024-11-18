@@ -1,0 +1,239 @@
+/* Reset Styling dan Flexbox */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7ff 0%, #e9ecf7 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Card Container */
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 911px;
+    height: 563px;
+    padding: 40px 60px;
+    background-color: #94A8EC;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* Judul Card */
+.card h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 40px;
+    align-self: center;
+    letter-spacing: 0.5px;
+}
+
+/* Grid Container */
+.grid-container {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 60px;
+    height: 100%;
+}
+
+/* Bagian Kiri */
+.left-section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-image-wrapper {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #e2e8f0;
+    padding: 3px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.profile-image-wrapper:hover {
+    border-color: #4299e1;
+    transform: scale(1.05);
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.profile h3 {
+    font-size: 24px;
+    color: #2d3748;
+    margin-bottom: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #718096;
+    gap: 8px;
+    margin-bottom: 24px;
+    padding: 8px 16px;
+    background-color: #f7fafc;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.location:hover {
+    background-color: #edf2f7;
+}
+
+.location svg {
+    width: 20px;
+    height: 20px;
+    color: #4a5568;
+    transition: all 0.3s ease;
+}
+
+/* Kontak Info */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-self: center;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    background-color: #f7fafc;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.contact-item:hover {
+    background-color: #edf2f7;
+    transform: translateX(5px);
+}
+
+.contact-item svg {
+    width: 24px;
+    height: 24px;
+    color: #4a5568;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover svg {
+    color: #4299e1;
+}
+
+.contact-item span {
+    font-size: 20px;
+    color: #2d3748;
+    font-weight: 500;
+}
+
+/* Bagian Kanan */
+.right-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.right-section h4 {
+    font-size: 22px;
+    color: #2d3748;
+    margin-bottom: 16px;
+    align-self: center;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.map-container {
+    width: 100%;
+    height: 300px;
+    background-color: #f7fafc;
+    border-radius: 16px;
+    overflow: hidden;
+    align-self: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.map-container:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Responsivitas */
+@media (max-width: 950px) {
+    .card {
+        width: 100%;
+        height: auto;
+        padding: 30px;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .profile-image-wrapper {
+        width: 100px;
+        height: 100px;
+    }
+
+    .map-container {
+        height: 200px;
+    }
+}
+
+@media (max-width: 500px) {
+    .card {
+        padding: 20px;
+    }
+
+    .profile-image-wrapper {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile h3 {
+        font-size: 20px;
+    }
+
+    .location, 
+    .contact-item span {
+        font-size: 16px;
+    }
+}
