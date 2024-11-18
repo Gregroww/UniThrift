@@ -1,0 +1,181 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    
+}
+
+.container {
+    display: grid;
+    place-items: center; /* Menempatkan elemen di tengah grid */
+    padding-top: 20px;
+}
+
+.title {
+    width: 250px;
+    border-radius: 12px;
+    background-color: rgba(237, 158, 38, 1);
+    box-shadow: 3px 3px 0 rgba(46, 47, 53, 1);
+    color: rgba(0, 0, 0, 1);
+    letter-spacing: 0.5px;
+    padding: 7px 13px 7px 12px;
+    font: 20px Roboto, sans-serif;
+    border: 2px solid rgba(46, 47, 53, 1);
+    text-align: center;
+    font-weight: bold;
+}
+
+.back-icon {
+    color: #000000;
+    padding: 5px;
+    padding-right: 1300px;
+}
+.back-icon,button {
+    background-color: transparent;
+    border: none;
+}
+.back-icon button:hover {
+    transform: scale(1.25);
+    transition: all 0.2s ease;
+}
+.ri-arrow-go-back-fill {
+    font-size: 30px;
+}
+
+.product-form {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.form-container {
+    background-color: #2D3891;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    gap: 40px;
+    color: white;
+}
+
+.left-section {
+    flex: 1;
+}
+
+.right-section {
+    width: 300px;
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+label {
+    display: block;
+    font-size: 16px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+
+.description {
+    height: 150px;
+    width: 130%;
+    resize: none;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.category-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.category-item input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    border: 2px solid white;
+}
+
+.price-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.currency {
+    position: absolute;
+    left: 12px;
+    color: #666;
+}
+
+.price-input .input-field {
+    padding-left: 40px;
+}
+
+.submit-button {
+    background-color: #FF4B4B;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 40px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.image-upload {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.upload-placeholder {
+    width: 100px;
+    height: 100px;
+    border: 2px dashed white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.upload-placeholder i {
+    font-size: 24px;
+}
+
+.image-preview {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Hover states */
+.submit-button:hover {
+    background-color: #ff3333;
+}
+
+.upload-placeholder:hover {
+    border-color: #ccc;
+}

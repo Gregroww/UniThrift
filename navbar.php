@@ -40,8 +40,10 @@ if (isset($_SESSION['nama_pengguna'])) {
             <a href="tentang-kami.php">Tentang Kami</a>
             <?php if(isset($_SESSION['nama_pengguna'])): ?>
                 <a href="logout.php">Keluar</a>
-                <a href="jual.php" class="jual-btn">Jual</a>
+                <a href="sellpage.php" class="jual-btn">Jual</a>
+                <a href="pageprofile.php">
                 <img src="images/<?php echo $foto_ktm; ?>" alt="Foto Profil" class="foto-profil">
+                </a>
             <?php else: ?>
                 <a href="login.php">Masuk</a>
             <?php endif; ?>

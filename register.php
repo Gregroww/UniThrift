@@ -23,10 +23,10 @@ if (isset($_POST["submit"])) {
         } else {
             $role = 'user';
 
-            $checkQuery = "SELECT * FROM users WHERE nama_pengguna = '$nama_pengguna'";
+            $checkQuery = "SELECT * FROM users WHERE nama_pengguna = '$nama_pengguna' OR email = '$email'";
             $checkResult = mysqli_query($conn, $checkQuery);
             if (mysqli_num_rows($checkResult) > 0) {
-                echo "<script>alert('nama_pengguna sudah digunakan! Silakan gunakan nama_pengguna lain.'); document.location.href = 'register.php';</script>";
+                echo "<script>alert('nama pengguna atau email sudah digunakan! Silakan gunakan yang lain.'); document.location.href = 'register.php';</script>";
             } else {
                 if (move_uploaded_file($_FILES['foto_ktm']['tmp_name'], $target_file)) {
                     $status = 'pending';

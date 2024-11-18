@@ -8,12 +8,11 @@ if (isset($_POST["submit"])) {
     $usernameadmin = 'admin';
     $passwordadmin = 'admin';
 
-    // Cek apakah login sebagai admin
     if ($nama_pengguna === $usernameadmin && $kata_sandi === $passwordadmin) {
         $_SESSION['username'] = $usernameadmin;
         $_SESSION['login'] = true;
         $_SESSION['admin'] = true;
-        
+
         echo "<script>
                 alert('Login berhasil sebagai Admin! Selamat datang $usernameadmin');
                 document.location.href = 'admin-konfirmasi-akun.php';
@@ -21,27 +20,29 @@ if (isset($_POST["submit"])) {
         exit;
     }
 
-    $query = "SELECT * FROM users WHERE nama_pengguna = '$nama_pengguna'";
-    $result = mysqli_query($conn, $query);
+    $query = "SELECT * FROM users WHERE nama_pengguna = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $nama_pengguna);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-    if (mysqli_num_rows($result) === 1) {
-        $user = mysqli_fetch_assoc($result);
+    if ($result->num_rows === 1) {
+        $user = $result->fetch_assoc();
 
-        // Cek password dan status akun
         if (password_verify($kata_sandi, $user['kata_sandi'])) {
-            if ($user['status'] === 'approved') {
-                $_SESSION['login'] = true;
-                $_SESSION['nama_pengguna'] = $user['nama_pengguna'];
-                $_SESSION['role'] = $user['role'];
+            $_SESSION['nama_pengguna'] = $user['nama_pengguna'];
+            $_SESSION['status'] = $user['status'];
+            $_SESSION['role'] = $user['role'];
 
+            if ($user['status'] === 'approved') {
                 echo "<script>
-                        alert('Login berhasil!');
+                        alert('Login berhasil! Selamat datang, {$user['nama_pengguna']}');
                         document.location.href = 'index.php';
                       </script>";
-            } else {
+            } else if ($user['status'] === 'pending') {
                 echo "<script>
                         alert('Akun Anda masih menunggu persetujuan admin.');
-                        document.location.href = 'login.php';
+                        document.location.href = 'pageprofile(not-confirm).php';
                       </script>";
             }
         } else {
@@ -58,6 +59,7 @@ if (isset($_POST["submit"])) {
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="id">   
