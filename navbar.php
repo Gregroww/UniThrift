@@ -29,7 +29,7 @@ require 'connect.php';
         <div class="nav-links">
             <a href="index.php">Beranda</a>
             <a href="tentang-kami">Tentang Kami</a>
-            <a href="register.php">Masuk</a>
+            <a href="login.php">Masuk</a>
         </div>
     </nav>
 </body>
