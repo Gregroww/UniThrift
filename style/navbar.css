@@ -12,6 +12,7 @@
 .logo {
     display: flex;
     align-items: center;
+    margin-left: 45px;
 }
 
 .logo img {
@@ -44,7 +45,7 @@
 
 .input-wrapper input:first-child {
     width: 300px;
-    /* margin-right: 2px; */
+    margin-right: 10px;
 }
 
 .input-wrapper input:nth-child(2) {

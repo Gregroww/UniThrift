@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -16,36 +17,69 @@
 
     <nav class="categories">
         <a href="#" class="category">
+        <div class="ikon">
+            <i class="fa-solid fa-person-dress"></i>
+        </div>
             <span class="text-category">Wanita</span>
         </a>
         <a href="#" class="category">
+        <div class="ikon">
+            <i class="fa-solid fa-person"></i>
+        </div>
             <span class="text-category">Pria</span>
         </a>
         <a href="#" class="category">
-            <span class="text-category">Electronik</span>
+        <div class="ikon">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+        </div>
+            <span class="text-category">Elektronik</span>
         </a>
         <a href="#" class="category">
+        <div class="ikon">
+            <i class="fa-solid fa-robot"></i>
+        </div>
             <span class="text-category">Mainan</span>
         </a>
         <a href="#" class="category">
+        <div class="ikon">
+            <i class="fa-solid fa-gamepad"></i>
+        </div>
             <span class="text-category">Gaming</span>
         </a>
         <a href="#" class="category">
+        <div class="ikon">
+            <i class="fa-solid fa-bag-shopping"></i>
+        </div>
             <span class="text-category">Tas</span>
         </a>
         <a href="#" class="category">
+        <div class="ikon">
+            <i class="fa-solid fa-book"></i>
+        </div>
             <span class="text-category">Buku</span>
         </a>
         <a href="#" class="category">
+        <div class="ikon">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </div>
             <span class="text-category">Kecantikan</span>
         </a>
         <a href="#" class="category">
+        <div class="ikon">
+            <i class="fa-solid fa-motorcycle"></i>
+        </div>
             <span class="text-category">Kendaraan</span>
         </a>
         <a href="#" class="category">
+        <div class="ikon">
+        <i class="fa-solid fa-football"></i>
+        </div>
             <span class="text-category">Olahraga</span>
         </a>
         <a href="#" class="category">
+        <div class="ikon">
+            <i class="fa-solid fa-couch"></i>
+        </div>
             <span class="text-category">Perabotan</span>
         </a>
     </nav>
