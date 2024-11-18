@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Waktu pembuatan: 18 Nov 2024 pada 08.56
+-- Waktu pembuatan: 18 Nov 2024 pada 14.38
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -93,7 +93,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`nama`, `nama_pengguna`, `no_hp`, `email`, `kata_sandi`, `foto_ktm`, `role`, `lokasi`, `id_barang`, `status`) VALUES
 ('q', 'q', '1', 'dddddd@gmail.com', '$2y$10$d6uCitiVcZ8.XrdOLfRNSecZFntUQZFZho.fKt2fPSeTNgqS6gwsu', 'Screenshot 2024-11-12 113947.png', 'user', '', NULL, 'pending'),
-('rafly', 'rafly', '123', 'rafly@gmail.com', '$2y$10$zToXUhBAqV3FPZZ83z2D4.gwIHTOQf6IsxBsyHdS2Xj9wrwTF49Cu', '2020-09-14.png', 'user', '', NULL, 'pending');
+('rafly', 'rafly', '123', 'rafly@gmail.com', '$2y$10$zToXUhBAqV3FPZZ83z2D4.gwIHTOQf6IsxBsyHdS2Xj9wrwTF49Cu', 'foto_profil.jpg', 'user', '', NULL, 'pending');
 
 --
 -- Indexes for dumped tables
