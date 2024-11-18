@@ -12,10 +12,11 @@
 .logo {
     display: flex;
     align-items: center;
+    margin-left: 45px;
 }
 
 .logo img {
-    height: 50px;
+    height: 60px;
     width: auto;
 }
 
@@ -44,7 +45,7 @@
 
 .input-wrapper input:first-child {
     width: 300px;
-    /* margin-right: 2px; */
+    margin-right: 10px;
 }
 
 .input-wrapper input:nth-child(2) {
@@ -78,4 +79,18 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
+}
+
+.jual-btn{
+    background-color: #FF3131;
+    width: 80px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.foto-profil {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
 }
