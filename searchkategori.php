@@ -96,12 +96,14 @@
     </div>
 
     <div class="pagination">
-        <button>&lt;</button>
-        <button class="active">1</button>
-        <button>2</button>
-        <button>&gt;</button>
+    <button id="prev">&lt;</button>
+    <button class="page" data-page="1">1</button>
+    <button class="page" data-page="2">2</button>
+    <button id="next">&gt;</button>
     </div>
+    <div id="results"></div>
     <!--Footer-->
     <?php require "footer.php"; ?>
+    <script src="script.js"></script>
 </body>
 </html>
