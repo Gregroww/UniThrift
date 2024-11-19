@@ -5,7 +5,7 @@ require 'connect.php';
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="style/footer.css">
 </head>
 <body>
 <footer class="footer">

@@ -22,7 +22,7 @@ if (!empty($search)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Katalog Buku</title>
-    <link rel="stylesheet" href="searchkategori.css">
+    <link rel="stylesheet" href="style/searchkategori.css">
 </head>
 <body>
     <header>
@@ -61,6 +61,6 @@ if (!empty($search)) {
     <div id="results"></div>
     <!--Footer-->
     <?php require "footer.php"; ?>
-    <script src="script.js"></script>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
