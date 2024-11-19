@@ -16,12 +16,14 @@
     width: 120px;
     height: auto;
     margin-bottom: 5px;
+    margin-left: 47px;
 }
 
 .footer-bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: 47px;
 }
 
 .footer-text {
