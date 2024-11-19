@@ -8,13 +8,13 @@ function getRandomProducts($conn, $limit = 10) {
     $products = [];
     if ($result && mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
-            $products[] = $row; // Masukkan setiap baris ke dalam array produk
+            $products[] = $row; 
         }
     }
     return $products;  
 }
 
-$randomProducts = getRandomProducts($conn); // Panggil fungsi
+$randomProducts = getRandomProducts($conn); 
 ?>
 
 <!DOCTYPE html>
@@ -147,30 +147,37 @@ $randomProducts = getRandomProducts($conn); // Panggil fungsi
     </div>
 
     <form action="productpage.php" method="GET">
-        <main class="main-section">
-            <div class="main-content">
-                <div class="content-grid">
-                    <?php if (!empty($randomProducts)): ?>
-                        <?php foreach ($randomProducts as $product): ?>
-                            <div class="content-box">
-                                <button type="submit" name="id" value="<?php echo htmlspecialchars($product['id_barang']); ?>" class="content-button">
-                                    <img src="assets/<?php echo htmlspecialchars($product['gambar']); ?>" 
-                                        alt="<?php echo htmlspecialchars($product['nama_barang']); ?>" 
-                                        class="content-image">
-                                    <div class="title-box">
-                                        <p><?php echo htmlspecialchars($product['nama_barang']); ?></p>
-                                        <h3>Rp. <?php echo number_format($product['harga'], 0, ',', '.'); ?></h3>
-                                    </div>
-                                </button>
-                            </div>
-                        <?php endforeach; ?>
-                    <?php else: ?>
-                        <p>Tidak ada produk yang tersedia saat ini.</p>
-                    <?php endif; ?>
-                </div>
+    <main class="main-section">
+        <div class="main-content">
+            <div class="content-grid">
+                <?php if (!empty($randomProducts)): ?>
+                    <?php foreach ($randomProducts as $product): ?>
+                        <div class="content-box">
+
+                            <button type="submit" name="id" value="<?php echo htmlspecialchars($product['id_barang']); ?>" class="content-button">
+                               
+                                <img 
+                                    src="assets/<?php echo htmlspecialchars($product['gambar']); ?>" 
+                                    alt="<?php echo htmlspecialchars($product['nama_barang']); ?>" 
+                                    class="content-image">
+                               
+                                <div class="title-box">
+                                    <p><?php echo htmlspecialchars($product['nama_barang']); ?></p>
+                                </div>
+                                
+                                <div class="price-box">
+                                    Rp. <?php echo number_format($product['harga'], 0, ',', '.'); ?>
+                                </div>
+                            </button>
+                        </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p>Tidak ada produk yang tersedia saat ini.</p>
+                <?php endif; ?>
             </div>
-        </main>
-    </form>
+        </div>
+    </main>
+</form>
     <?php require "footer.php"; ?>
 </body>
 </html>
