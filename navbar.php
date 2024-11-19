@@ -28,8 +28,8 @@ if (isset($_SESSION['nama_pengguna'])) {
         
         <div class="search-container">
             <form action="searchkategori.php" method="GET" class="input-wrapper">
-                <input type="text" name="nama_barang" placeholder="Cari">
-                <input type="text" name="kategori" placeholder="Kota">
+                <input type="text" name="search" placeholder="Cari">
+                <input type="text" name="lokasi" placeholder="Kota">
                 <button type="submit" class="search-button">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>

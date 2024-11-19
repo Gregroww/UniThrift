@@ -1,11 +1,11 @@
 <?php
 require "connect.php";
 
-$nama_barang = $_GET['nama_barang'];
+$search = $_GET['search'];
 
 $barang = [];
-if (!empty($nama_barang)) {
-    $sql = "SELECT * FROM barang WHERE nama_barang LIKE '%$nama_barang%'";
+if (!empty($search)) {
+    $sql = "SELECT * FROM barang WHERE nama_barang LIKE '%$search%' OR kategori LIKE '%$search%'";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
