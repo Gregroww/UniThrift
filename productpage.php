@@ -67,7 +67,10 @@ if ($id_brg > 0) {
                             <h1><?php echo htmlspecialchars($product['nama_barang']); ?></h1>
                             <div class="price">Rp. <?php echo number_format($product['harga'], 0, ',', '.'); ?></div>
                         </div>
-                        <button class="contact-button">Hubungi Penjual</button>
+                        <form action="contactseller.php" method="get">
+                            <input type="hidden" name="nama_pengguna" value="<?php echo htmlspecialchars($product['nama_pengguna']); ?>">
+                            <button type="submit" class="contact-button">Hubungi Penjual</button>
+                        </form>
                         <div class="category">
                             <h2>Kategori</h2>
                             <div class="tags">
