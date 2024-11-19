@@ -48,8 +48,28 @@ if (isset($_SESSION['nama_pengguna'])) {
                         <div class="category-grid">
                             <!-- Daftar kategori -->
                             <div class="category-item">
+                                <input type="radio" name="category" id="wanita" value="Wanita">
+                                <label for="wanita">Wanita</label>
+                                <input type="radio" name="category" id="pria" value="Pria">
+                                <label for="pria">Pria</label>
+                                <input type="radio" name="category" id="elektronik" value="Elektronik">
+                                <label for="elektronik">Elektronik</label>
+                                <input type="radio" name="category" id="mainan" value="Mainan">
+                                <label for="mainan">Mainan</label>
                                 <input type="radio" name="category" id="gaming" value="Gaming">
                                 <label for="gaming">Gaming</label>
+                                <input type="radio" name="category" id="tas" value="Tas">
+                                <label for="tas">Tas</label>
+                                <input type="radio" name="category" id="buku" value="Buku">
+                                <label for="buku">Buku</label>
+                                <input type="radio" name="category" id="kecantikan" value="Kecantikan">
+                                <label for="kecantikan">Kecantikan</label>
+                                <input type="radio" name="category" id="kendaraan" value="Kendaraan">
+                                <label for="kendaraan">Kendaraan</label>
+                                <input type="radio" name="category" id="olahraga" value="Olahraga">
+                                <label for="olahraga">Olahraga</label>
+                                <input type="radio" name="category" id="perabotan" value="Perabotan">
+                                <label for="perabotan">Perabotan</label>
                             </div>
                             <!-- Tambahkan kategori lainnya sesuai kebutuhan -->
                         </div>
