@@ -1,13 +1,26 @@
 <?php
 require "connect.php";
 
+$deskripsi = "";
+
+$sql = "SELECT deskripsi FROM aboutus LIMIT 1";
+$result = $conn->query($sql);
+
+if ($result) {
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $deskripsi = $row['deskripsi'];
+    } else {
+        $deskripsi = "Deskripsi belum diatur.";
+    }
+} else {
+    echo "Error executing query: " . $conn->error;
+}
+
 if (isset($_POST['deskripsi'])) {
     $deskripsi = $_POST['deskripsi'];
 
-    echo "Deskripsi yang diterima: " . $deskripsi;
-
     $sql = "UPDATE aboutus SET deskripsi = ?";
-
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $deskripsi);
 
@@ -21,6 +34,8 @@ if (isset($_POST['deskripsi'])) {
 
 $conn->close();
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -51,19 +66,14 @@ $conn->close();
                 <li><a href="index.php"><i class="fas fa-box"></i> Keluar</a></li>
             </ul>            
             <div class="footer">
-                <p>&copy;Copyright 2024 UniThrift</p>
+                <p>&copy; 2024 UniThrift</p>
             </div>
         </div>
         <div class="content">
             <h2>Tentang Kami</h2>
             <div class="section-about_us" contenteditable="true" id="aboutUsContent">
                 <h2>UniThrift Website Jual Beli Barang Anda</h2>
-                <p id="aboutUsDescription">Selamat datang di UniTrift, platform jual beli barang bekas khusus 
-                    mahasiswa yang dirancang untuk memudahkan transaksi dalam 
-                    komunitas kampus. UniTrift didirikan dengan tujuan untuk membantu 
-                    mahasiswa menemukan kebutuhan mereka dengan harga terjangkau, 
-                    sekaligus memberikan kesempatan bagi mahasiswa lainnya untuk 
-                    menjual barang yang sudah tidak terpakai.</p>
+                <p id="aboutUsDescription"><?php echo $deskripsi; ?></p>
             </div>
             <div class="button-simpan">
                 <button class="btn-simpan" onclick="saveChanges()">Simpan</button>

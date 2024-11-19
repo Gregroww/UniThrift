@@ -33,11 +33,38 @@ if ($user['status'] !== 'pending') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil Belum Terkonfirmasi</title>
+    <link rel="stylesheet" href="style/navbar.css">
     <link rel="stylesheet" href="style/pageprofile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/2.5.0/remixicon.css">
 </head>
 <body>
+<nav class="navbar">
+        <div class="logo">
+            <img src="images/logo.png" alt="UniThrift Logo">
+        </div>
+        <div class="search-container">
+            <div class="input-wrapper">
+                <input type="text" placeholder="Cari">
+                <input type="text" placeholder="Kota">
+                <button class="search-button">
+                <p class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </div> 
+        <div class="nav-links">
+            <a href="waiting_list1.php">Beranda</a>
+            <a href="tentang-kami.php">Tentang Kami</a>
+            <?php if(isset($_SESSION['nama_pengguna'])): ?>
+                <a href="logout.php">Keluar</a>
+                <a href="" class="jual-btn">Jual</a>
+                <a href="pageprofile(not-confirm).php">
+                <img src="images/<?php echo htmlspecialchars($user['foto_ktm']); ?>" alt="Foto Profil" class="foto-profil">
+                </a>
+            <?php endif; ?>
+        </div>
+    </nav>
+
     <main class="profile-container">
         <h1 class="profile-title">Profil Belum Terkonfirmasi</h1>
         <div class="profile-card">
@@ -74,5 +101,6 @@ if ($user['status'] !== 'pending') {
             </div>
         </div>
     </main>
+    <?php require "footer.php"; ?>
 </body>
 </html>

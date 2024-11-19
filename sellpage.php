@@ -5,21 +5,52 @@ require 'connect.php';
 if (isset($_SESSION['nama_pengguna'])) {
     $nama_pengguna = $_SESSION['nama_pengguna'];
 
-    // Query untuk mengambil data pengguna, misalnya foto atau ID pengguna
+    // Query untuk mengambil data user berdasarkan nama_pengguna
     $query = "SELECT nama_pengguna, foto_ktm FROM users WHERE nama_pengguna = '$nama_pengguna'";
     $result = mysqli_query($conn, $query);
     $user = mysqli_fetch_assoc($result);
     $username = $user['nama_pengguna'];
-    $foto_ktm = $user['foto_ktm'];
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Menangani data form
+    $nama_barang = mysqli_real_escape_string($conn, $_POST['nama_barang']);
+    $harga = mysqli_real_escape_string($conn, $_POST['harga']);
+    $deskripsi = mysqli_real_escape_string($conn, $_POST['deskripsi']);
+    $kategori = mysqli_real_escape_string($conn, $_POST['kategori']);
+
+    if (isset($_FILES['foto_barang']) && $_FILES['foto_barang']['error'] == 0) {
+        $file_tmp = $_FILES['foto_barang']['tmp_name'];
+        $file_name = $_FILES['foto_barang']['name'];
+        $file_ext = pathinfo($file_name, PATHINFO_EXTENSION);
+        $new_file_name = uniqid() . '.' . $file_ext;
+        $images_dir = 'images/';
+        $file_path = $images_dir . $new_file_name;
+
+        if (move_uploaded_file($file_tmp, $file_path)) {
+            $query = "INSERT INTO barang (nama_barang, harga, deskripsi, gambar, kategori, nama_pengguna)
+                      VALUES ('$nama_barang', '$harga', '$deskripsi', '$file_path', '$kategori', '$username')";
+            if (mysqli_query($conn, $query)) {
+                echo "<script>alert('Barang berhasil dijual!'); window.location.href = 'index.php';</script>";
+            } else {
+                echo "<script>alert('Terjadi kesalahan saat menyimpan barang.');</script>";
+            }
+        } else {
+            echo "<script>alert('Gagal mengunggah foto barang.');</script>";
+        }
+    } else {
+        echo "<script>alert('Pilih foto barang terlebih dahulu.');</script>";
+    }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Produk</title>
+    <title>Form barang</title>
     <link rel="stylesheet" href="style/sellpage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/2.5.0/remixicon.css">
 </head>
@@ -30,16 +61,16 @@ if (isset($_SESSION['nama_pengguna'])) {
             <button><i class="ri-arrow-go-back-fill"></i> </button>
         </div>
         </a>
-        <div class="title">Jual Produk</div>
+        <div class="title">Jual barang</div>
     </div>
     <div class="product-form">
         <div class="form-container">
             <div class="left-section">
-                <form action="proses_jual_produk.php" method="POST" enctype="multipart/form-data">
-                    <!-- Nama Produk -->
+                <form action="sellpage.php" method="POST" enctype="multipart/form-data">
+                    <!-- Nama barang -->
                     <div class="form-group">
-                        <label>Nama Produk</label>
-                        <input type="text" name="nama_produk" class="input-field" required>
+                        <label>Nama barang</label>
+                        <input type="text" name="nama_barang" class="input-field" required>
                     </div>
 
                     <!-- Kategori -->
@@ -71,7 +102,6 @@ if (isset($_SESSION['nama_pengguna'])) {
                                 <input type="radio" name="category" id="perabotan" value="Perabotan">
                                 <label for="perabotan">Perabotan</label>
                             </div>
-                            <!-- Tambahkan kategori lainnya sesuai kebutuhan -->
                         </div>
                     </div>
 
@@ -93,20 +123,17 @@ if (isset($_SESSION['nama_pengguna'])) {
                     <!-- Lokasi -->
                     <div class="form-group">
                         <label>Lokasi</label>
-                        <select name="lokasi" class="input-field" required>
+                        <select name="lokasi" class="input-field" >
                             <option value="">Pilih Lokasi</option>
                             <!-- Tambahkan opsi lokasi -->
                         </select>
                     </div>
 
-                    <!-- Foto Produk -->
+                    <!-- Foto barang -->
                     <div class="form-group">
-                        <label>Foto Produk</label>
-                        <input type="file" name="foto_produk" accept="image/*" class="input-field" required>
+                        <label>Foto barang</label>
+                        <input type="file" name="foto_barang" accept="image/*" class="input-field" required>
                     </div>
-
-                    <!-- Hidden input untuk menyimpan user ID -->
-                    <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
 
                     <!-- Submit Button -->
                     <button type="submit" class="submit-button">Jual</button>
@@ -114,13 +141,13 @@ if (isset($_SESSION['nama_pengguna'])) {
             </div>
 
             <div class="right-section">
-                <label>Preview Foto Produk</label>
+                <label>Preview Foto barang</label>
                 <div class="image-upload">
                     <div class="upload-placeholder">
                         <i class="ri-image-add-line"></i>
                     </div>
                     <div class="image-preview">
-                        <img src="product-image.jpg" alt="Preview">
+                        <img id="previewImage" src="product-image.jpg" alt="Preview">
                     </div>
                 </div>
             </div>

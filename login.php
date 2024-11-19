@@ -42,7 +42,7 @@ if (isset($_POST["submit"])) {
             } else if ($user['status'] === 'pending') {
                 echo "<script>
                         alert('Akun Anda masih menunggu persetujuan admin.');
-                        document.location.href = 'pageprofile(not-confirm).php';
+                        document.location.href = 'waiting_list1.php';
                       </script>";
             }
         } else {
@@ -59,7 +59,6 @@ if (isset($_POST["submit"])) {
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="id">   
