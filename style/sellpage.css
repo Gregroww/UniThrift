@@ -92,8 +92,6 @@ label {
 }
 
 .category-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
     gap: 15px;
     margin-top: 10px;
 }
@@ -101,7 +99,9 @@ label {
 .category-item {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 5px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
 }
 
 .category-item input[type="radio"] {
