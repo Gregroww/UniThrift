@@ -198,6 +198,23 @@ body {
     padding-top: 50%; 
 }
 
+.category-card {
+    background: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    padding-top: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.category-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    background: #eaeaea; 
+}
+
+
 .category-image {
     position: absolute;
     top: 0;
