@@ -74,7 +74,7 @@ if ($id_brg > 0) {
                         <div class="category">
                             <h2>Kategori</h2>
                             <div class="tags">
-                                <span class="tag">#<?php echo htmlspecialchars($product['kategori']); ?></span>
+                                <a href="searchkategori.php?search=<?php echo urlencode($product['kategori']); ?>" class="tag">#<?php echo htmlspecialchars($product['kategori']); ?></a>
                             </div>
                         </div>
                     </div>
