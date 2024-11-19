@@ -47,6 +47,5 @@ document.querySelector('.pagination').addEventListener('click', (event) => {
     updatePaginationButtons();
 });
 
-// Inisialisasi pertama kali
 renderResults(currentPage);
 updatePaginationButtons();
