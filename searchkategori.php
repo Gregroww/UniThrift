@@ -1,3 +1,21 @@
+<?php
+require "connect.php";
+
+$nama_barang = $_GET['nama_barang'];
+
+$barang = [];
+if (!empty($nama_barang)) {
+    $sql = "SELECT * FROM barang WHERE nama_barang LIKE '%$nama_barang%'";
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $barang[] = $row;
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -12,94 +30,33 @@
     </header>
     <h1>Hasil Pencarian/Kategori: Buku</h1>
     
-    <div class="book-container">
-        <div class="book-card">
-            <img src="filosofi-teras.jpg" alt="Buku Filosofi Teras" class="book-image">
-            <div class="book-details">
-                <div class="book-title">Buku Filosofi Teras</div>
-                <div class="book-price">Rp. 40.000</div>
-            </div>
+    <form action="productpage.php" method="GET">
+        <div class="book-container">
+            <?php if (!empty($barang)): ?>
+                <?php foreach ($barang as $item): ?>
+                    <div class="book-card">
+                        <button type="submit" name="id" value="<?php echo htmlspecialchars($item['id_barang']); ?>" class="book-button">
+                            <img src="assets/<?php echo htmlspecialchars($item['gambar']); ?>" alt="<?php echo htmlspecialchars($item['nama_barang']); ?>" class="book-image">
+                            <div class="book-details">
+                                <div class="book-title"><?php echo htmlspecialchars($item['nama_barang']); ?></div>
+                                <div class="book-price">
+                                    Rp. <?php echo number_format($item['harga'], 0, ',', '.'); ?>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>Tidak ada barang yang ditemukan.</p>
+            <?php endif; ?>
         </div>
-        
-        <div class="book-card">
-            <img src="berani-tidak-disukai.jpg" alt="Buku Berani Tidak Disukai" class="book-image">
-            <div class="book-details">
-                <div class="book-title">Buku Berani Tidak Disukai</div>
-                <div class="book-price">Rp. 40.000</div>
-            </div>
-        </div>
-        
-        <div class="book-card">
-            <img src="harry-potter.jpg" alt="Harry Potter and The Deathly Hallows" class="book-image">
-            <div class="book-details">
-                <div class="book-title">Harry Potter and The Deathly Hallows</div>
-                <div class="book-price">Rp. 40.000</div>
-            </div>
-        </div>
-        
-        <div class="book-card">
-            <img src="mysterious-howling.jpg" alt="The Mysterious Howling" class="book-image">
-            <div class="book-details">
-                <div class="book-title">The Mysterious Howling</div>
-                <div class="book-price">Rp. 40.000</div>
-            </div>
-        </div>
-        
-        <div class="book-card">
-            <img src="bukan-pasar-malam.jpg" alt="Bukan Pasar Malam" class="book-image">
-            <div class="book-details">
-                <div class="book-title">Bukan Pasar Malam</div>
-                <div class="book-price">Rp. 40.000</div>
-            </div>
-        </div>
-        
-        <!-- Duplicate books for second row -->
-        <div class="book-card">
-            <img src="filosofi-teras.jpg" alt="Buku Filosofi Teras" class="book-image">
-            <div class="book-details">
-                <div class="book-title">Buku Filosofi Teras</div>
-                <div class="book-price">Rp. 40.000</div>
-            </div>
-        </div>
-        
-        <div class="book-card">
-            <img src="berani-tidak-disukai.jpg" alt="Buku Berani Tidak Disukai" class="book-image">
-            <div class="book-details">
-                <div class="book-title">Buku Berani Tidak Disukai</div>
-                <div class="book-price">Rp. 40.000</div>
-            </div>
-        </div>
-        
-        <div class="book-card">
-            <img src="harry-potter.jpg" alt="Harry Potter and The Deathly Hallows" class="book-image">
-            <div class="book-details">
-                <div class="book-title">Harry Potter and The Deathly Hallows</div>
-                <div class="book-price">Rp. 40.000</div>
-            </div>
-        </div>
-        
-        <div class="book-card">
-            <img src="mysterious-howling.jpg" alt="The Mysterious Howling" class="book-image">
-            <div class="book-details">
-                <div class="book-title">The Mysterious Howling</div>
-                <div class="book-price">Rp. 40.000</div>
-            </div>
-        </div>
-        
-        <div class="book-card">
-            <img src="bukan-pasar-malam.jpg" alt="Bukan Pasar Malam" class="book-image">
-            <div class="book-details">
-                <div class="book-title">Bukan Pasar Malam</div>
-                <div class="book-price">Rp. 40.000</div>
-            </div>
-        </div>
-    </div>
+    </form>
 
     <div class="pagination">
-    <button id="prev">&lt;</button>
-    <button class="page" data-page="1">1</button>
-    <button class="page" data-page="2">2</button>
-    <button id="next">&gt;</button>
+        <button id="prev">&lt;</button>
+        <button class="page" data-page="1">1</button>
+        <button class="page" data-page="2">2</button>
+        <button id="next">&gt;</button>
     </div>
     <div id="results"></div>
     <!--Footer-->

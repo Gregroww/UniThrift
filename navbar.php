@@ -27,13 +27,13 @@ if (isset($_SESSION['nama_pengguna'])) {
         </div>
         
         <div class="search-container">
-            <div class="input-wrapper">
-                <input type="text" placeholder="Cari">
-                <input type="text" placeholder="Kota">
-                <button class="search-button">
-                <i class="fa-solid fa-magnifying-glass"></i>
+            <form action="searchkategori.php" method="GET" class="input-wrapper">
+                <input type="text" name="nama_barang" placeholder="Cari">
+                <input type="text" name="kategori" placeholder="Kota">
+                <button type="submit" class="search-button">
+                    <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
-            </div>
+            </form>
         </div> 
         <div class="nav-links">
             <a href="index.php">Beranda</a>
@@ -42,7 +42,7 @@ if (isset($_SESSION['nama_pengguna'])) {
                 <a href="logout.php">Keluar</a>
                 <a href="sellpage.php" class="jual-btn">Jual</a>
                 <a href="pageprofile.php">
-                <img src="assets/<?php echo $foto_ktm; ?>" alt="Foto Profil" class="foto-profil">
+                    <img src="assets/<?php echo $foto_ktm; ?>" alt="Foto Profil" class="foto-profil">
                 </a>
             <?php else: ?>
                 <a href="login.php">Masuk</a>
