@@ -13,7 +13,7 @@ if (isset($_SESSION['nama_pengguna'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Menangani data form
+
     $nama_barang = mysqli_real_escape_string($conn, $_POST['nama_barang']);
     $harga = mysqli_real_escape_string($conn, $_POST['harga']);
     $deskripsi = mysqli_real_escape_string($conn, $_POST['deskripsi']);
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if (move_uploaded_file($file_tmp, $file_path)) {
             $query = "INSERT INTO barang (nama_barang, harga, deskripsi, gambar, kategori, nama_pengguna)
-                      VALUES ('$nama_barang', '$harga', '$deskripsi', '$file_path', '$kategori', '$username')";
+                      VALUES ('$nama_barang', '$harga', '$deskripsi', '$new_file_name', '$kategori', '$username')";
             if (mysqli_query($conn, $query)) {
                 echo "<script>alert('Barang berhasil dijual!'); window.location.href = 'index.php';</script>";
             } else {
@@ -43,7 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="id">
@@ -79,27 +78,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class="category-grid">
                             <!-- Daftar kategori -->
                             <div class="category-item">
-                                <input type="radio" name="category" id="wanita" value="Wanita">
+                                <input type="radio" name="kategori" id="wanita" value="Wanita">
                                 <label for="wanita">Wanita</label>
-                                <input type="radio" name="category" id="pria" value="Pria">
+                                <input type="radio" name="kategori" id="pria" value="Pria">
                                 <label for="pria">Pria</label>
-                                <input type="radio" name="category" id="elektronik" value="Elektronik">
+                                <input type="radio" name="kategori" id="elektronik" value="Elektronik">
                                 <label for="elektronik">Elektronik</label>
-                                <input type="radio" name="category" id="mainan" value="Mainan">
+                                <input type="radio" name="kategori" id="mainan" value="Mainan">
                                 <label for="mainan">Mainan</label>
-                                <input type="radio" name="category" id="gaming" value="Gaming">
+                                <input type="radio" name="kategori" id="gaming" value="Gaming">
                                 <label for="gaming">Gaming</label>
-                                <input type="radio" name="category" id="tas" value="Tas">
+                                <input type="radio" name="kategori" id="tas" value="Tas">
                                 <label for="tas">Tas</label>
-                                <input type="radio" name="category" id="buku" value="Buku">
+                                <input type="radio" name="kategori" id="buku" value="Buku">
                                 <label for="buku">Buku</label>
-                                <input type="radio" name="category" id="kecantikan" value="Kecantikan">
+                                <input type="radio" name="kategori" id="kecantikan" value="Kecantikan">
                                 <label for="kecantikan">Kecantikan</label>
-                                <input type="radio" name="category" id="kendaraan" value="Kendaraan">
+                                <input type="radio" name="kategori" id="kendaraan" value="Kendaraan">
                                 <label for="kendaraan">Kendaraan</label>
-                                <input type="radio" name="category" id="olahraga" value="Olahraga">
+                                <input type="radio" name="kategori" id="olahraga" value="Olahraga">
                                 <label for="olahraga">Olahraga</label>
-                                <input type="radio" name="category" id="perabotan" value="Perabotan">
+                                <input type="radio" name="kategori" id="perabotan" value="Perabotan">
                                 <label for="perabotan">Perabotan</label>
                             </div>
                         </div>
@@ -128,24 +127,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <!-- Tambahkan opsi lokasi -->
                         </select>
                     </div>
-
                     <!-- Foto barang -->
-                    <div class="form-group">
+                    <div class="form-group ">
                         <label>Foto barang</label>
-                        <input type="file" name="foto_barang" accept="image/*" class="input-field" required>
+                        <input type="file" name="foto_barang" accept="image/*" class="input-field" id="inputImage" required>
                     </div>
-
                     <!-- Submit Button -->
                     <button type="submit" class="submit-button">Jual</button>
                 </form>
             </div>
-
             <div class="right-section">
                 <label>Preview Foto barang</label>
                 <div class="image-upload">
-                    <div class="upload-placeholder">
-                        <i class="ri-image-add-line"></i>
-                    </div>
                     <div class="image-preview">
                         <img id="previewImage" src="product-image.jpg" alt="Preview">
                     </div>
@@ -153,5 +146,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         </div>
     </div>
+    <script>
+    const inputImage = document.getElementById('inputImage'); 
+    const previewImage = document.getElementById('previewImage');
+    inputImage.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                previewImage.src = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        } else {
+            previewImage.src = "product-image.jpg";
+        }
+    });
+</script>
 </body>
 </html>

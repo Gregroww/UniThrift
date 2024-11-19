@@ -15,15 +15,12 @@ if (isset($_SESSION['nama_pengguna'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waiting List (Waiting)</title>
-    <link rel="stylesheet" href="style/waitinglist.css">
+    <title>Website Guide Page</title>
+    <link rel="stylesheet" href="style/websiteguide.css">
     <link rel="stylesheet" href="style/navbar.css">
     <link rel="stylesheet" href="style/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/2.5.0/remixicon.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -52,17 +49,35 @@ if (isset($_SESSION['nama_pengguna'])) {
         </div>
     </nav>
     </header>
-    <h1>STATUS PENGGUNA</h1>
-<div class="modal-container">
-    <div class="modal-box">
-        <img src="images/time-left 1.png" alt="">
-        <h3>PENGAJUAN PEMBUATAN<br> AKUN ANDA SEDANG<br> DIPROSES</h3>
-        <a href="pageprofile(not-confirm).php">
-        <button class="btn-home">KEMBALI KE PROFIL</button>
-        </a>
+    <h1>PANDUAN WEBSITE</h1>
+    <div class="container1">
+        <div class="text">
+            <h2>Cara Lihat Produk</h2>
+            <p>Untuk melihat produk di UniThrift, Anda hanya perlu masuk ke halaman utama dan menjelajahi kategori yang tersedia. Gunakan fitur pencarian untuk menemukan kategori atau barang tertentu. Setiap produk dilengkapi dengan foto, deskripsi, dan informasi harga agar Anda dapat membuat keputusan yang tepat.</p>
+        </div>
+        <div class="gambar">
+            <img src="images/image 17.png" alt="foto1">
+        </div>
     </div>
-</div>
-<footer class="footer">
+    <div class="container2">
+        <div class="text">
+            <h2>Cara Beli Produk</h2>
+            <p>Jika Anda tertarik untuk membeli produk, silakan klik pada item yang diinginkan untuk melihat deskripsi lebih lengkap atau detail spesifikasi. Apabila Anda memiliki pertanyaan lebih lanjut atau ingin mendapatkan informasi tambahan tentang produk tersebut, jangan ragu untuk langsung menghubungi penjual.</p>
+        </div>
+        <div class="gambar">
+            <img src="images/Screenshot 2024-11-07 150943 1.png" alt="foto2">
+        </div>
+    </div>
+    <div class="container3">
+        <div class="text">
+            <h2>Cara Jual Produk</h2>
+            <p>Untuk menjual produk di UniThrift, pastikan Anda sudah memiliki akun. Masuk ke akun Anda dan pilih opsi 'Jual'. Isi formulir unggahan produk dengan lengkap, termasuk foto, deskripsi, harga, dan kondisi barang. Setelah semua informasi terisi, klik 'Jual'. Tim kami akan meninjau produk Anda sebelum tampil di website. Begitu disetujui, produk Anda akan tersedia untuk dilihat dan dibeli oleh pengguna lain.</p>
+        </div>
+        <div class="gambar">
+            <img src="images/Screenshot 2024-11-07 190110 1.png" alt="foto3">
+        </div>
+    </div>
+    <footer class="footer">
     <div class="footer-container">
         <div class="footer-left">
             <img src="images/logo.png" alt="UniThrift Logo">
@@ -70,7 +85,7 @@ if (isset($_SESSION['nama_pengguna'])) {
                 <p class="footer-text">Copyright © 2024 UniThrift. All rights reserved.</p>
                 <div class="footer-links">
                     <a href="tentang-kami-waiting.php">Tentang Kami</a>
-                    <a href="panduan_website.php">Panduan Website</a>
+                    <a href="panduan_website_waiting.php">Panduan Website</a>
                 </div>
             </div>
         </div>

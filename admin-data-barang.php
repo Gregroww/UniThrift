@@ -7,7 +7,6 @@ if (!isset($_SESSION['admin'])) {
     exit();
 }
 
-// Query untuk mengambil data semua barang dari tabel barang
 $query = "SELECT * FROM barang";
 $result = mysqli_query($conn, $query);
 ?>
@@ -78,7 +77,7 @@ $result = mysqli_query($conn, $query);
                             echo "<td>Rp." . number_format($barang['harga'], 0, ',', '.') . "</td>";
                             echo "<td>
                                     <form method='POST' action='admin-hapus-barang.php' style='display: inline-block;'>
-                                        <input type='hidden' name='id_barang' value='" . $barang['id_barang'] . "'> <!-- Ganti 'id' dengan 'id_barang' -->
+                                        <input type='hidden' name='id_barang' value='" . $barang['id_barang'] . "'>
                                         <button type='submit'><i class='ri-delete-bin-fill'></i></button>
                                     </form>
                                   </td>";
@@ -91,15 +90,5 @@ $result = mysqli_query($conn, $query);
         </div>
     </div>
     <script src="scripts/script.js"></script>
-    <script>
-        // Fungsi untuk membuka gambar dalam ukuran besar
-        function openPopup(img) {
-            document.getElementById("popup-img").src = img.src;
-            document.querySelector(".popup-overlay").style.display = "flex";
-        }
-        function closePopup() {
-            document.querySelector(".popup-overlay").style.display = "none";
-        }
-    </script>
 </body>
 </html>

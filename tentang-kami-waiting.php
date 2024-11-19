@@ -15,15 +15,12 @@ if (isset($_SESSION['nama_pengguna'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waiting List (Waiting)</title>
-    <link rel="stylesheet" href="style/waitinglist.css">
+    <title>About Us Page</title>
+    <link rel="stylesheet" href="style/aboutus.css">
     <link rel="stylesheet" href="style/navbar.css">
     <link rel="stylesheet" href="style/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/2.5.0/remixicon.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -42,7 +39,7 @@ if (isset($_SESSION['nama_pengguna'])) {
         </div> 
         <div class="nav-links">
             <a href="waiting_list1.php">Beranda</a>
-            <a href="tentang-kami-waiting.php">Tentang Kami</a>
+            <a href="tentang-kami.php">Tentang Kami</a>
             <?php if(isset($_SESSION['nama_pengguna'])): ?>
                 <a href="logout.php">Keluar</a>
                 <a href="pageprofile(not-confirm).php">
@@ -52,17 +49,39 @@ if (isset($_SESSION['nama_pengguna'])) {
         </div>
     </nav>
     </header>
-    <h1>STATUS PENGGUNA</h1>
-<div class="modal-container">
-    <div class="modal-box">
-        <img src="images/time-left 1.png" alt="">
-        <h3>PENGAJUAN PEMBUATAN<br> AKUN ANDA SEDANG<br> DIPROSES</h3>
-        <a href="pageprofile(not-confirm).php">
-        <button class="btn-home">KEMBALI KE PROFIL</button>
-        </a>
+    <div class="main-content">
+        <div class="main-text">
+            <h3>TENTANG KAMI</h3>
+            <p>UniThrift Adalah Website Jual<br>
+                Beli Barang Bekas Mahasiswa</p>
+        </div>
+        <img src="images/image 13.png" alt="">
     </div>
-</div>
-<footer class="footer">
+    <div class="container">
+        <div class="image-left">
+            <img src="images/image 15.png" alt="foto1">
+        </div>
+        <div class="text">
+            <p>Selamat datang di Unithrift, platform jual beli barang bekas khusus mahasiswa yang dirancang
+                untuk memudahkan transaksi dalam komunitas kampus.
+                Unithrift didirikan dengan tujuan untuk membantu mahasiswa menemukan kebutuhan mereka dengan
+                harga terjangkau,
+                sekaligus memberikan kesempatan bagi mahasiswa lainnya untuk menjual barang yang sudah tidak
+                terpakai.
+            </p>
+            <br>
+            <p>Di UniTrift, setiap pengguna adalah seorang mahasiswa,
+                sehingga Anda bisa membeli dan menjual barang dengan sesama rekan kampus.
+                Kepercayaan dan keamanan adalah prioritas kami, maka dari itu, untuk mendaftar di UniTrift,
+                setiap pengguna perlu mengonfirmasi status mahasiswa mereka dengan mengunggah kartu tanda
+                mahasiswa.
+            </p>
+        </div>
+        <div class="image-right">
+            <img src="images/—Pngtree—online shopping isometric shopping cart_5324780 1.png" alt="foto2">
+        </div>
+    </div>
+    <footer class="footer">
     <div class="footer-container">
         <div class="footer-left">
             <img src="images/logo.png" alt="UniThrift Logo">
@@ -70,7 +89,7 @@ if (isset($_SESSION['nama_pengguna'])) {
                 <p class="footer-text">Copyright © 2024 UniThrift. All rights reserved.</p>
                 <div class="footer-links">
                     <a href="tentang-kami-waiting.php">Tentang Kami</a>
-                    <a href="panduan_website.php">Panduan Website</a>
+                    <a href="panduan_website_waiting.php">Panduan Website</a>
                 </div>
             </div>
         </div>

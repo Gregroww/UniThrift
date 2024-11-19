@@ -84,7 +84,6 @@ if (!$user) {
                 <p class="profile-location">
                     <i class="ri-map-pin-2-line"></i> <?php echo htmlspecialchars($user['lokasi']); ?>
                 </p>
-                <span class="profile-status">Status Konfirmasi</span>
             </div>
             <div class="contact-info">
                 <p>

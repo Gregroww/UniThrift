@@ -33,8 +33,9 @@ if ($user['status'] !== 'pending') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil Belum Terkonfirmasi</title>
-    <link rel="stylesheet" href="style/navbar.css">
     <link rel="stylesheet" href="style/pageprofile.css">
+    <link rel="stylesheet" href="style/navbar.css">
+    <link rel="stylesheet" href="style/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/2.5.0/remixicon.css">
 </head>
@@ -54,10 +55,9 @@ if ($user['status'] !== 'pending') {
         </div> 
         <div class="nav-links">
             <a href="waiting_list1.php">Beranda</a>
-            <a href="tentang-kami.php">Tentang Kami</a>
+            <a href="tentang-kami-waiting.php">Tentang Kami</a>
             <?php if(isset($_SESSION['nama_pengguna'])): ?>
                 <a href="logout.php">Keluar</a>
-                <a href="" class="jual-btn">Jual</a>
                 <a href="pageprofile(not-confirm).php">
                 <img src="images/<?php echo htmlspecialchars($user['foto_ktm']); ?>" alt="Foto Profil" class="foto-profil">
                 </a>
@@ -101,6 +101,19 @@ if ($user['status'] !== 'pending') {
             </div>
         </div>
     </main>
-    <?php require "footer.php"; ?>
+    <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-left">
+            <img src="images/logo.png" alt="UniThrift Logo">
+            <div class="footer-bottom">
+                <p class="footer-text">Copyright © 2024 UniThrift. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="tentang-kami-waiting.php">Tentang Kami</a>
+                    <a href="panduan_website_waiting.php">Panduan Website</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
