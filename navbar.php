@@ -30,7 +30,7 @@ if (isset($_SESSION['nama_pengguna'])) {
             <form action="searchkategori.php" method="GET" class="input-wrapper">
                 <input type="text" name="search" placeholder="Cari">
                 <!-- <input type="text" name="lokasi" placeholder="Kota"> -->
-                <select name="kota" class="search-kota">
+                <select name="lokasi" class="search-kota">
                     <option value="">Pilih Kota</option>
                     <option value="Ambon">Ambon</option>
                     <option value="Balikpapan">Balikpapan</option>

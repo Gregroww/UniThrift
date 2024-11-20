@@ -2,17 +2,23 @@
 require "connect.php";
 
 $search = $_GET['search'];
+$lokasi = $_GET['lokasi'];
 
 $barang = [];
-if (!empty($search)) {
-    $sql = "SELECT * FROM barang WHERE nama_barang LIKE '%$search%' OR kategori LIKE '%$search%'";
-    $result = mysqli_query($conn, $sql);
+if (!empty($search) || !empty($lokasi)) {
+    $sql = "SELECT barang.*, users.lokasi FROM barang 
+    JOIN users ON barang.nama_pengguna = users.nama_pengguna 
+    WHERE (barang.nama_barang LIKE '%$search%' OR barang.kategori LIKE '%$search%')";
+if (!empty($lokasi)) {
+    $sql .= " AND users.lokasi = '$lokasi'";
+}
+$result = mysqli_query($conn, $sql);
 
-    if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            $barang[] = $row;
-        }
+if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+    $barang[] = $row;
     }
+}
 }
 ?>
 
