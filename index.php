@@ -190,7 +190,12 @@ $randomProducts = getRandomProducts($conn);
             </div>
         </div>
     </main>
-</form>
+    </form>
+    <div class="load-more-container">
+        <button class="load-more-button">Lihat Lainnya</button>
+    </div>
+
+
     <?php require "footer.php"; ?>
 </body>
 </html>
