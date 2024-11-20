@@ -21,7 +21,6 @@ if (!$user) {
     exit;
 }
 
-// Query untuk mengambil barang berdasarkan nama_pengguna
 $queryBarang = $conn->prepare("SELECT * FROM barang WHERE nama_pengguna = ?");
 $queryBarang->bind_param("s", $nama_pengguna);
 $queryBarang->execute();

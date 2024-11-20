@@ -48,7 +48,7 @@ $products = $result_products->fetch_all(MYSQLI_ASSOC);
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/2.5.0/remixicon.css">
 </head>
 <body>
-<nav class="navbar">
+    <nav class="navbar">
         <div class="logo">
             <img src="images/logo.png" alt="UniThrift Logo">
         </div>
@@ -69,13 +69,13 @@ $products = $result_products->fetch_all(MYSQLI_ASSOC);
                 <a href="logout.php">Keluar</a>
                 <a href="sellpage.php" class="jual-btn">Jual</a>
                 <a href="pageprofile.php">
-                <img src="images/<?php echo htmlspecialchars($user['foto_ktm']); ?>" alt="Foto Profil" class="foto-profil">
+                    <img src="images/<?php echo htmlspecialchars($user['foto_ktm']); ?>" alt="Foto Profil" class="foto-profil">
                 </a>
             <?php else: ?>
                 <a href="login.php">Masuk</a>
             <?php endif; ?>
-    </div>
-</nav>
+        </div>
+    </nav>
 <main class="profile-container">
     <h1 class="profile-title">Profil Pengguna</h1>
     <div class="profile-card">

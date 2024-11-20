@@ -46,7 +46,7 @@ if (isset($_SESSION['nama_pengguna'])) {
             <?php if(isset($_SESSION['nama_pengguna'])): ?>
                 <a href="logout.php">Keluar</a>
                 <a href="pageprofile(not-confirm).php">
-                <img src="images/<?php echo $foto_ktm; ?>" alt="Foto Profil" class="foto-profil">
+                    <img src="images/<?php echo $foto_ktm; ?>" alt="Foto Profil" class="foto-profil">
                 </a>
             <?php endif; ?>
         </div>
