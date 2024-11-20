@@ -42,9 +42,9 @@ if (!empty($nama_pengguna)) {
             <div class="left-section">
                 <div class="profile">
                     <div class="profile-image-wrapper">
-                        <img src="assets/<?php echo $foto_ktm?>" alt="<?php echo $username; ?>" class="profile-image">
+                        <img src="assets/<?php echo $foto_ktm?>" alt="<?php echo $nama_pengguna; ?>" class="profile-image">
                     </div>
-                    <h3><?php echo $username; ?></h3>
+                    <h3><?php echo $nama_pengguna; ?></h3>
                     <div class="location">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
