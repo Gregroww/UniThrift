@@ -75,18 +75,18 @@ if (isset($_SESSION['nama_pengguna'])) {
             </form>
         </div> 
         <div class="nav-links">
-            <a href="index.php">Beranda</a>
-            <a href="tentang-kami.php">Tentang Kami</a>
-            <?php if(isset($_SESSION['nama_pengguna'])): ?>
-                <a href="logout.php">Keluar</a>
-                <a href="sellpage.php" class="jual-btn">Jual</a>
-                <a href="pageprofile.php">
-                    <img src="assets/<?php echo $foto_ktm; ?>" alt="Foto Profil" class="foto-profil">
-                </a>
-            <?php else: ?>
-                <a href="login.php">Masuk</a>
-            <?php endif; ?>
-        </div>
+    <a href="index.php">Beranda</a>
+    <a href="tentang-kami.php">Tentang Kami</a>
+    <?php if(isset($_SESSION['nama_pengguna'])): ?>
+        <a href="logout.php">Keluar</a>
+        <a href="sellpage.php" class="jual-btn no-hover">Jual</a>
+        <a href="pageprofile.php" class="no-hover">
+            <img src="assets/<?php echo $foto_ktm; ?>" alt="Foto Profil" class="foto-profil">
+        </a>
+    <?php else: ?>
+        <a href="login.php">Masuk</a>
+    <?php endif; ?>
+    </div>
     </nav>
 </body>
 </html>

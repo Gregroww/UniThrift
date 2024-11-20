@@ -19,27 +19,25 @@
 .logo img {
     height: 60px;
     width: auto;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; 
-    border-radius: 8px; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    border-radius: 8px;
 }
 
 .logo img:hover {
-    transform: scale(1.1); 
-    filter: brightness(1.8) saturate(1.8); 
+    transform: scale(1.1);
+    filter: brightness(1.8) saturate(1.8);
 }
-
-
 
 .search-container {
     display: flex;
     align-items: center;
     flex-grow: 1;
     max-width: 700px;
-    margin: 0 20px;  
+    margin: 0 20px;
     position: relative;
 }
 
-.search-kota{
+.search-kota {
     width: 300px;
     border-radius: 5px;
     height: auto;
@@ -79,7 +77,6 @@
     margin-left: 10px;
 }
 
-
 .nav-links {
     display: flex;
     justify-content: center;
@@ -93,7 +90,7 @@
     font-size: 18px;
     margin-right: 25px;
     position: relative;
-    padding: 5px 0; 
+    padding: 5px 0;
     transition: color 0.3s ease;
 }
 
@@ -109,15 +106,31 @@
 }
 
 .nav-links a:hover {
-    color: #FF3131; 
+    color: #FF3131;
 }
 
 .nav-links a:hover::after {
-    width: 100%; 
+    width: 100%;
 }
 
+.no-hover:hover {
+    color: inherit !important;
+    text-decoration: none !important;
+}
 
-.jual-btn{
+.no-hover:hover::after {
+    width: 0 !important;
+}
+
+.no-hover img:hover,
+.no-hover .jual-btn:hover {
+    transform: none !important;
+    filter: none !important;
+    box-shadow: none !important;
+    text-decoration: none !important;
+}
+
+.jual-btn {
     background-color: #FF3131;
     width: 80px;
     text-align: center;
@@ -129,4 +142,20 @@
     height: 50px;
     border-radius: 50%;
     margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .footer-left img {
+        margin-left: 0;
+    }
+
+    .footer-container {
+        padding: 20px 20px;
+    }
 }
