@@ -4,7 +4,7 @@ require "connect.php";
 $id_brg = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 if ($id_brg > 0) {
-    $query = "SELECT barang.*, users.foto_ktm FROM barang JOIN users ON barang.nama_pengguna = users.nama_pengguna WHERE barang.id_barang = ?";
+    $query = "SELECT barang.*, users.foto_ktm, users.lokasi FROM barang JOIN users ON barang.nama_pengguna = users.nama_pengguna WHERE barang.id_barang = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("i", $id_brg);
     $stmt->execute();
@@ -89,7 +89,7 @@ if ($id_brg > 0) {
                                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                                 <circle cx="12" cy="10" r="3"></circle>
                             </svg>
-                            Tenggarong
+                            <?php echo htmlspecialchars($product['lokasi']); ?>
                         </div>
                     </div>
                 </div>

@@ -5,7 +5,7 @@ require "connect.php";
 $nama_pengguna = $_GET['nama_pengguna'];
 
 if (!empty($nama_pengguna)) {
-    $sql = "SELECT * FROM users WHERE nama_pengguna = '$nama_pengguna'";
+    $sql = "SELECT * FROM barang WHERE nama_pengguna = '$nama_pengguna'";
     $result = mysqli_query($conn, $sql);
     $user = mysqli_fetch_assoc($result);
 
