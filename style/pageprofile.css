@@ -122,7 +122,6 @@ background-color: #2D3891;
 color: #fff;
 border-radius: 20px;
 font-size: 12px;
-margin: 10px 0;
 }
 
 .contact-info {
@@ -179,7 +178,6 @@ i {
     min-width: 24px; 
 }
 
-/* Section Style */
 .product-section {
     justify-content: space-between;
     align-items: center;
@@ -206,14 +204,14 @@ i {
 }
 
 .product-title {
-    color: #000;
+    color: black;
     text-align: center;
     font: 400 24px/1 Roboto, sans-serif;
     margin-bottom: 26px;
 }
   
 .section-title {
-    color: #000;
+    color: black;
     text-align: center;
     font: 400 24px/1 Roboto, sans-serif;
     margin-bottom: 26px;
@@ -233,22 +231,24 @@ i {
     }
 }
   
-  /* Product Card Style */
+
 .product-card {
     border-radius: 5px;
-    background-color: #fff;
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 0px 0px 0px;
     font: 16px Roboto, sans-serif;
-    border: 2px solid #000;
+    border: 2px solid black;
     width: 150px;
     transition: box-shadow 0.3s ease;
 }
 .product-card:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    transition: 0.2s ease;
 }
   
 @media (max-width: 991px) {
@@ -267,21 +267,13 @@ i {
     padding: 19px 23px;
 }
   
-  /* Image Styles */
 .product-image {
     object-fit: contain;
     width: 100%;
-    /* max-width: 122px; */
-    border-radius: 5px;
 }
 .product-link {
     display: block; 
     text-decoration: none; 
-}
-
-.product-image:hover {
-    transform: scale(1.0); /* Memperbesar gambar saat hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Memberikan bayangan */
 }
 
 .product-image-wide {
@@ -302,6 +294,6 @@ i {
     font-weight: 900;
     margin-top: auto;
     font-size: 14px;
-    color: #2D3891;
+    color: black;
 }
   

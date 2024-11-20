@@ -69,6 +69,12 @@ body {
     margin-bottom: 24px;
 }
 
+.input-wrapper {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
 label {
     display: block;
     font-size: 16px;
@@ -84,9 +90,36 @@ label {
     box-sizing: border-box;
 }
 
+.file-name {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: black;
+    font-size: 14px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+
+.input-field::-webkit-file-upload-button {
+    cursor: pointer;
+    background: blue;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;     
+    font-size: 15px;
+    margin-inline-start: 85%;
+}
+
+.input-field::-webkit-file-upload-button:hover {
+    background: darkblue;
+}
+
 .description {
     height: 150px;
-    width: 130%;
+    width: 100%;
     resize: none;
 }
 
@@ -119,7 +152,7 @@ label {
 .currency {
     position: absolute;
     left: 12px;
-    color: #666;
+    color: black;
 }
 
 .price-input .input-field {

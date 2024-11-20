@@ -128,9 +128,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </select>
                     </div>
                     <!-- Foto barang -->
-                    <div class="form-group ">
-                        <label>Foto barang</label>
-                        <input type="file" name="foto_barang" accept="image/*" class="input-field" id="inputImage" required>
+                    <div class="form-group">
+                        <label for="inputImage">Foto Barang</label>
+                        <div class="input-wrapper">
+                            <input type="file" name="foto_barang" accept="image/*" class="input-field" id="inputImage" required>
+                            <span class="file-name" id="file-name">Pilih foto barang</span>
+                        </div>
                     </div>
                     <!-- Submit Button -->
                     <button type="submit" class="submit-button">Jual</button>
@@ -162,6 +165,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             reader.readAsDataURL(file);
         } else {
             previewImage.src = "product-image.jpg";
+        }
+    });
+
+    const inputFile = document.getElementById('inputImage');
+    const fileNameField = document.getElementById('file-name'); 
+    inputFile.addEventListener('change', function () {
+        if (this.files && this.files[0]) {
+            fileNameField.textContent = this.files[0].name;
         }
     });
 </script>
