@@ -29,7 +29,46 @@ if (isset($_SESSION['nama_pengguna'])) {
         <div class="search-container">
             <form action="searchkategori.php" method="GET" class="input-wrapper">
                 <input type="text" name="search" placeholder="Cari">
-                <input type="text" name="lokasi" placeholder="Kota">
+                <!-- <input type="text" name="lokasi" placeholder="Kota"> -->
+                <select name="kota" class="search-kota">
+                    <option value="">Pilih Kota</option>
+                    <option value="Ambon">Ambon</option>
+                    <option value="Balikpapan">Balikpapan</option>
+                    <option value="Bandung">Bandung</option>
+                    <option value="Banjarmasin">Banjarmasin</option>
+                    <option value="Batam">Batam</option>
+                    <option value="Bekasi">Bekasi</option>
+                    <option value="Bengkulu">Bengkulu</option>
+                    <option value="Bogor">Bogor</option>
+                    <option value="Cirebon">Cirebon</option>
+                    <option value="Denpasar">Denpasar</option>
+                    <option value="Depok">Depok</option>
+                    <option value="Gorontalo">Gorontalo</option>
+                    <option value="Jakarta">Jakarta</option>
+                    <option value="Jambi">Jambi</option>
+                    <option value="Jayapura">Jayapura</option>
+                    <option value="Kediri">Kediri</option>
+                    <option value="Kupang">Kupang</option>
+                    <option value="Madiun">Madiun</option>
+                    <option value="Magelang">Magelang</option>
+                    <option value="Makassar">Makassar</option>
+                    <option value="Malang">Malang</option>
+                    <option value="Manado">Manado</option>
+                    <option value="Mataram">Mataram</option>
+                    <option value="Medan">Medan</option>
+                    <option value="Padang">Padang</option>
+                    <option value="Palembang">Palembang</option>
+                    <option value="Palu">Palu</option>
+                    <option value="Pekanbaru">Pekanbaru</option>
+                    <option value="Pontianak">Pontianak</option>
+                    <option value="Samarinda">Samarinda</option>
+                    <option value="Semarang">Semarang</option>
+                    <option value="Solo">Solo</option>
+                    <option value="Surabaya">Surabaya</option>
+                    <option value="Tasikmalaya">Tasikmalaya</option>
+                    <option value="Tegal">Tegal</option>
+                    <option value="Yogyakarta">Yogyakarta</option>
+                </select>
                 <button type="submit" class="search-button">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>

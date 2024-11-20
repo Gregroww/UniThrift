@@ -29,6 +29,12 @@
     position: relative;
 }
 
+.search-kota{
+    width: 300px;
+    border-radius: 5px;
+    height: auto;
+}
+
 .input-wrapper {
     display: flex;
     width: 100%;
