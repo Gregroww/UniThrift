@@ -54,10 +54,10 @@ h1 {
     text-shadow: 1.8px 1.8px 3.6px rgba(0, 0, 0, 0.2); 
 }
 
-.login-card:hover {
+/* .login-card:hover {
     transform: translateY(-4.5px) scale(0.9); 
     box-shadow: 0 13.5px 31.5px rgba(0, 0, 0, 0.3); 
-}
+} */
 
 .input-group {
     margin-bottom: 25px;
