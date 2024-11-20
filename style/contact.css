@@ -30,10 +30,10 @@ header {
     transition: all 0.3s ease;
 }
 
-.card:hover {
+/* .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
-}
+} */
 
 /* Judul Card */
 .card h2 {

@@ -31,10 +31,10 @@ body {
     height: 60%;
 }
 
-.product-card:hover {
+/* .product-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
-}
+} */
 
 .product-grid {
     display: grid;
