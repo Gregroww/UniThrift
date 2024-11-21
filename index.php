@@ -104,7 +104,7 @@ $randomProducts = getRandomProducts($conn);
     </nav>
 
     <div class="banner">
-        <img src="images/UniThrift.png" alt="UniThrift" class="banner-image">
+        <img src="assets/UniThrift.png" alt="UniThrift" class="banner-image">
     </div>
 
     <div class="product-title">
@@ -115,17 +115,17 @@ $randomProducts = getRandomProducts($conn);
         <div class="category-grid">
             <div class="category-card">
                 <a href="searchkategori.php?search=Gaming">
-                    <img src="images/1.png" class="category-image" alt="Gaming">
+                    <img src="assets/1.png" class="category-image" alt="Gaming">
                 </a>
             </div>
             <div class="category-card">
                 <a href="searchkategori.php?search=Buku">
-                    <img src="images/2.png" class="category-image" alt="Buku">
+                    <img src="assets/2.png" class="category-image" alt="Buku">
                 </a>
             </div>
             <div class="category-card">
                 <a href="searchkategori.php?search=Olahraga">
-                    <img src="images/3.png" class="category-image" alt="Olahraga">
+                    <img src="assets/3.png" class="category-image" alt="Olahraga">
                 </a>
             </div>
         </div>
@@ -133,22 +133,22 @@ $randomProducts = getRandomProducts($conn);
         <div class="category-grid">
             <div class="category-card">
                 <a href="searchkategori.php?search=Kecantikan">
-                    <img src="images/4.png" class="category-image" alt="Kecantikan">
+                    <img src="assets/4.png" class="category-image" alt="Kecantikan">
                 </a>
             </div>
             <div class="category-card">
                 <a href="searchkategori.php?search=Elektronik">
-                    <img src="images/5.png" class="category-image" alt="Elektronik">
+                    <img src="assets/5.png" class="category-image" alt="Elektronik">
                 </a>
             </div>
             <div class="category-card">
                 <a href="searchkategori.php?search=Tas">
-                    <img src="images/6.png" class="category-image" alt="Tas">
+                    <img src="assets/6.png" class="category-image" alt="Tas">
                 </a>
             </div>
             <div class="category-card">
                 <a href="searchkategori.php?search=Perabotan">
-                    <img src="images/7.png" class="category-image" alt="Perabotan">
+                    <img src="assets/7.png" class="category-image" alt="Perabotan">
                 </a>
             </div>
         </div>
@@ -170,7 +170,7 @@ $randomProducts = getRandomProducts($conn);
                             <button type="submit" name="id" value="<?php echo htmlspecialchars($product['id_barang']); ?>" class="content-button">
                                
                                 <img 
-                                    src="assets/<?php echo htmlspecialchars($product['gambar']); ?>" 
+                                    src="images/<?php echo htmlspecialchars($product['gambar']); ?>" 
                                     alt="<?php echo htmlspecialchars($product['nama_barang']); ?>" 
                                     class="content-image">
                                

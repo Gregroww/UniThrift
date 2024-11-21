@@ -23,7 +23,7 @@ if (isset($_SESSION['nama_pengguna'])) {
 <body>
     <nav class="navbar">
         <div class="logo">
-            <img src="images/logo.png" alt="UniThrift Logo">
+            <img src="assets/logo.png" alt="UniThrift Logo">
         </div>
         
         <div class="search-container">
@@ -81,7 +81,7 @@ if (isset($_SESSION['nama_pengguna'])) {
         <a href="logout.php">Keluar</a>
         <a href="sellpage.php" class="jual-btn no-hover">Jual</a>
         <a href="pageprofile.php" class="no-hover">
-            <img src="assets/<?php echo $foto_ktm; ?>" alt="Foto Profil" class="foto-profil">
+            <img src="images/<?php echo $foto_ktm; ?>" alt="Foto Profil" class="foto-profil">
         </a>
     <?php else: ?>
         <a href="login.php">Masuk</a>
