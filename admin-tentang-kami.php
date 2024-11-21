@@ -1,5 +1,10 @@
 <?php
+session_start();
 require "connect.php";
+if (!isset($_SESSION['admin'])) {
+    header("Location: login.php");
+    exit();
+}
 
 $deskripsi = "";
 
@@ -63,7 +68,7 @@ $conn->close();
                 <li><a href="admin-data-penjual.php"><i class="fas fa-box"></i> Data Penjual</a></li>
                 <li><a href="admin-data-barang.php"><i class="fas fa-box"></i> Data Barang</a></li>
                 <li><a href="admin-tentang-kami.php"><i class="fas fa-box"></i> Tentang Kami</a></li>
-                <li><a href="index.php"><i class="fas fa-box"></i> Keluar</a></li>
+                <li><a href="logout.php"><i class="fas fa-box"></i> Keluar</a></li>
             </ul>            
             <div class="footer">
                 <p>&copy; 2024 UniThrift</p>
