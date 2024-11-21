@@ -40,7 +40,10 @@
 .search-kota {
     width: 300px;
     border-radius: 5px;
+    border: 1px solid #ddd;
     height: auto;
+    color: grey;
+    padding-left: 10px;
 }
 
 .input-wrapper {

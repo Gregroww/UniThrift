@@ -34,7 +34,7 @@ if (mysqli_num_rows($result) > 0) {
     <header>
     <?php require "navbar.php"; ?>
     </header>
-    <h1>Hasil Pencarian/Kategori: Buku</h1>
+    <h1>Hasil Pencarian<?php echo !empty($search) ? ": " . htmlspecialchars($search) : ""; ?><?php echo !empty($lokasi) ? " di " . htmlspecialchars($lokasi) : ""; ?></h1>
     
     <form action="productpage.php" method="GET">
         <div class="book-container">
