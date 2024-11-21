@@ -45,7 +45,6 @@ if ($id_brg > 0) {
                             alt="<?php echo htmlspecialchars($product['nama_barang']); ?>" 
                             class="product-image">
                     </div>
-
                     <!-- Profil Penjual -->
                     <div class="seller-info">
                         <div class="profile">
@@ -57,7 +56,6 @@ if ($id_brg > 0) {
                         </div>
                     </div>
                 </div>
-
                 <!-- Bagian Kanan -->
                 <div class="right-section">
                     <div class="top-section">
@@ -95,7 +93,6 @@ if ($id_brg > 0) {
             </div>
         </div>
     </div>
-
     <!-- Footer -->
     <?php require "footer.php"; ?>
 </body>

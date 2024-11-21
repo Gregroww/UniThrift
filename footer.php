@@ -10,7 +10,7 @@ require 'connect.php';
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-left">
-            <img src="images/logo.png" alt="UniThrift Logo">
+            <img src="assets/logo.png" alt="UniThrift Logo">
             <div class="footer-bottom">
                 <p class="footer-text">Copyright © 2024 UniThrift. All rights reserved.</p>
                 <div class="footer-links">

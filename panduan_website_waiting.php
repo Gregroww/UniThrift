@@ -26,7 +26,7 @@ if (isset($_SESSION['nama_pengguna'])) {
     <header>
     <nav class="navbar">
         <div class="logo">
-            <img src="images/logo.png" alt="UniThrift Logo">
+            <img src="assets/logo.png" alt="UniThrift Logo">
         </div>
         <div class="search-container">
             <div class="input-wrapper">
@@ -56,7 +56,7 @@ if (isset($_SESSION['nama_pengguna'])) {
             <p>Untuk melihat produk di UniThrift, Anda hanya perlu masuk ke halaman utama dan menjelajahi kategori yang tersedia. Gunakan fitur pencarian untuk menemukan kategori atau barang tertentu. Setiap produk dilengkapi dengan foto, deskripsi, dan informasi harga agar Anda dapat membuat keputusan yang tepat.</p>
         </div>
         <div class="gambar">
-            <img src="images/image 17.png" alt="foto1">
+            <img src="assets/image 17.png" alt="foto1">
         </div>
     </div>
     <div class="container2">
@@ -65,7 +65,7 @@ if (isset($_SESSION['nama_pengguna'])) {
             <p>Jika Anda tertarik untuk membeli produk, silakan klik pada item yang diinginkan untuk melihat deskripsi lebih lengkap atau detail spesifikasi. Apabila Anda memiliki pertanyaan lebih lanjut atau ingin mendapatkan informasi tambahan tentang produk tersebut, jangan ragu untuk langsung menghubungi penjual.</p>
         </div>
         <div class="gambar">
-            <img src="images/Screenshot 2024-11-07 150943 1.png" alt="foto2">
+            <img src="assets/Screenshot 2024-11-07 150943 1.png" alt="foto2">
         </div>
     </div>
     <div class="container3">
@@ -74,13 +74,13 @@ if (isset($_SESSION['nama_pengguna'])) {
             <p>Untuk menjual produk di UniThrift, pastikan Anda sudah memiliki akun. Masuk ke akun Anda dan pilih opsi 'Jual'. Isi formulir unggahan produk dengan lengkap, termasuk foto, deskripsi, harga, dan kondisi barang. Setelah semua informasi terisi, klik 'Jual'. Tim kami akan meninjau produk Anda sebelum tampil di website. Begitu disetujui, produk Anda akan tersedia untuk dilihat dan dibeli oleh pengguna lain.</p>
         </div>
         <div class="gambar">
-            <img src="images/Screenshot 2024-11-07 190110 1.png" alt="foto3">
+            <img src="assets/Screenshot 2024-11-07 190110 1.png" alt="foto3">
         </div>
     </div>
     <footer class="footer">
     <div class="footer-container">
         <div class="footer-left">
-            <img src="images/logo.png" alt="UniThrift Logo">
+            <img src="assets/logo.png" alt="UniThrift Logo">
             <div class="footer-bottom">
                 <p class="footer-text">Copyright © 2024 UniThrift. All rights reserved.</p>
                 <div class="footer-links">

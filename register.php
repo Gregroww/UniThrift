@@ -99,6 +99,5 @@ if (isset($_POST["submit"])) {
         fileNameInput.value = fileName;
     }
 </script>
-
 </body>
 </html>

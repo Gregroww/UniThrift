@@ -29,7 +29,7 @@ if (isset($_SESSION['nama_pengguna'])) {
     <header>
     <nav class="navbar">
         <div class="logo">
-            <img src="images/logo.png" alt="UniThrift Logo">
+            <img src="assets/logo.png" alt="UniThrift Logo">
         </div>
         <div class="search-container">
             <div class="input-wrapper">
@@ -55,7 +55,7 @@ if (isset($_SESSION['nama_pengguna'])) {
     <h1>STATUS PENGGUNA</h1>
 <div class="modal-container">
     <div class="modal-box">
-        <img src="images/time-left 1.png" alt="">
+        <img src="assets/time-left 1.png" alt="">
         <h3>PENGAJUAN PEMBUATAN<br> AKUN ANDA SEDANG<br> DIPROSES</h3>
         <a href="pageprofile(not-confirm).php">
         <button class="btn-home">KEMBALI KE PROFIL</button>
@@ -65,12 +65,12 @@ if (isset($_SESSION['nama_pengguna'])) {
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-left">
-            <img src="images/logo.png" alt="UniThrift Logo">
+            <img src="assets/logo.png" alt="UniThrift Logo">
             <div class="footer-bottom">
                 <p class="footer-text">Copyright © 2024 UniThrift. All rights reserved.</p>
                 <div class="footer-links">
                     <a href="tentang-kami-waiting.php">Tentang Kami</a>
-                    <a href="panduan_website.php">Panduan Website</a>
+                    <a href="panduan_website_waiting.php">Panduan Website</a>
                 </div>
             </div>
         </div>

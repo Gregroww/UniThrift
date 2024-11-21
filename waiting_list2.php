@@ -18,7 +18,7 @@
 
 <div class="modal-container">
     <div class="modal-box">
-        <img src="images/Group 3.png" alt="">
+        <img src="assets/Group 3.png" alt="">
         <h3>PENGAJUAN PEMBUATAN<br> AKUN ANDA SEDANG DITOLAK</h3>
         <button class="btn-home">KEMBALI KE BERANDA</button>
     </div>

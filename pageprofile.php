@@ -41,7 +41,7 @@ $resultBarang = $queryBarang->get_result();
 <body>
 <nav class="navbar">
         <div class="logo">
-            <img src="images/logo.png" alt="UniThrift Logo">
+            <img src="assets/logo.png" alt="UniThrift Logo">
         </div>
         
         <div class="search-container">

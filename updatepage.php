@@ -102,7 +102,7 @@
                         <i class="ri-image-add-line"></i>
                     </div>
                     <div class="image-preview">
-                        <img src="product-image.jpg" alt="Preview">
+                        <img src="images/product-image.jpg" alt="Preview">
                     </div>
                 </div>
             </div>
