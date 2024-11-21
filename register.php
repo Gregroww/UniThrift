@@ -80,7 +80,7 @@ if (isset($_POST["submit"])) {
                     <input type="email" name="email" placeholder="Email" required>
                 </div>
                 <div class="input-group">
-                    <input type="password" name="kata_sandi" placeholder="Kata Sandi" required>
+                    <input type="password" name="kata_sandi" placeholder="Kata Sandi" minlength="8" required>
                 </div>
                 <div class="input-group file-input">
                     <input type="text" placeholder="Unggah Kartu Mahasiswa" readonly>
