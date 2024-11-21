@@ -1,8 +1,8 @@
 <?php
 require "connect.php";
 
-$search = $_GET['search'];
-$lokasi = $_GET['lokasi'];
+$search = isset($_GET['search']) ? $_GET['search'] : '';
+$lokasi = isset($_GET['lokasi']) ? $_GET['lokasi'] : '';
 
 $barang = [];
 if (!empty($search) || !empty($lokasi)) {
