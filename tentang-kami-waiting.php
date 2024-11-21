@@ -26,7 +26,7 @@ if (isset($_SESSION['nama_pengguna'])) {
     <header>
     <nav class="navbar">
         <div class="logo">
-            <img src="images/logo.png" alt="UniThrift Logo">
+            <img src="assets/logo.png" alt="UniThrift Logo">
         </div>
         <div class="search-container">
             <div class="input-wrapper">
@@ -43,7 +43,7 @@ if (isset($_SESSION['nama_pengguna'])) {
             <?php if(isset($_SESSION['nama_pengguna'])): ?>
                 <a href="logout.php">Keluar</a>
                 <a href="pageprofile(not-confirm).php">
-                <img src="images/<?php echo $foto_ktm; ?>" alt="Foto Profil" class="foto-profil">
+                <img src="assets/<?php echo $foto_ktm; ?>" alt="Foto Profil" class="foto-profil">
                 </a>
             <?php endif; ?>
         </div>
@@ -55,11 +55,11 @@ if (isset($_SESSION['nama_pengguna'])) {
             <p>UniThrift Adalah Website Jual<br>
                 Beli Barang Bekas Mahasiswa</p>
         </div>
-        <img src="images/image 13.png" alt="">
+        <img src="assets/image 13.png" alt="">
     </div>
     <div class="container">
         <div class="image-left">
-            <img src="images/image 15.png" alt="foto1">
+            <img src="assets/image 15.png" alt="foto1">
         </div>
         <div class="text">
             <p>Selamat datang di Unithrift, platform jual beli barang bekas khusus mahasiswa yang dirancang
@@ -78,7 +78,7 @@ if (isset($_SESSION['nama_pengguna'])) {
             </p>
         </div>
         <div class="image-right">
-            <img src="images/—Pngtree—online shopping isometric shopping cart_5324780 1.png" alt="foto2">
+            <img src="assets/—Pngtree—online shopping isometric shopping cart_5324780 1.png" alt="foto2">
         </div>
     </div>
     <footer class="footer">

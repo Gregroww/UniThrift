@@ -195,6 +195,14 @@ body {
     border-radius: 8px;
     overflow: hidden;
     position: relative;
+    padding-top: 50%; 
+}
+
+.category-card {
+    background: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
     padding-top: 50%;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -384,6 +392,7 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 3.5rem;
     justify-items: center;
+    margin-bottom: 0;
 }
 
 .content-box {
@@ -440,6 +449,7 @@ body {
     color: #000000;
 }
 
+
 .price-box {
     position: absolute;
     bottom: 10px; 
@@ -452,4 +462,42 @@ body {
     background-color: white;
     padding: 8px 0;
     border-top: 0px;
+}
+
+
+.load-more-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -90px;
+    margin-bottom: 50px;
+}
+
+.load-more-button {
+    background-color: #007bff; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Poppins';
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.load-more-button:hover {
+    background-color: #0056b3; 
+    transform: scale(1.05); 
+}
+
+.load-more-button:active {
+    background-color: #003f8a; 
+    transform: scale(1);
+}
+
+@media (max-width: 768px) {
+    .load-more-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
 }

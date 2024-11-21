@@ -18,11 +18,11 @@
             <p>UniThrift Adalah Website Jual<br>
                 Beli Barang Bekas Mahasiswa</p>
         </div>
-        <img src="images/image 13.png" alt="">
+        <img src="assets/image 13.png" alt="">
     </div>
     <div class="container">
         <div class="image-left">
-            <img src="images/image 15.png" alt="foto1">
+            <img src="assets/image 15.png" alt="foto1">
         </div>
         <div class="text">
             <p>Selamat datang di Unithrift, platform jual beli barang bekas khusus mahasiswa yang dirancang
@@ -41,7 +41,7 @@
             </p>
         </div>
         <div class="image-right">
-            <img src="images/—Pngtree—online shopping isometric shopping cart_5324780 1.png" alt="foto2">
+            <img src="assets/—Pngtree—online shopping isometric shopping cart_5324780 1.png" alt="foto2">
         </div>
     </div>
     <?php require "footer.php"; ?>

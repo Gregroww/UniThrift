@@ -33,78 +33,77 @@ $randomProducts = getRandomProducts($conn);
     <header>
     <?php require "navbar.php"; ?>
     </header>
-
     <nav class="categories">
-        <a href="#" class="category">
-        <div class="ikon">
-            <i class="fa-solid fa-person-dress"></i>
-        </div>
+        <a href="searchkategori.php?search=Wanita" class="category">
+            <div class="ikon">
+                <i class="fa-solid fa-person-dress"></i>
+            </div>
             <span class="text-category">Wanita</span>
         </a>
-        <a href="#" class="category">
-        <div class="ikon">
-            <i class="fa-solid fa-person"></i>
-        </div>
+        <a href="searchkategori.php?search=Pria" class="category">
+            <div class="ikon">
+                <i class="fa-solid fa-person"></i>
+            </div>
             <span class="text-category">Pria</span>
         </a>
-        <a href="#" class="category">
-        <div class="ikon">
-            <i class="fa-solid fa-mobile-screen-button"></i>
-        </div>
+        <a href="searchkategori.php?search=Elektronik" class="category">
+            <div class="ikon">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+            </div>
             <span class="text-category">Elektronik</span>
         </a>
-        <a href="#" class="category">
-        <div class="ikon">
-            <i class="fa-solid fa-robot"></i>
-        </div>
+        <a href="searchkategori.php?search=Mainan" class="category">
+            <div class="ikon">
+                <i class="fa-solid fa-robot"></i>
+            </div>
             <span class="text-category">Mainan</span>
         </a>
-        <a href="#" class="category">
-        <div class="ikon">
-            <i class="fa-solid fa-gamepad"></i>
-        </div>
+        <a href="searchkategori.php?search=Gaming" class="category">
+            <div class="ikon">
+                <i class="fa-solid fa-gamepad"></i>
+            </div>
             <span class="text-category">Gaming</span>
         </a>
-        <a href="#" class="category">
-        <div class="ikon">
-            <i class="fa-solid fa-bag-shopping"></i>
-        </div>
+        <a href="searchkategori.php?search=Tas" class="category">
+            <div class="ikon">
+                <i class="fa-solid fa-bag-shopping"></i>
+            </div>
             <span class="text-category">Tas</span>
         </a>
-        <a href="#" class="category">
-        <div class="ikon">
-            <i class="fa-solid fa-book"></i>
-        </div>
+        <a href="searchkategori.php?search=Buku" class="category">
+            <div class="ikon">
+                <i class="fa-solid fa-book"></i>
+            </div>
             <span class="text-category">Buku</span>
         </a>
-        <a href="#" class="category">
-        <div class="ikon">
-            <i class="fa-solid fa-wand-magic-sparkles"></i>
-        </div>
+        <a href="searchkategori.php?search=Kecantikan" class="category">
+            <div class="ikon">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
             <span class="text-category">Kecantikan</span>
         </a>
-        <a href="#" class="category">
-        <div class="ikon">
-            <i class="fa-solid fa-motorcycle"></i>
-        </div>
+        <a href="searchkategori.php?search=Kendaraan" class="category">
+            <div class="ikon">
+                <i class="fa-solid fa-motorcycle"></i>
+            </div>
             <span class="text-category">Kendaraan</span>
         </a>
-        <a href="#" class="category">
-        <div class="ikon">
-        <i class="fa-solid fa-football"></i>
-        </div>
+        <a href="searchkategori.php?search=Olahraga" class="category">
+            <div class="ikon">
+                <i class="fa-solid fa-football"></i>
+            </div>
             <span class="text-category">Olahraga</span>
         </a>
-        <a href="#" class="category">
-        <div class="ikon">
-            <i class="fa-solid fa-couch"></i>
-        </div>
+        <a href="searchkategori.php?search=Perabotan" class="category">
+            <div class="ikon">
+                <i class="fa-solid fa-couch"></i>
+            </div>
             <span class="text-category">Perabotan</span>
         </a>
     </nav>
 
     <div class="banner">
-        <img src="images/UniThrift.png" alt="UniThrift" class="banner-image">
+        <img src="assets/UniThrift.png" alt="UniThrift" class="banner-image">
     </div>
 
     <div class="product-title">
@@ -112,31 +111,44 @@ $randomProducts = getRandomProducts($conn);
     </div>
 
     <section class="popular-categories">
-    
         <div class="category-grid">
             <div class="category-card">
-                <img src="images/1.png" class="category-image" alt="Gaming">
+                <a href="searchkategori.php?search=Gaming">
+                    <img src="assets/1.png" class="category-image" alt="Gaming">
+                </a>
             </div>
             <div class="category-card">
-                <img src="images/2.png" class="category-image" alt="Buku">
+                <a href="searchkategori.php?search=Buku">
+                    <img src="assets/2.png" class="category-image" alt="Buku">
+                </a>
             </div>
             <div class="category-card">
-                <img src="images/3.png" class="category-image" alt="Olahraga">
+                <a href="searchkategori.php?search=Olahraga">
+                    <img src="assets/3.png" class="category-image" alt="Olahraga">
+                </a>
             </div>
         </div>
-    
+
         <div class="category-grid">
             <div class="category-card">
-                <img src="images/4.png" class="category-image" alt="Kecantikan">
+                <a href="searchkategori.php?search=Kecantikan">
+                    <img src="assets/4.png" class="category-image" alt="Kecantikan">
+                </a>
             </div>
             <div class="category-card">
-                <img src="images/5.png" class="category-image" alt="Elektronik">
+                <a href="searchkategori.php?search=Elektronik">
+                    <img src="assets/5.png" class="category-image" alt="Elektronik">
+                </a>
             </div>
             <div class="category-card">
-                <img src="images/6.png" class="category-image" alt="Tas">
+                <a href="searchkategori.php?search=Tas">
+                    <img src="assets/6.png" class="category-image" alt="Tas">
+                </a>
             </div>
             <div class="category-card">
-                <img src="images/7.png" class="category-image" alt="Perabotan">
+                <a href="searchkategori.php?search=Perabotan">
+                    <img src="assets/7.png" class="category-image" alt="Perabotan">
+                </a>
             </div>
         </div>
     </section>
@@ -153,14 +165,18 @@ $randomProducts = getRandomProducts($conn);
                 <?php if (!empty($randomProducts)): ?>
                     <?php foreach ($randomProducts as $product): ?>
                         <div class="content-box">
+
                             <button type="submit" name="id" value="<?php echo htmlspecialchars($product['id_barang']); ?>" class="content-button">
+                               
                                 <img 
                                     src="images/<?php echo htmlspecialchars($product['gambar']); ?>" 
                                     alt="<?php echo htmlspecialchars($product['nama_barang']); ?>" 
                                     class="content-image">
+                               
                                 <div class="title-box">
                                     <p><?php echo htmlspecialchars($product['nama_barang']); ?></p>
                                 </div>
+                                
                                 <div class="price-box">
                                     Rp. <?php echo number_format($product['harga'], 0, ',', '.'); ?>
                                 </div>
@@ -173,7 +189,10 @@ $randomProducts = getRandomProducts($conn);
             </div>
         </div>
     </main>
-</form>
+    </form>
+    <div class="load-more-container">
+        <button class="load-more-button">Lihat Lainnya</button>
+    </div>
     <?php require "footer.php"; ?>
 </body>
 </html>
