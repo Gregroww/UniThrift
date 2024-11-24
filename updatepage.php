@@ -84,8 +84,8 @@
                         <input type="text" class="input-field">
                     </div>
                 </div>
-
                 <button class="submit-button">Perbarui</button>
+                <button class="submit-button-batal" style="background-color: rgba(237, 158, 38, 1);" >Batal</button>
             </div>
 
             <div class="right-section">
