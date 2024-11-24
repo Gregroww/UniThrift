@@ -118,15 +118,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <input type="text" name="harga" class="input-field" required>
                         </div>
                     </div>
-
-                    <!-- Lokasi -->
-                    <div class="form-group">
-                        <label>Lokasi</label>
-                        <select name="lokasi" class="input-field" >
-                            <option value="">Pilih Lokasi</option>
-                            <!-- Tambahkan opsi lokasi -->
-                        </select>
-                    </div>
                     <!-- Foto barang -->
                     <div class="form-group">
                         <label for="inputImage">Foto Barang</label>
@@ -137,6 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
                     <!-- Submit Button -->
                     <button type="submit" class="submit-button">Jual</button>
+                    <button class="submit-button-batal" style="background-color: rgba(237, 158, 38, 1);" >Batal</button>
                 </form>
             </div>
             <div class="right-section">

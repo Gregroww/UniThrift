@@ -85,13 +85,6 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label>Lokasi</label>
-                    <select class="input-field">
-                        <option value="">Pilih Lokasi</option>
-                    </select>
-                </div>
-
                 <button class="submit-button">Perbarui</button>
             </div>
 

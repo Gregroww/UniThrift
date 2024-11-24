@@ -2,6 +2,7 @@ body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background-color: #f4f4f4;
+    overflow: hidden;
     
 }
 
@@ -46,6 +47,7 @@ body {
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
+    justify-items: center;
 }
 
 .form-container {
@@ -55,6 +57,7 @@ body {
     display: flex;
     gap: 40px;
     color: white;
+    width: 60%;
 }
 
 .left-section {
@@ -62,7 +65,7 @@ body {
 }
 
 .right-section {
-    width: 300px;
+    width: 200px;
 }
 
 .form-group {
@@ -110,7 +113,7 @@ label {
     padding: 8px 15px;
     border-radius: 5px;     
     font-size: 15px;
-    margin-inline-start: 85%;
+    margin-inline-start: 75%;
 }
 
 .input-field::-webkit-file-upload-button:hover {
@@ -167,7 +170,14 @@ label {
     padding: 12px 40px;
     font-size: 16px;
     cursor: pointer;
-    margin-top: 20px;
+}
+.submit-button-batal {
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 40px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 .image-upload {
@@ -207,6 +217,9 @@ label {
 /* Hover states */
 .submit-button:hover {
     background-color: #ff3333;
+}
+.submit-button-batal:hover {
+    background-color: rgb(236, 148, 17);
 }
 
 .upload-placeholder:hover {
