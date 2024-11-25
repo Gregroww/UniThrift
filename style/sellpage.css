@@ -170,7 +170,15 @@ label {
     padding: 12px 40px;
     font-size: 16px;
     cursor: pointer;
-    margin-top: 20px;
+}
+.submit-button-batal {
+    background-color: rgb(236, 148, 17);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 40px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 .image-upload {
@@ -210,6 +218,12 @@ label {
 .submit-button:hover {
     background-color: #ff3333;
 }
+.submit-button-batal:hover {
+    background-color: rgb(222, 140, 17);
+}
+
+
+
 
 .upload-placeholder:hover {
     border-color: #ccc;

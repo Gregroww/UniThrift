@@ -123,6 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
                     <!-- Submit Button -->
                     <button type="submit" class="submit-button">Jual</button>
+                    <button type="button" class="submit-button-batal" onclick="window.location.href='index.php';">Batal</button>
                 </form>
             </div>
             <div class="right-section">
