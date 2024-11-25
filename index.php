@@ -1,8 +1,8 @@
 <?php
 require "connect.php";
 
-function getRandomProducts($conn, $limit = 10) {
-    $query = "SELECT id_barang, nama_barang, harga, gambar FROM barang ORDER BY RAND() LIMIT $limit";
+function getProducts($conn, $offset = 0, $limit = 10) {
+    $query = "SELECT id_barang, nama_barang, harga, gambar FROM barang LIMIT $limit OFFSET $offset";
     $result = mysqli_query($conn, $query);
 
     $products = [];
@@ -11,10 +11,11 @@ function getRandomProducts($conn, $limit = 10) {
             $products[] = $row; 
         }
     }
-    return $products;  
+    return $products;
 }
 
-$randomProducts = getRandomProducts($conn); 
+$initialProducts = getProducts($conn, 0, 10);
+$randomProducts = getProducts($conn); 
 ?>
 
 <!DOCTYPE html>
@@ -191,8 +192,60 @@ $randomProducts = getRandomProducts($conn);
     </main>
     </form>
     <div class="load-more-container">
-        <button class="load-more-button">Lihat Lainnya</button>
+        <button id="load-more" class="load-more-button">Lihat Lainnya</button>
     </div>
+    <script>
+        let offset = 10; // Awal offset (produk pertama yang dimuat sudah 10)
+        const limit = 10; // Jumlah produk yang dimuat per batch
+
+        document.getElementById('load-more').addEventListener('click', function () {
+            // Sembunyikan tombol setelah diklik
+            this.style.display = 'none';
+
+            fetch('load_more_products.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `offset=${offset}&limit=${limit}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                const contentGrid = document.querySelector('.content-grid');
+
+                if (data.length > 0) {
+                    data.forEach(product => {
+                        const productBox = document.createElement('div');
+                        productBox.className = 'content-box';
+
+                        productBox.innerHTML = `
+                            <form action="productpage.php" method="GET">
+                                <button type="submit" name="id" value="${product.id_barang}" class="content-button">
+                                    <img 
+                                        src="images/${product.gambar}" 
+                                        alt="${product.nama_barang}" 
+                                        class="content-image">
+                                    <div class="title-box">
+                                        <p>${product.nama_barang}</p>
+                                    </div>
+                                    <div class="price-box">
+                                        Rp. ${parseInt(product.harga).toLocaleString('id-ID')}
+                                    </div>
+                                </button>
+                            </form>
+                        `;
+
+                        contentGrid.appendChild(productBox);
+                    });
+
+                    // Update offset untuk permintaan berikutnya
+                    offset += limit;
+                } else {
+                    // Jika tidak ada lagi data, sembunyikan tombol
+                    document.getElementById('load-more').style.display = 'none';
+                }
+            })
+            .catch(error => console.error('Error fetching more products:', error));
+        });
+    </script>
     <?php require "footer.php"; ?>
 </body>
 </html>
