@@ -84,15 +84,8 @@
                         <input type="text" class="input-field">
                     </div>
                 </div>
-
-                <div class="form-group">
-                    <label>Lokasi</label>
-                    <select class="input-field">
-                        <option value="">Pilih Lokasi</option>
-                    </select>
-                </div>
-
                 <button class="submit-button">Perbarui</button>
+                <button class="submit-button-batal" style="background-color: rgba(237, 158, 38, 1);" >Batal</button>
             </div>
 
             <div class="right-section">

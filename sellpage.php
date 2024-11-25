@@ -55,11 +55,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
     <div class="container">
-        <a href="index.php">
-        <div class="back-icon">
-            <button><i class="ri-arrow-go-back-fill"></i> </button>
-        </div>
-        </a>
         <div class="title">Jual barang</div>
     </div>
     <div class="product-form">
@@ -118,15 +113,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <input type="text" name="harga" class="input-field" required>
                         </div>
                     </div>
-
-                    <!-- Lokasi -->
-                    <div class="form-group">
-                        <label>Lokasi</label>
-                        <select name="lokasi" class="input-field" >
-                            <option value="">Pilih Lokasi</option>
-                            <!-- Tambahkan opsi lokasi -->
-                        </select>
-                    </div>
                     <!-- Foto barang -->
                     <div class="form-group">
                         <label for="inputImage">Foto Barang</label>
@@ -137,6 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
                     <!-- Submit Button -->
                     <button type="submit" class="submit-button">Jual</button>
+                    <button type="button" class="submit-button-batal" onclick="window.location.href='index.php';">Batal</button>
                 </form>
             </div>
             <div class="right-section">
@@ -167,7 +154,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             previewImage.src = "product-image.jpg";
         }
     });
-
     const inputFile = document.getElementById('inputImage');
     const fileNameField = document.getElementById('file-name'); 
     inputFile.addEventListener('change', function () {

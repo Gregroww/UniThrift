@@ -1,11 +1,18 @@
 <?php
 session_start();
 require "connect.php";
+
 if (!isset($_SESSION['admin'])) {
     header("Location: login.php");
     exit();
 }
+
+$nama = isset($_GET['search']) ? mysqli_real_escape_string($conn, $_GET['search']) : "";
+
 $query = "SELECT * FROM users WHERE status = 'approved'";
+if (!empty($nama)) {
+    $query .= " AND nama_pengguna LIKE '$nama%'";
+}
 $result = mysqli_query($conn, $query);
 ?>
 
@@ -30,13 +37,13 @@ $result = mysqli_query($conn, $query);
     </div>
     <div class="main-container">
         <div class="sidebar">
-            <ul>
-                <li><a href="admin-konfirmasi-akun.php"><i class="fas fa-box"></i> Konfirmasi Akun</a></li>
-                <li><a href="admin-data-penjual.php"><i class="fas fa-box"></i> Data Penjual</a></li>
-                <li><a href="admin-data-barang.php"><i class="fas fa-box"></i> Data Barang</a></li>
-                <li><a href="admin-tentang-kami.php"><i class="fas fa-box"></i> Tentang Kami</a></li>
-                <li><a href="logout.php"><i class="fas fa-box"></i> Keluar</a></li>
-            </ul>            
+        <ul>
+                <li><a href="admin-konfirmasi-akun.php"><i class="fa-solid fa-inbox"></i> Konfirmasi Akun</a></li>
+                <li><a href="admin-data-penjual.php"><i class="fa-solid fa-user"></i> Data Penjual</a></li>
+                <li><a href="admin-data-barang.php"><i class="fa-solid fa-cart-shopping"></i> Data Barang</a></li>
+                <li><a href="admin-tentang-kami.php"><i class="fa-solid fa-question"></i> Tentang Kami</a></li>
+                <li><a href="logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i> Keluar</a></li>
+            </ul>           
             <div class="footer">
                 <p>&copy;Copyright 2024 UniThrift</p>
             </div>
@@ -44,8 +51,10 @@ $result = mysqli_query($conn, $query);
         <div class="content">
             <h2>Data Penjual</h2>
             <div class="search-bar">
-                <input type="text" placeholder="Cari Pengguna">
-                <button class="btn"><i class="ri-search-line"></i></button>
+                <form method="GET" action="admin-data-penjual.php">
+                    <input type="text" name="search" placeholder="Cari Pengguna" value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
+                    <button type="submit" class="btn"><i class="ri-search-line"></i></button>
+                </form>
             </div>
             <div class="section">
                 <div class="table-container">
@@ -72,7 +81,7 @@ $result = mysqli_query($conn, $query);
                             echo "<td>    
                                     <form method='POST' action='admin-hapus-user.php' style='display: inline-block;'>
                                         <input type='hidden' name='nama_pengguna' value='" . $user['nama_pengguna'] . "'>
-                                        <button type='submit' onclick='return confirmDelete()'><i class='ri-delete-bin-fill'></i></button>
+                                        <button type='submit' onclick='return confirmDelete()'><i class='ri-delete-bin-fill ri-2x'></i></button>
                                     </form>
                                   </td>";
                             echo "</tr>";

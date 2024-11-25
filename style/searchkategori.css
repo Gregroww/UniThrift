@@ -29,7 +29,7 @@ main {
 
 h1 {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     font-size: 28px;
     color: #2D3891; 
     margin-top: 20px;
@@ -43,8 +43,8 @@ h1 {
     justify-content: center;
     max-width: 1300px;
     margin: 0 auto;
-    padding: 20px;
-    min-height: calc(100vh - 260px);
+    padding: 5px;
+    min-height: calc(100vh - 350px);
 }
 
 
@@ -114,13 +114,13 @@ h1 {
 .pagination {
     display: flex;
     justify-content: center;
-    gap: 8px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    gap: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .pagination button {
-    padding: 8px 16px;
+    padding: 5px 10px;
     border: 1px solid #2D3891;
     background-color: white;
     cursor: pointer;

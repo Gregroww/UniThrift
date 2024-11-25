@@ -40,8 +40,6 @@ if (isset($_POST['deskripsi'])) {
 $conn->close();
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,21 +62,28 @@ $conn->close();
     <div class="main-container">
         <div class="sidebar">
             <ul>
-                <li><a href="admin-konfirmasi-akun.php"><i class="fas fa-box"></i> Konfirmasi Akun</a></li>
-                <li><a href="admin-data-penjual.php"><i class="fas fa-box"></i> Data Penjual</a></li>
-                <li><a href="admin-data-barang.php"><i class="fas fa-box"></i> Data Barang</a></li>
-                <li><a href="admin-tentang-kami.php"><i class="fas fa-box"></i> Tentang Kami</a></li>
-                <li><a href="logout.php"><i class="fas fa-box"></i> Keluar</a></li>
-            </ul>            
+                <li><a href="admin-konfirmasi-akun.php"><i class="fa-solid fa-inbox"></i> Konfirmasi Akun</a></li>
+                <li><a href="admin-data-penjual.php"><i class="fa-solid fa-user"></i> Data Penjual</a></li>
+                <li><a href="admin-data-barang.php"><i class="fa-solid fa-cart-shopping"></i> Data Barang</a></li>
+                <li><a href="admin-tentang-kami.php"><i class="fa-solid fa-question"></i> Tentang Kami</a></li>
+                <li><a href="logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i> Keluar</a></li>
+            </ul>          
             <div class="footer">
                 <p>&copy; 2024 UniThrift</p>
             </div>
         </div>
         <div class="content">
             <h2>Tentang Kami</h2>
-            <div class="section-about_us" contenteditable="true" id="aboutUsContent">
+            <div class="section-about_us" id="aboutUsContent">
                 <h2>UniThrift Website Jual Beli Barang Anda</h2>
-                <p id="aboutUsDescription"><?php echo $deskripsi; ?></p>
+                <form action="admin-tentang-kami.php" method="POST">
+                    <textarea 
+                        id="aboutUsDescription" 
+                        name="deskripsi" 
+                        rows="20" 
+                        style="width: 100%; font-size: 16px; font-family: Arial, sans-serif;"
+                        placeholder="Masukkan deskripsi tentang website Anda..."><?php echo htmlspecialchars($deskripsi); ?></textarea>
+                </form>
             </div>
             <div class="button-simpan">
                 <button class="btn-simpan" onclick="saveChanges()">Simpan</button>

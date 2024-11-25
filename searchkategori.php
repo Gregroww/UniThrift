@@ -52,7 +52,7 @@ if (mysqli_num_rows($result) > 0) {
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
-                <p>Tidak ada barang yang ditemukan.</p>
+                <?php require "notfound.php"; ?>
             <?php endif; ?>
         </div>
     </form>

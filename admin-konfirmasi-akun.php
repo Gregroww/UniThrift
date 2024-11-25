@@ -45,11 +45,11 @@ $result = mysqli_query($conn, $query);
     <div class="main-container">
         <div class="sidebar">
             <ul>
-                <li><a href="admin-konfirmasi-akun.php"><i class="fas fa-box"></i> Konfirmasi Akun</a></li>
-                <li><a href="admin-data-penjual.php"><i class="fas fa-box"></i> Data Penjual</a></li>
-                <li><a href="admin-data-barang.php"><i class="fas fa-box"></i> Data Barang</a></li>
-                <li><a href="admin-tentang-kami.php"><i class="fas fa-box"></i> Tentang Kami</a></li>
-                <li><a href="logout.php"><i class="fas fa-box"></i> Keluar</a></li>
+                <li><a href="admin-konfirmasi-akun.php"><i class="fa-solid fa-inbox"></i> Konfirmasi Akun</a></li>
+                <li><a href="admin-data-penjual.php"><i class="fa-solid fa-user"></i> Data Penjual</a></li>
+                <li><a href="admin-data-barang.php"><i class="fa-solid fa-cart-shopping"></i> Data Barang</a></li>
+                <li><a href="admin-tentang-kami.php"><i class="fa-solid fa-question"></i> Tentang Kami</a></li>
+                <li><a href="logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i> Keluar</a></li>
             </ul>            
             <div class="footer">
                 <p>&copy;Copyright 2024 UniThrift</p>
@@ -86,11 +86,11 @@ $result = mysqli_query($conn, $query);
                             echo "<td>
                                     <form method='POST' style='display: inline-block;'>
                                         <input type='hidden' name='nama_pengguna' value='" . $user['nama_pengguna'] . "'>
-                                        <button type='submit' name='action' value='approve'><i class='ri-checkbox-line ri-3x'></i></button>
+                                        <button type='submit' name='action' value='approve'><i class='ri-checkbox-line ri-2x'></i></button>
                                     </form>
                                     <form method='POST' style='display: inline-block;'>
                                         <input type='hidden' name='nama_pengguna' value='" . $user['nama_pengguna'] . "'>
-                                        <button type='submit' name='action' value='reject'><i class='ri-close-fill ri-3x' style='color: red;'></i></button>
+                                        <button type='submit' name='action' value='reject'><i class='ri-close-fill ri-2x' style='color: red;'></i></button>
                                     </form>
                                   </td>";
                             echo "</tr>";
