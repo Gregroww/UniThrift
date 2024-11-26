@@ -41,6 +41,12 @@
     width: 300px;
     border-radius: 5px;
     height: auto;
+    color: gray;
+    padding-left: 8px;
+}
+
+option{
+    color: black;
 }
 
 .input-wrapper {
