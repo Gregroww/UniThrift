@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Waktu pembuatan: 25 Nov 2024 pada 12.03
+-- Waktu pembuatan: 26 Nov 2024 pada 05.55
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -36,6 +36,13 @@ CREATE TABLE `aboutus` (
   `deskripsi` varchar(700) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data untuk tabel `aboutus`
+--
+
+INSERT INTO `aboutus` (`foto1`, `foto2`, `foto3`, `deskripsi`) VALUES
+('', '', '', 'ini deskripsi');
+
 -- --------------------------------------------------------
 
 --
@@ -57,19 +64,42 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `nama_barang`, `harga`, `deskripsi`, `gambar`, `kategori`, `nama_pengguna`) VALUES
-(1, 'Honda Vario 125', 17500000, 'Motor ini gacor', 'Picture1.png', 'Kendaraan', 'rafly'),
-(2, 'Laptop Lenovo V14-ADA 82C6', 3800000, 'Laptop Gaming', 'Picture2.png', 'Elektronik', 'rafly'),
-(3, 'Iphone 12 64GB', 4000000, 'HP mewah ni bos', 'Picture3.png', 'Elektronik', 'cel'),
-(4, 'Berani Tidak Disukai (Novel)', 40000, 'Novel bagus', 'Picture4.png', 'Buku', 'rafly'),
-(5, 'TV LED Sharp 32inch (Smart TV)', 1400000, 'TV masih keadaan mulus', 'Picture5.png', 'Elektronik', 'rafly'),
-(6, 'Celana Hiking Uniqlo ori', 150000, 'ini celana bagus', 'Picture6.png', 'Pria', 'rafly'),
-(7, 'Daihatsu Sigra', 98000000, 'Mobil bagus ini', 'Picture7.png', 'Kendaraan', 'cel'),
-(8, 'Samsung Galaxy A13', 1235000, 'HP masih dalam keadaan mulus', 'Picture8.png', 'Elektronik', 'rafly'),
-(9, 'Panasonic Lumix DMC-F3', 705000, 'Kamera HD bagus', 'Picture9.png', 'Elektronik', 'rafly'),
-(10, 'Buku Filosofi Teras', 60000, 'Buku ini sangat bermanfaat', 'Picture10.png', 'Buku', 'rafly'),
-(11, 'Redmi Note 13', 2000000, 'Minus pemakaian', 'Picture13.png', 'Elektronik', 'cel'),
-(12, 'iPhone 15', 13000000, 'Free casing', 'Picture14.png', 'Elektronik', 'cel'),
-(13, 'Iphone 16', 22000000, 'Minus pemakaian', '673ebbe5627e6.png', 'Elektronik', 'cel');
+(1, 'Honda Vario 125', 17500000, 'Motor ini gacor', 'Picture1.png', 'Kendaraan', 'aiman'),
+(2, 'Laptop Lenovo V14-ADA 82C6', 3800000, 'Laptop Gaming', 'Picture2.png', 'Elektronik', 'aaa'),
+(3, 'Iphone 12 64GB', 4000000, 'HP mewah ni bos', 'Picture3.png', 'Elektronik', 'aiman'),
+(4, 'Berani Tidak Disukai (Novel)', 40000, 'Novel bagus', 'Picture4.png', 'Buku', 'aiman'),
+(5, 'TV LED Sharp 32inch (Smart TV)', 1400000, 'TV masih keadaan mulus', 'Picture5.png', 'Elektronik', 'aiman'),
+(6, 'Celana Hiking Uniqlo ori', 150000, 'ini celana bagus', 'Picture6.png', 'Pria', 'aiman'),
+(7, 'Daihatsu Sigra', 98000000, 'Mobil rongsok', 'Picture7.png', 'Kendaraan', 'aiman'),
+(8, 'Samsung Galaxy A13', 1235000, 'HP masih dalam keadaan mulus', 'Picture8.png', 'Elektronik', 'aaa'),
+(9, 'Panasonic Lumix DMC-F3', 705000, 'Kamera HD bagus', 'Picture9.png', 'Elektronik', 'aaa'),
+(10, 'Buku Filosofi Teras', 60000, 'Buku ini sangat bermanfaat', 'Picture10.png', 'Buku', 'aiman'),
+(11, 'Redmi Note 13', 2000000, 'Minus pemakaian', 'Picture13.png', 'Elektronik', 'aiman'),
+(12, 'iPhone 15', 13000000, 'Free casing', 'Picture14.png', 'Elektronik', 'aiman'),
+(13, 'Iphone 16', 22000000, 'Minus pemakaian', '673ebbe5627e6.png', 'Elektronik', 'aiman'),
+(14, 'qwerty', 5000, 'wasd', '6744e310e1d9f.png', 'Gaming', 'aiman'),
+(15, 'qqq', 1000, 'qwerty', '6744e3391e8b6.png', 'Gaming', 'aiman'),
+(16, 'cccc', 12345, 'cv', '6744e3588e68a.png', 'Pria', 'aiman');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `location`
+--
+
+CREATE TABLE `location` (
+  `kota` varchar(50) NOT NULL,
+  `latitude` float(10,6) NOT NULL,
+  `longitude` float(10,6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `location`
+--
+
+INSERT INTO `location` (`kota`, `latitude`, `longitude`) VALUES
+('Balikpapan', -1.269160, 116.828873),
+('Samarinda', -0.502106, 117.153709);
 
 -- --------------------------------------------------------
 
@@ -85,7 +115,8 @@ CREATE TABLE `users` (
   `kata_sandi` varchar(255) NOT NULL,
   `foto_ktm` varchar(255) NOT NULL,
   `role` varchar(10) DEFAULT NULL,
-  `lokasi` varchar(255) DEFAULT NULL,
+  `lokasi` varchar(50) DEFAULT NULL,
+  `alamat` varchar(255) NOT NULL,
   `id_barang` int(11) DEFAULT NULL,
   `status` enum('pending','approved','rejected') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -94,10 +125,10 @@ CREATE TABLE `users` (
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`nama`, `nama_pengguna`, `no_hp`, `email`, `kata_sandi`, `foto_ktm`, `role`, `lokasi`, `id_barang`, `status`) VALUES
-('cel', 'cel', '123', 'celio@gmail.com', '$2y$10$PZXY6DRVss/HpC6oLv1swujOXGQPGca1ZN2iUPuS6c6oAoKLB1ye6', 'profil.png', 'user', 'Balikpapan', NULL, 'approved'),
-('q', 'q', '1', 'dddddd@gmail.com', '$2y$10$d6uCitiVcZ8.XrdOLfRNSecZFntUQZFZho.fKt2fPSeTNgqS6gwsu', 'Screenshot 2024-11-12 113947.png', 'user', '', NULL, 'pending'),
-('rafly', 'rafly', '123', 'rafly@gmail.com', '$2y$10$zToXUhBAqV3FPZZ83z2D4.gwIHTOQf6IsxBsyHdS2Xj9wrwTF49Cu', 'foto_profil.jpg', 'user', 'Samarinda', NULL, 'pending');
+INSERT INTO `users` (`nama`, `nama_pengguna`, `no_hp`, `email`, `kata_sandi`, `foto_ktm`, `role`, `lokasi`, `alamat`, `id_barang`, `status`) VALUES
+('aaa', 'aaa', '123', 'user123@gmail.com', '$2y$10$Y2p6yqxau53qnZKANI9GmOKr.iATKdvEh9oKyu1YNIfNq/3jjvZeq', 'Cuplikan layar 2024-02-16 202255.png', 'user', 'Samarinda', '', NULL, 'approved'),
+('aiman', 'aiman', '123', 'user@gmail.com', '$2y$10$GFp6WOnB.knPEvHMHIvzcu9GAWOcVU2h2iHod10y3ZIk1ZQ/9jHxq', 'Cuplikan layar 2024-02-17 220322.png', 'user', 'Balikpapan', '', NULL, 'approved'),
+('fff', 'fff', '12345', 'user1@gmail.com', '$2y$10$z2M0BmHnN6j1PwLE2j7CXu53F0UOe7.JQtMLafPBWliS7C0c0.yM6', 'Cuplikan layar 2024-02-09 225744.png', 'user', 'Balikpapan', '', NULL, 'pending');
 
 --
 -- Indexes for dumped tables
@@ -111,11 +142,18 @@ ALTER TABLE `barang`
   ADD KEY `fk_nama_pengguna` (`nama_pengguna`);
 
 --
+-- Indeks untuk tabel `location`
+--
+ALTER TABLE `location`
+  ADD PRIMARY KEY (`kota`);
+
+--
 -- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`nama_pengguna`),
-  ADD KEY `fk_id_barang` (`id_barang`);
+  ADD KEY `fk_id_barang` (`id_barang`),
+  ADD KEY `fk_lokasi_user` (`lokasi`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
@@ -125,7 +163,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -141,7 +179,7 @@ ALTER TABLE `barang`
 -- Ketidakleluasaan untuk tabel `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `fk_id_barang` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id_barang`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_lokasi_user` FOREIGN KEY (`lokasi`) REFERENCES `location` (`kota`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

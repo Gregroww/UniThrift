@@ -1,27 +1,41 @@
 <?php
 require "connect.php";
 
+// Ambil parameter pencarian dan lokasi dari URL
 $search = isset($_GET['search']) ? $_GET['search'] : '';
 $lokasi = isset($_GET['lokasi']) ? $_GET['lokasi'] : '';
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $limit = 10;
-$offset = ($page - 1) * $limit;
+$offset = ($page - 1) * $limit; 
 
-$barang = [];
-if (!empty($search) || !empty($lokasi)) {
-    $sql = "SELECT barang.*, users.lokasi FROM barang 
+// Query untuk menghitung jumlah total barang yang sesuai dengan kriteria pencarian
+$totalQuery = "SELECT COUNT(*) as total FROM barang 
     JOIN users ON barang.nama_pengguna = users.nama_pengguna 
     WHERE (barang.nama_barang LIKE '%$search%' OR barang.kategori LIKE '%$search%')";
-    if (!empty($lokasi)) {
-        $sql .= " AND users.lokasi = '$lokasi'";
-    }
-    $sql .= " LIMIT $limit OFFSET $offset"; // Limit the results to 10 items with offset
-    $result = mysqli_query($conn, $sql);
+if (!empty($lokasi)) {
+    $totalQuery .= " AND users.lokasi = '$lokasi'";
+}
+$totalResult = mysqli_query($conn, $totalQuery);
+$totalRow = mysqli_fetch_assoc($totalResult);
+$totalItems = $totalRow['total'];
 
-    if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            $barang[] = $row;
-        }
+// Hitung jumlah total halaman
+$totalPages = ceil($totalItems / $limit);
+
+// Query untuk mengambil barang sesuai dengan kriteria pencarian dan pagination
+$query = "SELECT barang.id_barang, barang.nama_barang, barang.harga, barang.gambar FROM barang 
+    JOIN users ON barang.nama_pengguna = users.nama_pengguna 
+    WHERE (barang.nama_barang LIKE '%$search%' OR barang.kategori LIKE '%$search%')";
+if (!empty($lokasi)) {
+    $query .= " AND users.lokasi = '$lokasi'";
+}
+$query .= " LIMIT $limit OFFSET $offset";
+$result = mysqli_query($conn, $query);
+
+$barang = [];
+if ($result && mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $barang[] = $row;
     }
 }
 ?>
@@ -65,8 +79,19 @@ if (!empty($search) || !empty($lokasi)) {
         <?php if ($page > 1): ?>
             <button onclick="navigateToPage(<?php echo $page - 1; ?>)">&lt;</button>
         <?php endif; ?>
-        <span class="page"> <?php echo $page; ?></span>
-        <?php if (count($barang) == $limit): ?>
+
+        <?php
+        // Menentukan halaman yang akan ditampilkan
+        $startPage = max(1, $page - 1);
+        $endPage = min($startPage + 1, $totalPages);
+
+        for ($i = $startPage; $i <= $endPage; $i++): ?>
+            <button onclick="navigateToPage(<?php echo $i; ?>)" <?php if ($i == $page) echo 'class="active"'; ?>>
+                <?php echo $i; ?>
+            </button>
+        <?php endfor; ?>
+
+        <?php if ($page < $totalPages): ?>
             <button onclick="navigateToPage(<?php echo $page + 1; ?>)">&gt;</button>
         <?php endif; ?>
     </div>
