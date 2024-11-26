@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Profile</title>
+  <link rel="stylesheet" href="/style/edit-page-profile.css">
+</head>
+<body>
+    <div class="profile-update-form">
+        <h2>Update Profile</h2>
+        <form>
+            <!-- Foto Profil -->
+            <div class="form-group profile-picture-group">
+                <label for="profilePicture">Foto Profil</label>
+                <div class="profile-picture">
+                    <img id="profileImage" src="default-profile.jpg" alt="Foto Profil">
+                </div>
+                <input type="file" id="profilePicture" accept="image/*" onchange="previewImage(event)">
+            </div>
+            <div class="form-group">
+                <label for="name">Nama</label>
+                <input type="text" id="name" placeholder="Masukkan nama Anda">
+            </div>
+            <div class="form-group">
+                <label for="location">Lokasi</label>
+                <input type="text" id="location" placeholder="Masukkan lokasi Anda">
+            </div>
+            <div class="form-group">
+                <label for="address">Alamat</label>
+                <input type="text" id="address" placeholder="Masukkan alamat Anda">
+            </div>
+            <div class="form-group">
+                <label for="phone">Nomor Telepon</label>
+                <input type="tel" id="phone" placeholder="Masukkan nomor telepon">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Masukkan email Anda">
+            </div>
+            <button type="submit">Simpan</button>
+        </form>
+    </div>
+    <script>
+    // Fungsi untuk preview gambar baru
+    function previewImage(event) {
+      const profileImage = document.getElementById('profileImage');
+      const file = event.target.files[0];
+
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          profileImage.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+    </script>
+</body>
+</html>
