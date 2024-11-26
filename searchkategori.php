@@ -3,22 +3,35 @@ require "connect.php";
 
 $search = isset($_GET['search']) ? $_GET['search'] : '';
 $lokasi = isset($_GET['lokasi']) ? $_GET['lokasi'] : '';
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$limit = 10;
+$offset = ($page - 1) * $limit; 
 
-$barang = [];
-if (!empty($search) || !empty($lokasi)) {
-    $sql = "SELECT barang.*, users.lokasi FROM barang 
+$totalQuery = "SELECT COUNT(*) as total FROM barang 
     JOIN users ON barang.nama_pengguna = users.nama_pengguna 
     WHERE (barang.nama_barang LIKE '%$search%' OR barang.kategori LIKE '%$search%')";
 if (!empty($lokasi)) {
-    $sql .= " AND users.lokasi = '$lokasi'";
+    $totalQuery .= " AND users.lokasi = '$lokasi'";
 }
-$result = mysqli_query($conn, $sql);
+$totalResult = mysqli_query($conn, $totalQuery);
+$totalRow = mysqli_fetch_assoc($totalResult);
+$totalItems = $totalRow['total'];
+$totalPages = ceil($totalItems / $limit);
 
-if (mysqli_num_rows($result) > 0) {
-    while ($row = mysqli_fetch_assoc($result)) {
-    $barang[] = $row;
-    }
+$query = "SELECT barang.id_barang, barang.nama_barang, barang.harga, barang.gambar FROM barang 
+    JOIN users ON barang.nama_pengguna = users.nama_pengguna 
+    WHERE (barang.nama_barang LIKE '%$search%' OR barang.kategori LIKE '%$search%')";
+if (!empty($lokasi)) {
+    $query .= " AND users.lokasi = '$lokasi'";
 }
+$query .= " LIMIT $limit OFFSET $offset";
+$result = mysqli_query($conn, $query);
+
+$barang = [];
+if ($result && mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $barang[] = $row;
+    }
 }
 ?>
 
@@ -56,16 +69,34 @@ if (mysqli_num_rows($result) > 0) {
             <?php endif; ?>
         </div>
     </form>
-
     <div class="pagination">
-        <button id="prev">&lt;</button>
-        <button class="page" data-page="1">1</button>
-        <button class="page" data-page="2">2</button>
-        <button id="next">&gt;</button>
+        <?php if ($page > 1): ?>
+            <button onclick="navigateToPage(<?php echo $page - 1; ?>)">&lt;</button>
+        <?php endif; ?>
+
+        <?php
+        $startPage = max(1, $page - 1);
+        $endPage = min($startPage + 1, $totalPages);
+
+        for ($i = $startPage; $i <= $endPage; $i++): ?>
+            <button onclick="navigateToPage(<?php echo $i; ?>)" <?php if ($i == $page) echo 'class="active"'; ?>>
+                <?php echo $i; ?>
+            </button>
+        <?php endfor; ?>
+
+        <?php if ($page < $totalPages): ?>
+            <button onclick="navigateToPage(<?php echo $page + 1; ?>)">&gt;</button>
+        <?php endif; ?>
     </div>
-    <div id="results"></div>
     <!--Footer-->
     <?php require "footer.php"; ?>
     <script src="scripts/script.js"></script>
+    <script>
+    function navigateToPage(page) {
+        const searchParams = new URLSearchParams(window.location.search);
+        searchParams.set('page', page);
+        window.location.search = searchParams.toString();
+    }
+    </script>
 </body>
 </html>

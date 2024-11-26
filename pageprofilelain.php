@@ -64,17 +64,17 @@ $products = $result_products->fetch_all(MYSQLI_ASSOC);
             <input type="text" placeholder="Cari">
             <input type="text" placeholder="Kota">
             <button class="search-button">
-                <i class="fa-solid fa-magnifying-glass"></i>
+                <p class="fa-solid fa-magnifying-glass"></p>
             </button>
         </div>
     </div>
-    <div class="nav-links">
+    <div class="nav-links ">
         <a href="index.php">Beranda</a>
         <a href="tentang-kami.php">Tentang Kami</a>
         <?php if ($User): ?>
             <a href="logout.php">Keluar</a>
-            <a href="sellpage.php" class="jual-btn">Jual</a>
-            <a href="pageprofile.php?nama_pengguna=<?php echo htmlspecialchars($User['nama_pengguna']); ?>">
+            <a href="sellpage.php" class="jual-btn no-hover">Jual</a>
+            <a href="pageprofile.php?nama_pengguna=<?php echo htmlspecialchars($User['nama_pengguna']); ?> " class="no-hover">
                 <img src="images/<?php echo htmlspecialchars($User['foto_ktm']); ?>" alt="Foto Profil" class="foto-profil">
             </a>
         <?php else: ?>

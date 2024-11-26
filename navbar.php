@@ -25,8 +25,7 @@ if (isset($_SESSION['nama_pengguna'])) {
     <nav class="navbar">
         <div class="logo">
             <img src="assets/logo.png" alt="UniThrift Logo">
-        </div>
-        
+        </div>  
         <div class="search-container">
             <form action="searchkategori.php" method="GET" class="input-wrapper">
                 <input type="text" name="search" placeholder="Cari">

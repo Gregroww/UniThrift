@@ -103,8 +103,10 @@ $randomProducts = getProducts($conn);
         </a>
     </nav>
     <div class="banner">
-        <img src="assets/UniThrift.png" alt="UniThrift" class="banner-image">
-    </div>
+        <img src="assets/UniThrift.png" alt="UniThrift" class="banner-image" id="bannerImage1">
+        <img src="assets/banner2.1.png" alt="Banner 2" class="banner-image" id="bannerImage2">
+        <img src="assets/banner4.png" alt="Banner 3" class="banner-image" id="bannerImage3">
+    </div>
     <div class="product-title">
         <span class="title">Kategori Terpopuler</span>
     </div>
@@ -192,9 +194,7 @@ $randomProducts = getProducts($conn);
         let offset = 10;
         const limit = 10;
         document.getElementById('load-more').addEventListener('click', function () {
-            // Sembunyikan tombol setelah diklik
             this.style.display = 'none';
-
             fetch('load_more_products.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -203,12 +203,10 @@ $randomProducts = getProducts($conn);
             .then(response => response.json())
             .then(data => {
                 const contentGrid = document.querySelector('.content-grid');
-
                 if (data.length > 0) {
                     data.forEach(product => {
                         const productBox = document.createElement('div');
                         productBox.className = 'content-box';
-
                         productBox.innerHTML = `
                             <form action="productpage.php" method="GET">
                                 <button type="submit" name="id" value="${product.id_barang}" class="content-button">
@@ -233,6 +231,20 @@ $randomProducts = getProducts($conn);
                 }
             })
             .catch(error => console.error('Error fetching more products:', error));
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+        const banners = document.querySelectorAll(".banner-image");
+        let currentIndex = 0;
+        function changeBanner() {
+            banners.forEach((banner, index) => {
+                banner.classList.remove("active");
+            });
+            banners[currentIndex].classList.add("active");
+            currentIndex = (currentIndex + 1) % banners.length;
+            }
+            setInterval(changeBanner, 5000);
+            changeBanner();
         });
     </script>
     <?php require "footer.php"; ?>

@@ -16,13 +16,14 @@ $stmt->execute();
 $result = $stmt->get_result();
 $user = $result->fetch_assoc();
 
+
 if ($user) {
     $foto_ktm = $user['foto_ktm'];
     $penjual_nama_pengguna = $user['nama_pengguna'];
     $lokasi = $user['lokasi'];
     $no_hp = $user['no_hp'];
     $email = $user['email'];
-
+    $alamat = $user['alamat'];
     $foto_path = "images/" . htmlspecialchars($foto_ktm);
     if (!file_exists($foto_path)) {
         $foto_path = "images/default.jpg";
@@ -30,6 +31,10 @@ if ($user) {
 } else {
     echo "Data pengguna tidak ditemukan.";
     exit;
+}
+
+if (empty($lokasi)) {
+    $lokasi = "Alamat tidak tersedia.";
 }
 
 $sql = "SELECT location.latitude, location.longitude 
@@ -46,8 +51,8 @@ if ($result->num_rows > 0) {
     $latitude = $row['latitude'];
     $longitude = $row['longitude'];
 } else {
-    echo "Tidak ada data lokasi";
-    exit;
+    $latitude = 0;
+    $longitude = 0;
 }
 
 $stmt->close();
@@ -56,6 +61,7 @@ $conn->close();
 $map_url = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127150.123456789!2d" . $longitude . "!3d" . $latitude . "!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df1467e22f1381fdd%3A0x5c64a9baf16e2da8!2s" . urlencode($lokasi) . "!5e0!3m2!1sen!2sid!4v1699999999999";
 ?>
 
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -63,14 +69,15 @@ $map_url = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127150.1234567
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontak Penjual</title>
     <link rel="stylesheet" href="style/contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <?php require "navbar.php"; ?>
     </header>
     <div class="card">
-        <h2>Kontak Penjual</h2>
         <div class="grid-container">
+            <!-- Left Section -->
             <div class="left-section">
                 <div class="profile">
                     <div class="profile-image-wrapper">
@@ -80,18 +87,17 @@ $map_url = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127150.1234567
                                 class="profile-image">
                         </a>
                     </div>
-                    <h3>
-                        <?php echo htmlspecialchars($penjual_nama_pengguna); ?>
-                    </h3>
-                    <div class="location">
+                    <h3><?php echo htmlspecialchars($penjual_nama_pengguna); ?></h3>
+                </div>
+                <!-- Container Info Seller -->
+                <div class="contact-container">
+                    <div class="contact-item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                             <circle cx="12" cy="10" r="3"></circle>
                         </svg>
                         <?php echo htmlspecialchars($lokasi); ?>
                     </div>
-                </div>
-                <div class="contact-info">
                     <div class="contact-item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
@@ -106,15 +112,19 @@ $map_url = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127150.1234567
                         <?php echo htmlspecialchars($email); ?>
                     </div>
                 </div>
+                <div class="location-detail">
+                    <h4>Detail Alamat</h4>
+                    <p><?php echo htmlspecialchars($alamat); ?></p>
+                </div>
             </div>
+            <!-- Right Section -->
             <div class="right-section">
-                <h4>Lokasi Penjual</h4>
                 <div class="map-container">
                     <iframe 
-                        src="<?php echo $map_url; ?>"
+                        src="<?php echo $map_url; ?>" 
                         width="100%" 
-                        height="300" 
-                        style="border:0;" 
+                        height="100%" 
+                        style="border: 0; border-top-right-radius: 20px; border-bottom-right-radius: 20px;" 
                         allowfullscreen="" 
                         loading="lazy" 
                         referrerpolicy="no-referrer-when-downgrade">
