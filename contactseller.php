@@ -77,7 +77,7 @@ $map_url = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127150.1234567
     </header>
     <div class="card">
         <div class="grid-container">
-            <!-- Left Section -->
+    
             <div class="left-section">
                 <div class="profile">
                     <div class="profile-image-wrapper">
@@ -89,7 +89,7 @@ $map_url = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127150.1234567
                     </div>
                     <h3><?php echo htmlspecialchars($penjual_nama_pengguna); ?></h3>
                 </div>
-                <!-- Container Info Seller -->
+    
                 <div class="contact-container">
                     <div class="contact-item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -117,7 +117,7 @@ $map_url = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127150.1234567
                     <p><?php echo htmlspecialchars($alamat); ?></p>
                 </div>
             </div>
-            <!-- Right Section -->
+        
             <div class="right-section">
                 <div class="map-container">
                     <iframe 
