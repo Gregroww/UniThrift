@@ -15,12 +15,10 @@ $query->execute();
 $result = $query->get_result();
 $user = $result->fetch_assoc();
 
-
 if (!$user) {
     echo "Pengguna tidak ditemukan.";
     exit();
 }
-
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -29,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $address = $_POST['address'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
+
 
     $profile_picture = $user['foto_ktm'];
     if (isset($_FILES['profile_picture']) && $_FILES['profile_picture']['error'] == 0) {
@@ -46,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $update_query->bind_param("sssssss", $name, $location, $address, $phone, $email, $profile_picture, $nama_pengguna);
     $update_query->execute();
 
-    echo "Profile updated successfully!";
+    echo "Profil berhasil diperbarui!";
     header("Location: pageprofile.php");
     exit();
 }
@@ -74,23 +73,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
             <div class="form-group">
                 <label for="name">Nama</label>
-                <input type="text" name="name" id="name" value="<?= $user['nama']; ?>" placeholder="Masukkan nama Anda">
+                <input type="text" name="name" id="name" value="<?= htmlspecialchars($user['nama']); ?>" placeholder="Masukkan nama Anda" required>
             </div>
             <div class="form-group">
                 <label for="location">Lokasi</label>
-                <input type="text" name="location" id="location" value="<?= $user['lokasi']; ?>" placeholder="Masukkan lokasi Anda">
+                <div style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 5px; overflow: hidden;">
+                    <select name="location" id="location" class="form-control" style="border: none; flex: 1; padding: 5px;" required>
+                        <?php
+                        $result = mysqli_query($conn, "SELECT kota FROM location");
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $selected = ($row['kota'] == $user['lokasi']) ? 'selected' : '';
+                            echo "<option value='" . $row['kota'] . "' $selected>" . $row['kota'] . "</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
             </div>
             <div class="form-group">
                 <label for="address">Alamat</label>
-                <input type="text" name="address" id="address" value="<?= $user['alamat']; ?>" placeholder="Masukkan alamat Anda">
+                <input type="text" name="address" id="address" value="<?= htmlspecialchars($user['alamat']); ?>" placeholder="Masukkan alamat Anda" required>
             </div>
             <div class="form-group">
                 <label for="phone">Nomor Telepon</label>
-                <input type="tel" name="phone" id="phone" value="<?= $user['no_hp']; ?>" placeholder="Masukkan nomor telepon">
+                <input type="tel" name="phone" id="phone" value="<?= htmlspecialchars($user['no_hp']); ?>" placeholder="Masukkan nomor telepon" required>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" value="<?= $user['email']; ?>" placeholder="Masukkan email Anda">
+                <input type="email" name="email" id="email" value="<?= htmlspecialchars($user['email']); ?>" placeholder="Masukkan email Anda" required>
             </div>
             <button type="submit">Simpan</button>
         </form>

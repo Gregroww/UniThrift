@@ -9,7 +9,20 @@ if (isset($_SESSION['nama_pengguna'])) {
     $user = mysqli_fetch_assoc($result);
     $foto_ktm = $user['foto_ktm'];
 }
+
+$sql = "SELECT deskripsi FROM aboutus LIMIT 1";
+$result = $conn->query($sql);
+
+$deskripsi = "";
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $deskripsi = $row['deskripsi'];
+} else {
+    $deskripsi = "Deskripsi belum tersedia.";
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,20 +75,7 @@ if (isset($_SESSION['nama_pengguna'])) {
             <img src="assets/image 15.png" alt="foto1">
         </div>
         <div class="text">
-            <p>Selamat datang di Unithrift, platform jual beli barang bekas khusus mahasiswa yang dirancang
-                untuk memudahkan transaksi dalam komunitas kampus.
-                Unithrift didirikan dengan tujuan untuk membantu mahasiswa menemukan kebutuhan mereka dengan
-                harga terjangkau,
-                sekaligus memberikan kesempatan bagi mahasiswa lainnya untuk menjual barang yang sudah tidak
-                terpakai.
-            </p>
-            <br>
-            <p>Di UniTrift, setiap pengguna adalah seorang mahasiswa,
-                sehingga Anda bisa membeli dan menjual barang dengan sesama rekan kampus.
-                Kepercayaan dan keamanan adalah prioritas kami, maka dari itu, untuk mendaftar di UniTrift,
-                setiap pengguna perlu mengonfirmasi status mahasiswa mereka dengan mengunggah kartu tanda
-                mahasiswa.
-            </p>
+          <p><?php echo htmlspecialchars($deskripsi); ?></p>
         </div>
         <div class="image-right">
             <img src="assets/—Pngtree—online shopping isometric shopping cart_5324780 1.png" alt="foto2">

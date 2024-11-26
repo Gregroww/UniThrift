@@ -12,7 +12,6 @@ body {
     background-color: #ffffff;
 }
 
-
 .main-content {
     position: relative;
     width: 100%;
@@ -64,12 +63,6 @@ body {
     margin-right: auto;
     gap: 35px;
     padding: 50px 35px;
-}
-
-.text p {
-    line-height: 44px; 
-    font-family: 'Roboto'; 
-     
 }
 
 .image-right {
