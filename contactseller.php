@@ -117,10 +117,9 @@ $map_url = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127150.1234567
                     <p><?php echo htmlspecialchars($alamat); ?></p>
                 </div>
             </div>
-        
             <div class="right-section">
                 <div class="map-container">
-                    <iframe 
+                    <iframe class ="map-frame"
                         src="<?php echo $map_url; ?>" 
                         width="100%" 
                         height="100%" 
