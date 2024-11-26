@@ -84,9 +84,6 @@ if (isset($_POST["submit"])) {
                 <div class="input-group">
                     <input type="password" name="kata_sandi" placeholder="Kata Sandi" required>
                 </div>
-                <div class="forgot-password">
-                    <a href="#">Lupa password?</a>
-                </div>
                 <button type="submit" name="submit" class="login-button">MASUK</button>
                 <div class="register-link">
                     Belum punya akun? Buat di <a href="register.php">sini</a>
