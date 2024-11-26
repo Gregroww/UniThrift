@@ -2,31 +2,38 @@
 session_start();
 require 'connect.php';
 
-$nama_pengguna = $_GET['nama_pengguna'] ?? '';
-
-if (empty($nama_pengguna)) {
-    echo "Nama pengguna tidak valid.";
-    exit;
+$User = null;
+if (isset($_SESSION['nama_pengguna'])) {
+    $sql_user = "SELECT * FROM users WHERE nama_pengguna = ?";
+    $stmt_user = $conn->prepare($sql_user);
+    $stmt_user->bind_param("s", $_SESSION['nama_pengguna']);
+    $stmt_user->execute();
+    $result_user = $stmt_user->get_result();
+    $User = $result_user->fetch_assoc();
 }
 
-$sql_user = "SELECT * FROM users WHERE nama_pengguna = ?";
-$stmt_user = $conn->prepare($sql_user);
-$stmt_user->bind_param("s", $nama_pengguna);
-$stmt_user->execute();
-$result_user = $stmt_user->get_result();
-$user = $result_user->fetch_assoc();
+$viewedUser = null;
+$nama_pengguna = $_GET['nama_pengguna'] ?? '';
+if (!empty($nama_pengguna)) {
+    $sql_viewed_user = "SELECT * FROM users WHERE nama_pengguna = ?";
+    $stmt_viewed_user = $conn->prepare($sql_viewed_user);
+    $stmt_viewed_user->bind_param("s", $nama_pengguna);
+    $stmt_viewed_user->execute();
+    $result_viewed_user = $stmt_viewed_user->get_result();
+    $viewedUser = $result_viewed_user->fetch_assoc();
+}
 
-if (!$user) {
+if (!$viewedUser) {
     echo "Pengguna tidak ditemukan.";
     exit;
 }
 
-$foto_ktm = $user['foto_ktm'] ?: 'default.jpg';
-$nama = $user['nama'];
-$lokasi = $user['lokasi'];
-$no_hp = $user['no_hp'];
-$email = $user['email'];
-$nama_pengguna = $user['nama_pengguna'];
+$foto_ktm = $viewedUser['foto_ktm'] ?: 'default.jpg';
+$nama = $viewedUser['nama'];
+$lokasi = $viewedUser['lokasi'];
+$no_hp = $viewedUser['no_hp'];
+$email = $viewedUser['email'];
+$nama_pengguna = $viewedUser['nama_pengguna'];
 
 $sql_products = "SELECT * FROM barang WHERE nama_pengguna = ?";
 $stmt_products = $conn->prepare($sql_products);
@@ -48,39 +55,39 @@ $products = $result_products->fetch_all(MYSQLI_ASSOC);
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/2.5.0/remixicon.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="assets/logo.png" alt="UniThrift Logo">
+<nav class="navbar">
+    <div class="logo">
+        <img src="assets/logo.png" alt="UniThrift Logo">
+    </div>
+    <div class="search-container">
+        <div class="input-wrapper">
+            <input type="text" placeholder="Cari">
+            <input type="text" placeholder="Kota">
+            <button class="search-button">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
         </div>
-        
-        <div class="search-container">
-            <div class="input-wrapper">
-                <input type="text" placeholder="Cari">
-                <input type="text" placeholder="Kota">
-                <button class="search-button">
-                <p class="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </div>
-        </div> 
-        <div class="nav-links">
-            <a href="index.php">Beranda</a>
-            <a href="tentang-kami.php">Tentang Kami</a>
-            <?php if(isset($_SESSION['nama_pengguna'])): ?>
-                <a href="logout.php">Keluar</a>
-                <a href="sellpage.php" class="jual-btn">Jual</a>
-                <a href="pageprofile.php">
-                    <img src="images/<?php echo htmlspecialchars($user['foto_ktm']); ?>" alt="Foto Profil" class="foto-profil">
-                </a>
-            <?php else: ?>
-                <a href="login.php">Masuk</a>
-            <?php endif; ?>
-        </div>
-    </nav>
+    </div>
+    <div class="nav-links">
+        <a href="index.php">Beranda</a>
+        <a href="tentang-kami.php">Tentang Kami</a>
+        <?php if ($User): ?>
+            <a href="logout.php">Keluar</a>
+            <a href="sellpage.php" class="jual-btn">Jual</a>
+            <a href="pageprofile.php?nama_pengguna=<?php echo htmlspecialchars($User['nama_pengguna']); ?>">
+                <img src="images/<?php echo htmlspecialchars($User['foto_ktm']); ?>" alt="Foto Profil" class="foto-profil">
+            </a>
+        <?php else: ?>
+            <a href="login.php">Masuk</a>
+        <?php endif; ?>
+    </div>
+</nav>
+
 <main class="profile-container">
     <h1 class="profile-title">Profil Pengguna</h1>
     <div class="profile-card">
         <div class="profile-banner">
-            <img src="images/profilebanner.jpg" alt="Profile Banner">
+            <img src="assets/profilebanner.jpg" alt="Profile Banner">
         </div>
         <div class="background">
             <div class="profile-image-container">

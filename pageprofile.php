@@ -72,14 +72,16 @@ $resultBarang = $queryBarang->get_result();
     <h1 class="profile-title">Profil Pengguna</h1>
     <div class="profile-card">
       <div class="profile-banner">
-        <img src="images/profilebanner.jpg" alt="Profile Banner">
+        <img src="assets/profilebanner.jpg" alt="Profile Banner">
       </div>
       <div class="background">
         <div class="profile-image-container">
             <!-- Menampilkan foto profil dari database -->
             <img src="images/<?php echo htmlspecialchars($user['foto_ktm']); ?>" alt="Foto Pengguna" class="profile-image">
             <div class="edit-icon">
-                <button><i class="ri-pencil-line"> </i> </button>
+                <a href="updateprofile.php">
+                    <button><i class="ri-pencil-line"> </i></button>
+                </a>
             </div>
         </div>
         <div class="profile-details">
@@ -109,11 +111,13 @@ $resultBarang = $queryBarang->get_result();
         <div class="product-grid">
             <?php while ($barang = $resultBarang->fetch_assoc()): ?>
                 <div class="product-card">
-                    <a href="<?php echo htmlspecialchars($barang['nama_barang']); ?>" class="product-link">
-                        <img src="images/<?php echo htmlspecialchars($barang['gambar']); ?>" alt="<?php echo htmlspecialchars($barang['nama_barang']); ?>" class="product-image">
-                    <h3 class="product-name"><?php echo htmlspecialchars($barang['nama_barang']); ?></h3>
-                    <p class="product-price">Rp. <?php echo number_format($barang['harga'], 0, ',', '.'); ?></p>
-                    </a>
+                    <form action="productpage.php" method="GET">
+                        <button type="submit" name="id" value="<?php echo htmlspecialchars($barang['id_barang']); ?>" class="product-link">
+                            <img src="images/<?php echo htmlspecialchars($barang['gambar']); ?>" alt="<?php echo htmlspecialchars($barang['nama_barang']); ?>" class="product-image">
+                            <h3 class="product-name"><?php echo htmlspecialchars($barang['nama_barang']); ?></h3>
+                            <p class="product-price">Rp. <?php echo number_format($barang['harga'], 0, ',', '.'); ?></p>
+                        </button>
+                    </form>
                 </div>
             <?php endwhile; ?>
         </div>

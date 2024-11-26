@@ -179,6 +179,29 @@ body {
     box-shadow: 0 6px 16px rgba(108, 92, 231, 0.4);
 }
 
+.edit-button {
+    width: 100%;
+    max-width: 380px;
+    background: #2D3891;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 16px 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(45, 56, 145, 0.3);
+    height: auto;
+}
+
+.edit-button:hover {
+    background: #6c5ce7;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(108, 92, 231, 0.4);
+}
+
 .category h2, .description h2 {
     font-size: 18px;
     color: #2D3891;

@@ -18,14 +18,8 @@ body {
     width: 100%;
     align-items: center;
     justify-content: center;
-    /* background: url(../images/image\ 13.png) no-repeat; */
-    /* background-position: center; */
-    /* background-size: cover; */
-    /* padding-top: 10rem; */
-    /* padding-bottom: 10rem; */
     text-align: center;
     flex-direction: column;
-    /* background: rgba(40, 40, 40, 0.4); */
     height: max-content;
     overflow: hidden;
 }
@@ -45,6 +39,7 @@ body {
 
 .main-content img {
     filter: brightness(50%);
+    width: 100%;
 }
 
 .main-content h3 {
@@ -64,7 +59,9 @@ body {
 
 .container {
     display: flex;
-    flex-direction: row;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
     gap: 35px;
     padding: 50px 35px;
 }

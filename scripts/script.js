@@ -39,23 +39,3 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
-
-function saveChanges() {
-    const aboutUsText = document.getElementById('aboutUsContent').innerHTML;
-    
-    fetch('admin-tentang-kami.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: 'deskripsi=' + encodeURIComponent(aboutUsText)
-    })
-    .then(response => response.text())
-    .then(data => {
-        alert('Perubahan berhasil disimpan!');
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('Terjadi kesalahan saat menyimpan perubahan.');
-    });
-}

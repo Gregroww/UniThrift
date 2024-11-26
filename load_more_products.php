@@ -14,7 +14,6 @@ function getProducts($conn, $offset = 0, $limit = 10) {
     return $products;  
 }
 
-// Mengambil nilai offset dan limit dari permintaan POST
 $offset = isset($_POST['offset']) ? intval($_POST['offset']) : 0;
 $limit = isset($_POST['limit']) ? intval($_POST['limit']) : 10;
 

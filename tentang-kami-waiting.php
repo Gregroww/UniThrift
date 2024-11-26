@@ -43,7 +43,7 @@ if (isset($_SESSION['nama_pengguna'])) {
             <?php if(isset($_SESSION['nama_pengguna'])): ?>
                 <a href="logout.php">Keluar</a>
                 <a href="pageprofile(not-confirm).php">
-                <img src="assets/<?php echo $foto_ktm; ?>" alt="Foto Profil" class="foto-profil">
+                <img src="images/<?php echo $foto_ktm; ?>" alt="Foto Profil" class="foto-profil">
                 </a>
             <?php endif; ?>
         </div>
@@ -84,7 +84,7 @@ if (isset($_SESSION['nama_pengguna'])) {
     <footer class="footer">
     <div class="footer-container">
         <div class="footer-left">
-            <img src="images/logo.png" alt="UniThrift Logo">
+            <img src="assets/logo.png" alt="UniThrift Logo">
             <div class="footer-bottom">
                 <p class="footer-text">Copyright © 2024 UniThrift. All rights reserved.</p>
                 <div class="footer-links">

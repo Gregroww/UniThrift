@@ -1,13 +1,13 @@
 <?php
 session_start();
 require "connect.php";
+
 if (!isset($_SESSION['admin'])) {
     header("Location: login.php");
     exit();
 }
 
 $deskripsi = "";
-
 $sql = "SELECT deskripsi FROM aboutus LIMIT 1";
 $result = $conn->query($sql);
 
@@ -16,27 +16,36 @@ if ($result) {
         $row = $result->fetch_assoc();
         $deskripsi = $row['deskripsi'];
     } else {
-        $deskripsi = "Deskripsi belum diatur.";
+        $sql_insert = "INSERT INTO aboutus (deskripsi) VALUES ('Deskripsi awal')";
+        if ($conn->query($sql_insert) === TRUE) {
+            $deskripsi = "Deskripsi awal";
+        } else {
+            die("Error inserting default data: " . $conn->error);
+        }
     }
 } else {
-    echo "Error executing query: " . $conn->error;
+    die("Error executing SELECT query: " . $conn->error);
 }
 
-if (isset($_POST['deskripsi'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['deskripsi'])) {
     $deskripsi = $_POST['deskripsi'];
+    $sql_update = "UPDATE aboutus SET deskripsi = ?";
+    $stmt = $conn->prepare($sql_update);
 
-    $sql = "UPDATE aboutus SET deskripsi = ?";
-    $stmt = $conn->prepare($sql);
+    if ($stmt === false) {
+        die("Error preparing statement: " . $conn->error);
+    }
+
     $stmt->bind_param("s", $deskripsi);
 
     if ($stmt->execute()) {
         echo "Perubahan berhasil disimpan!";
     } else {
-        echo "Error: " . $stmt->error;
+        echo "Error updating data: " . $stmt->error;
     }
     $stmt->close();
+    exit();
 }
-
 $conn->close();
 ?>
 
@@ -74,16 +83,14 @@ $conn->close();
         </div>
         <div class="content">
             <h2>Tentang Kami</h2>
-            <div class="section-about_us" id="aboutUsContent">
+            <div class="section-about_us">
                 <h2>UniThrift Website Jual Beli Barang Anda</h2>
-                <form action="admin-tentang-kami.php" method="POST">
-                    <textarea 
-                        id="aboutUsDescription" 
-                        name="deskripsi" 
-                        rows="20" 
-                        style="width: 100%; font-size: 16px; font-family: Arial, sans-serif;"
-                        placeholder="Masukkan deskripsi tentang website Anda..."><?php echo htmlspecialchars($deskripsi); ?></textarea>
-                </form>
+                <textarea 
+                    id="aboutUsDescription" 
+                    name="deskripsi" 
+                    rows="20" 
+                    style="width: 100%; font-size: 16px; font-family: Arial, sans-serif;"
+                    placeholder="Masukkan deskripsi tentang website Anda..."><?php echo htmlspecialchars($deskripsi); ?></textarea>
             </div>
             <div class="button-simpan">
                 <button class="btn-simpan" onclick="saveChanges()">Simpan</button>
@@ -91,5 +98,27 @@ $conn->close();
         </div>
     </div>
     <script src="scripts/script.js"></script> 
+    <script>
+        function saveChanges() {
+            const deskripsi = document.getElementById('aboutUsDescription').value;
+
+            fetch('admin-tentang-kami.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'deskripsi=' + encodeURIComponent(deskripsi)
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert('Perubahan berhasil disimpan!');
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Terjadi kesalahan saat menyimpan perubahan.');
+            });
+        }
+    </script>
 </body>
 </html>

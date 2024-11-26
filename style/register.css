@@ -16,19 +16,27 @@ body {
 .back-button {
     position: absolute;
     top: 20px;
-    left: 20px;
+    left: 50px;
 }
 
 .back-button a {
     text-decoration: none;
-    color: #333;
+    color: black;
     font-size: 45px;
+    line-height: 35px; 
     transition: all 0.3s ease;
     font-weight: 500;
+    background-color: #2C3E99;
+    border-radius: 200px;
+    display: inline-block;
+    padding: 0 15px;
+    height: auto;
+    vertical-align: middle;
 }
 
+
 .back-button a:hover {
-    color: #2C3E99;
+    color: white;
     transform: scale(1.2);
 }
 
@@ -54,11 +62,6 @@ h1 {
     margin-bottom: 36px; 
     text-shadow: 1.8px 1.8px 3.6px rgba(0, 0, 0, 0.2); 
 }
-
-/* .login-card:hover {
-    transform: translateY(-4.5px) scale(0.9); 
-    box-shadow: 0 13.5px 31.5px rgba(0, 0, 0, 0.3); 
-} */
 
 .input-group {
     margin-bottom: 25px;
@@ -87,7 +90,6 @@ input:focus {
     transform: translateY(-2px);
 
 }
-
 
 .file-input {
     position: relative;

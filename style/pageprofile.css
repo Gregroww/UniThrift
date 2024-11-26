@@ -27,7 +27,6 @@ display: block;
 .profile-container {
 text-align: center;
 margin: 40px auto;
-padding: 20px;
 }
 
 .profile-title {
@@ -259,6 +258,7 @@ i {
   
 .product-image {
     width: 200px;
+    max-width: 200px;
     height: 200px;
     max-height: 163px;
     object-fit: cover;

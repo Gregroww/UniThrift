@@ -10,7 +10,6 @@ if ($id_brg > 0) {
     $stmt->execute();
     $result = $stmt->get_result();
 
-    // memeriksa apakah data ditemukan
     if ($result->num_rows > 0) {
         $product = $result->fetch_assoc();
     } else {
@@ -57,7 +56,6 @@ if ($id_brg > 0) {
                         </div>
                     </div>
                 </div>
-
                 <!-- Bagian Kanan -->
                 <div class="right-section">
                     <div class="top-section">
@@ -66,10 +64,20 @@ if ($id_brg > 0) {
                             <h1><?php echo htmlspecialchars($product['nama_barang']); ?></h1>
                             <div class="price">Rp. <?php echo number_format($product['harga'], 0, ',', '.'); ?></div>
                         </div>
-                        <form action="contactseller.php" method="get">
-                            <input type="hidden" name="nama_pengguna" value="<?php echo htmlspecialchars($product['nama_pengguna']); ?>">
-                            <button type="submit" class="contact-button">Hubungi Penjual</button>
-                        </form>
+                        <!-- If-Else untuk Tombol Edit atau Hubungi Penjual -->
+                        <?php if ($product['nama_pengguna'] === $_SESSION['nama_pengguna']): ?>
+                            <!-- Tombol Edit Barang jika milik user -->
+                            <form action="updatebarang.php" method="get" style="margin-top: 10px;">
+                                <input type="hidden" name="id_barang" value="<?php echo intval($product['id_barang']); ?>">
+                                <button type="submit" class="edit-button">Edit Barang</button>
+                            </form>
+                        <?php else: ?>
+                            <!-- Tombol Hubungi Penjual jika bukan milik user -->
+                            <form action="contactseller.php" method="get">
+                                <input type="hidden" name="nama_pengguna" value="<?php echo htmlspecialchars($product['nama_pengguna']); ?>">
+                                <button type="submit" class="contact-button">Hubungi Penjual</button>
+                            </form>
+                        <?php endif; ?>
                         <div class="category">
                             <h2>Kategori</h2>
                             <div class="tags">
@@ -77,7 +85,6 @@ if ($id_brg > 0) {
                             </div>
                         </div>
                     </div>
-
                     <!-- Deskripsi Produk -->
                     <div class="description">
                         <h2>Deskripsi Produk</h2>

@@ -102,15 +102,12 @@ $randomProducts = getProducts($conn);
             <span class="text-category">Perabotan</span>
         </a>
     </nav>
-
     <div class="banner">
         <img src="assets/UniThrift.png" alt="UniThrift" class="banner-image">
     </div>
-
     <div class="product-title">
         <span class="title">Kategori Terpopuler</span>
     </div>
-
     <section class="popular-categories">
         <div class="category-grid">
             <div class="category-card">
@@ -153,12 +150,9 @@ $randomProducts = getProducts($conn);
             </div>
         </div>
     </section>
-    
-
     <div class="product-title">
         <span class="title">Produk</span>
     </div>
-
     <form action="productpage.php" method="GET">
     <main class="main-section">
         <div class="main-content">
@@ -195,9 +189,8 @@ $randomProducts = getProducts($conn);
         <button id="load-more" class="load-more-button">Lihat Lainnya</button>
     </div>
     <script>
-        let offset = 10; // Awal offset (produk pertama yang dimuat sudah 10)
-        const limit = 10; // Jumlah produk yang dimuat per batch
-
+        let offset = 10;
+        const limit = 10;
         document.getElementById('load-more').addEventListener('click', function () {
             // Sembunyikan tombol setelah diklik
             this.style.display = 'none';
@@ -232,14 +225,10 @@ $randomProducts = getProducts($conn);
                                 </button>
                             </form>
                         `;
-
                         contentGrid.appendChild(productBox);
                     });
-
-                    // Update offset untuk permintaan berikutnya
                     offset += limit;
                 } else {
-                    // Jika tidak ada lagi data, sembunyikan tombol
                     document.getElementById('load-more').style.display = 'none';
                 }
             })

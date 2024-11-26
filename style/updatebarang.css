@@ -78,11 +78,6 @@ body {
     width: 100%;
 }
 
-label {
-    display: block;
-    font-size: 16px;
-}
-
 .input-field {
     width: 100%;
     padding: 12px;
@@ -127,23 +122,46 @@ label {
 }
 
 .category-grid {
-    gap: 15px;
+    gap: 5px;
     margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .category-item {
     display: flex;
     align-items: center;
     gap: 5px;
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
 }
 
 .category-item input[type="radio"] {
     width: 18px;
     height: 18px;
     border: 2px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: transparent;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
 
+.category-item input[type="radio"]:checked {
+    background-color: blue;
+    border-color: blue;
+}
+
+.category-item input[type="radio"]:hover {
+    border-color: white;
+}
+
+.category-item label {
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+    color: white;
+}
+
+.category-item input[type="radio"]:checked + label {
+    color: white;
 }
 
 .price-input {

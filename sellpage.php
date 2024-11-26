@@ -5,7 +5,6 @@ require 'connect.php';
 if (isset($_SESSION['nama_pengguna'])) {
     $nama_pengguna = $_SESSION['nama_pengguna'];
 
-    // Query untuk mengambil data user berdasarkan nama_pengguna
     $query = "SELECT nama_pengguna, foto_ktm FROM users WHERE nama_pengguna = '$nama_pengguna'";
     $result = mysqli_query($conn, $query);
     $user = mysqli_fetch_assoc($result);
@@ -49,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form barang</title>
+    <title>Jual barang</title>
     <link rel="stylesheet" href="style/sellpage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/2.5.0/remixicon.css">
 </head>
@@ -63,10 +62,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <form action="sellpage.php" method="POST" enctype="multipart/form-data">
                     <!-- Nama barang -->
                     <div class="form-group">
-                        <label>Nama barang</label>
+                        <label>Nama Barang</label>
                         <input type="text" name="nama_barang" class="input-field" required>
                     </div>
-
                     <!-- Kategori -->
                     <div class="form-group">
                         <label>Kategori</label>
@@ -98,7 +96,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </div>
                         </div>
                     </div>
-
                     <!-- Deskripsi -->
                     <div class="form-group">
                         <label>Deskripsi</label>

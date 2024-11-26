@@ -69,7 +69,7 @@ if ($user['status'] !== 'pending') {
         <h1 class="profile-title">Profil Belum Terkonfirmasi</h1>
         <div class="profile-card">
             <div class="profile-banner">
-                <img src="images/profilebanner.jpg" alt="Profile Banner">
+                <img src="assets/profilebanner.jpg" alt="Profile Banner">
             </div>
             <div class="background">
             <div class="profile-image-container">
@@ -104,7 +104,7 @@ if ($user['status'] !== 'pending') {
     <footer class="footer">
     <div class="footer-container">
         <div class="footer-left">
-            <img src="images/logo.png" alt="UniThrift Logo">
+            <img src="assets/logo.png" alt="UniThrift Logo">
             <div class="footer-bottom">
                 <p class="footer-text">Copyright © 2024 UniThrift. All rights reserved.</p>
                 <div class="footer-links">
