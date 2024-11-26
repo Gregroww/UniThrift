@@ -45,6 +45,10 @@
     padding-left: 8px;
 }
 
+option{
+    color: black;
+}
+
 .input-wrapper {
     display: flex;
     width: 100%;
