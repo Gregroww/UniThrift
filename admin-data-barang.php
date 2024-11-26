@@ -101,7 +101,11 @@ if (isset($_GET['action']) && $_GET['action'] === 'search') {
                             while ($barang = mysqli_fetch_assoc($result)) {
                                 echo "<tr>";
                                 echo "<td>" . $no++ . "</td>";
-                                echo "<td><img src='images/" . $barang['gambar'] . "' alt='Foto Barang' style='border: 2px solid black;' class='thumbnail' onclick='openPopup(this)'></td>";
+                                echo "<td><img src='images/" . $barang['gambar'] . "' alt='Foto Barang' style='border: 2px solid black;' class='thumbnail' onclick='openPopup(this)'>
+                                        <div class='popup-overlay' onclick='closePopup()' style='display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8);'>
+                                        <img id='popup-img' src='' alt='Popup Image' style='display: block; margin: auto; max-width: 90%; max-height: 90%;'>
+                                        </div>
+                                     </td>";
                                 echo "<td>" . $barang['nama_barang'] . "</td>";
                                 echo "<td>" . $barang['deskripsi'] . "</td>";
                                 echo "<td>" . $barang['nama_pengguna'] . "</td>";
