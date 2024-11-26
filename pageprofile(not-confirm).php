@@ -76,7 +76,7 @@ if ($user['status'] !== 'pending') {
             <!-- Menampilkan foto profil dari database -->
             <img src="images/<?php echo htmlspecialchars($user['foto_ktm']); ?>" alt="Foto Pengguna" class="profile-image">
             <div class="edit-icon">
-                <button><i class="ri-pencil-line"> </i> </button>
+                <button onclick="alert('Maaf, Anda tidak dapat mengedit profil Anda karena akun Anda belum dikonfirmasi oleh admin.')"><i class="ri-pencil-line"> </i> </button>
             </div>
         </div>
         <div class="profile-details">
