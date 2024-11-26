@@ -111,6 +111,17 @@ h1 {
     border: 0px;
 }
 
+.page{
+    border: 1px solid #2D3891;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 25px;
+    text-align: center;
+    padding: auto;
+    display: flex;
+    justify-content: center;
+}
+
 .pagination {
     display: flex;
     justify-content: center;
@@ -120,7 +131,7 @@ h1 {
 }
 
 .pagination button {
-    padding: 5px 10px;
+    padding: 0;
     border: 1px solid #2D3891;
     background-color: white;
     cursor: pointer;
@@ -128,7 +139,8 @@ h1 {
     color: #2D3891;
     font-weight: 600;
     transition: all 0.2s ease-in-out;
-    min-width: 40px;
+    min-width: 25px;
+    height: 25px;
 }
 
 .pagination button:hover {

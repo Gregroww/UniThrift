@@ -3,22 +3,26 @@ require "connect.php";
 
 $search = isset($_GET['search']) ? $_GET['search'] : '';
 $lokasi = isset($_GET['lokasi']) ? $_GET['lokasi'] : '';
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$limit = 10;
+$offset = ($page - 1) * $limit;
 
 $barang = [];
 if (!empty($search) || !empty($lokasi)) {
     $sql = "SELECT barang.*, users.lokasi FROM barang 
     JOIN users ON barang.nama_pengguna = users.nama_pengguna 
     WHERE (barang.nama_barang LIKE '%$search%' OR barang.kategori LIKE '%$search%')";
-if (!empty($lokasi)) {
-    $sql .= " AND users.lokasi = '$lokasi'";
-}
-$result = mysqli_query($conn, $sql);
-
-if (mysqli_num_rows($result) > 0) {
-    while ($row = mysqli_fetch_assoc($result)) {
-    $barang[] = $row;
+    if (!empty($lokasi)) {
+        $sql .= " AND users.lokasi = '$lokasi'";
     }
-}
+    $sql .= " LIMIT $limit OFFSET $offset"; // Limit the results to 10 items with offset
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $barang[] = $row;
+        }
+    }
 }
 ?>
 
@@ -58,14 +62,23 @@ if (mysqli_num_rows($result) > 0) {
     </form>
 
     <div class="pagination">
-        <button id="prev">&lt;</button>
-        <button class="page" data-page="1">1</button>
-        <button class="page" data-page="2">2</button>
-        <button id="next">&gt;</button>
+        <?php if ($page > 1): ?>
+            <button onclick="navigateToPage(<?php echo $page - 1; ?>)">&lt;</button>
+        <?php endif; ?>
+        <span class="page"> <?php echo $page; ?></span>
+        <?php if (count($barang) == $limit): ?>
+            <button onclick="navigateToPage(<?php echo $page + 1; ?>)">&gt;</button>
+        <?php endif; ?>
     </div>
-    <div id="results"></div>
     <!--Footer-->
     <?php require "footer.php"; ?>
     <script src="scripts/script.js"></script>
+    <script>
+    function navigateToPage(page) {
+        const searchParams = new URLSearchParams(window.location.search);
+        searchParams.set('page', page);
+        window.location.search = searchParams.toString();
+    }
+    </script>
 </body>
 </html>
