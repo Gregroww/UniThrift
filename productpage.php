@@ -91,6 +91,9 @@ if ($id_brg > 0) {
                             <form action="updatebarang.php" method="get" style="margin-top: 10px;">
                                 <input type="hidden" name="id_barang" value="<?php echo intval($product['id_barang']); ?>">
                                 <button type="submit" class="edit-button">Edit Barang</button>
+                                <button type="button" class="delete-button" onclick="confirmDeletion(<?php echo $product['id_barang']; ?>)">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
                             </form>
                         <?php elseif (isset($_SESSION['nama_pengguna'])): ?>
                             <!-- Tombol Hubungi Penjual jika bukan milik user -->
@@ -131,5 +134,25 @@ if ($id_brg > 0) {
     </div>
     <!-- Footer -->
     <?php require "footer.php"; ?>
+
+    <script>
+    function confirmDeletion(id) {
+        const confirmation = confirm("Apakah Anda yakin ingin menghapus barang ini?");
+        if (confirmation) {
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'hapus-barang-user.php';
+
+            const idField = document.createElement('input');
+            idField.type = 'hidden';
+            idField.name = 'id_barang';
+            idField.value = id;
+
+            form.appendChild(idField);
+            document.body.appendChild(form);
+            form.submit();
+        }
+    }
+    </script>
 </body>
 </html>
