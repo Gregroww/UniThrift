@@ -31,6 +31,29 @@ if ($user) {
     echo "Data pengguna tidak ditemukan.";
     exit;
 }
+
+$sql = "SELECT location.latitude, location.longitude 
+    FROM users 
+    JOIN location ON users.lokasi = location.kota 
+    WHERE users.nama_pengguna = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $penjual_nama_pengguna);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $latitude = $row['latitude'];
+    $longitude = $row['longitude'];
+} else {
+    echo "Tidak ada data lokasi";
+    exit;
+}
+
+$stmt->close();
+$conn->close();
+
+$map_url = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127150.123456789!2d" . $longitude . "!3d" . $latitude . "!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df1467e22f1381fdd%3A0x5c64a9baf16e2da8!2s" . urlencode($lokasi) . "!5e0!3m2!1sen!2sid!4v1699999999999";
 ?>
 
 <!DOCTYPE html>
@@ -87,7 +110,15 @@ if ($user) {
             <div class="right-section">
                 <h4>Lokasi Penjual</h4>
                 <div class="map-container">
-                    <!-- Map container -->
+                    <iframe 
+                        src="<?php echo $map_url; ?>"
+                        width="100%" 
+                        height="300" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
         </div>

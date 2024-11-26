@@ -78,6 +78,7 @@ body {
     border-radius: 16px;
     backdrop-filter: blur(5px);
     display: flex;
+    text-decoration: none;
     align-items: center;
     gap: 10px;
     cursor: pointer;

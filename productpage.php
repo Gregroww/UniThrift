@@ -34,7 +34,6 @@ if ($id_brg > 0) {
     <header>
         <?php require "navbar.php"; ?>
     </header>
-
     <div class="container">
         <div class="product-card">
             <div class="product-grid">
@@ -46,15 +45,37 @@ if ($id_brg > 0) {
                             class="product-image">
                     </div>
                     <!-- Profil Penjual -->
-                    <div class="seller-info">
-                        <div class="profile">
-                            <div class="avatar-container">
+                    <?php if (isset($_SESSION['nama_pengguna']) && $product['nama_pengguna'] === $_SESSION['nama_pengguna']): ?>
+                        <a href="pageprofile.php?nama_pengguna=<?php echo urlencode($product['nama_pengguna']); ?>" class="seller-info">
+                            <div class="profile">
+                                <div class="avatar-container">  
                                 <img class="seller-avatar" src="images/<?php echo htmlspecialchars($product['foto_ktm']); ?>" 
                                     alt="<?php echo htmlspecialchars($product['nama_pengguna']); ?>">
+                                </div>
+                                <span class="seller-name"><?php echo htmlspecialchars($product['nama_pengguna']); ?></span>
                             </div>
-                            <span class="seller-name"><?php echo htmlspecialchars($product['nama_pengguna']); ?></span>
-                        </div>
-                    </div>
+                        </a>
+                    <?php elseif (isset($_SESSION['nama_pengguna'])): ?>
+                        <a href="pageprofilelain.php?nama_pengguna=<?php echo urlencode($product['nama_pengguna']); ?>" class="seller-info">
+                            <div class="profile">
+                                <div class="avatar-container">  
+                                <img class="seller-avatar" src="images/<?php echo htmlspecialchars($product['foto_ktm']); ?>" 
+                                    alt="<?php echo htmlspecialchars($product['nama_pengguna']); ?>">
+                                </div>
+                                <span class="seller-name"><?php echo htmlspecialchars($product['nama_pengguna']); ?></span>
+                            </div>
+                        </a>
+                    <?php else: ?>
+                        <a href="pageprofilelain.php?nama_pengguna=<?php echo urlencode($product['nama_pengguna']); ?>" class="seller-info">
+                            <div class="profile">
+                                <div class="avatar-container">  
+                                <img class="seller-avatar" src="images/<?php echo htmlspecialchars($product['foto_ktm']); ?>" 
+                                    alt="<?php echo htmlspecialchars($product['nama_pengguna']); ?>">
+                                </div>
+                                <span class="seller-name"><?php echo htmlspecialchars($product['nama_pengguna']); ?></span>
+                            </div>
+                        </a>
+                    <?php endif; ?>
                 </div>
                 <!-- Bagian Kanan -->
                 <div class="right-section">
@@ -65,14 +86,20 @@ if ($id_brg > 0) {
                             <div class="price">Rp. <?php echo number_format($product['harga'], 0, ',', '.'); ?></div>
                         </div>
                         <!-- If-Else untuk Tombol Edit atau Hubungi Penjual -->
-                        <?php if ($product['nama_pengguna'] === $_SESSION['nama_pengguna']): ?>
+                        <?php if (isset($_SESSION['nama_pengguna']) && $product['nama_pengguna'] === $_SESSION['nama_pengguna']): ?>
                             <!-- Tombol Edit Barang jika milik user -->
                             <form action="updatebarang.php" method="get" style="margin-top: 10px;">
                                 <input type="hidden" name="id_barang" value="<?php echo intval($product['id_barang']); ?>">
                                 <button type="submit" class="edit-button">Edit Barang</button>
                             </form>
-                        <?php else: ?>
+                        <?php elseif (isset($_SESSION['nama_pengguna'])): ?>
                             <!-- Tombol Hubungi Penjual jika bukan milik user -->
+                            <form action="contactseller.php" method="get">
+                                <input type="hidden" name="nama_pengguna" value="<?php echo htmlspecialchars($product['nama_pengguna']); ?>">
+                                <button type="submit" class="contact-button">Hubungi Penjual</button>
+                            </form>
+                        <?php else: ?>
+                            <!-- Tombol Hubungi Penjual jika pengguna belum login -->
                             <form action="contactseller.php" method="get">
                                 <input type="hidden" name="nama_pengguna" value="<?php echo htmlspecialchars($product['nama_pengguna']); ?>">
                                 <button type="submit" class="contact-button">Hubungi Penjual</button>
@@ -102,7 +129,6 @@ if ($id_brg > 0) {
             </div>
         </div>
     </div>
-
     <!-- Footer -->
     <?php require "footer.php"; ?>
 </body>
